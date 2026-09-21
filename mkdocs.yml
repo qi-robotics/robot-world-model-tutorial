@@ -123,6 +123,7 @@ nav:
       - 关于本教程: about.md
   - 基础篇:
       - basics/index.md
+      - 01 机器人眼中的世界是什么: basics/01-robot-view-of-the-world.md
       - 张量与数据: basics/tensors-and-data.md
       - 神经网络训练: basics/neural-network-training.md
       - 视觉编码: basics/vision-encoding.md
