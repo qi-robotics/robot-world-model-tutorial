@@ -1,0 +1,55 @@
+name: 内容问题或站点缺陷
+description: 报告教程内容、构建、预览或 GitHub Pages 相关问题
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢反馈。请尽量提供可复现信息。若只是内容建议，请改用“内容建议”模板。
+  - type: dropdown
+    id: area
+    attributes:
+      label: 问题类型
+      options:
+        - 内容错误或表述不清
+        - 页面无法打开或导航错误
+        - 本地预览 / 构建失败
+        - GitHub Pages 部署失败
+        - 公式、Mermaid 或样式显示异常
+        - 其他
+    validations:
+      required: true
+  - type: input
+    id: page
+    attributes:
+      label: 相关页面
+      description: 文件路径或站点 URL，例如 `docs/basics/clip.md`
+    validations:
+      required: false
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望行为
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际行为
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 复现步骤
+      description: 如果是构建或预览问题，请附上命令和关键日志。
+    validations:
+      required: true
+  - type: textarea
+    id: env
+    attributes:
+      label: 环境信息
+      description: 操作系统、Python 版本、浏览器（如适用）。
+    validations:
+      required: false

@@ -1,0 +1,147 @@
+:root {
+  --tutorial-radius: 14px;
+  --tutorial-gap: 1rem;
+  --md-text-font: "Source Han Sans SC", "Noto Sans SC", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+  --md-code-font: "JetBrains Mono", "SFMono-Regular", Consolas, "Liberation Mono",
+    Menlo, monospace;
+}
+
+.md-typeset {
+  font-feature-settings: "kern" 1, "liga" 1;
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  letter-spacing: 0.01em;
+  font-weight: 650;
+}
+
+.md-typeset code,
+.md-typeset pre,
+.md-typeset kbd {
+  font-variant-ligatures: none;
+}
+
+.md-header__topic {
+  font-weight: 650;
+}
+
+.md-typeset .home-hero {
+  margin: 0.2rem 0 1.6rem;
+  padding: 0.2rem 0 0.4rem;
+}
+
+.md-typeset .home-kicker {
+  margin: 0 0 0.55rem;
+  color: var(--md-primary-fg-color);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.md-typeset .home-hero h1 {
+  margin-bottom: 0.35rem;
+}
+
+.md-typeset .home-subtitle {
+  margin: 0 0 1rem;
+  color: var(--md-default-fg-color--light);
+  font-size: 1.12rem;
+  font-weight: 500;
+}
+
+.md-typeset .home-lead {
+  max-width: 46rem;
+  margin-bottom: 1.2rem;
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.md-typeset .home-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 0.8rem;
+  margin: 0 0 1.8rem;
+}
+
+.md-typeset .home-cta .md-button {
+  margin: 0;
+}
+
+.md-typeset .home-section-title {
+  margin-top: 2.2rem;
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.md-typeset .home-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--tutorial-gap);
+  margin: 0.4rem 0 1.4rem;
+}
+
+.md-typeset .home-grid--two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.md-typeset .meta-panel,
+.md-typeset .citation-block,
+.md-typeset .license-note,
+.md-typeset .author-placeholder {
+  margin: 0.8rem 0 1.2rem;
+  padding: 0.95rem 1.05rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: var(--tutorial-radius);
+  background: var(--md-code-bg-color);
+}
+
+.md-typeset .citation-block pre {
+  margin: 0.4rem 0 0;
+}
+
+.md-typeset .citation-block code {
+  background: transparent;
+  box-shadow: none;
+}
+
+.md-typeset .status-list {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+.md-typeset .status-list li {
+  margin: 0.25rem 0;
+}
+
+.md-typeset .figure-caption {
+  margin-top: -0.4rem;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.78rem;
+  text-align: center;
+}
+
+.md-typeset table th[align="right"],
+.md-typeset table td[align="right"] {
+  font-variant-numeric: tabular-nums;
+}
+
+@media screen and (max-width: 76.1875em) {
+  .md-typeset .home-grid,
+  .md-typeset .home-grid--two {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  .md-typeset .home-cta,
+  .md-sidebar,
+  .md-header,
+  .md-footer {
+    display: none !important;
+  }
+}

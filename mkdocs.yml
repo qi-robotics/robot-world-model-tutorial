@@ -1,0 +1,179 @@
+site_name: 从编码到行动
+site_description: 机器人世界模型渐进式教程。从张量、编码与表征学习出发，逐步走向 Attention、生成模型、VLM、VLA、世界模型与机器人闭环行动。
+site_author: TODO
+site_url: https://qi-robotics.github.io/robot-world-model-tutorial/
+repo_url: https://github.com/qi-robotics/robot-world-model-tutorial
+repo_name: qi-robotics/robot-world-model-tutorial
+edit_uri: edit/main/docs/
+copyright: Copyright &copy; 2026 TODO Authors · 许可证待补充
+docs_dir: docs
+site_dir: site
+use_directory_urls: true
+dev_addr: 127.0.0.1:8000
+
+theme:
+  name: material
+  custom_dir: overrides
+  language: zh
+  logo: assets/images/logo.svg
+  favicon: assets/images/favicon.svg
+  font: false
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil-outline
+    view: material/eye-outline
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: 跟随系统主题
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: 切换至深色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: 切换至浅色模式
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - navigation.tracking
+    - search.suggest
+    - search.highlight
+    - search.share
+    - toc.follow
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - content.tooltips
+    - content.action.edit
+    - content.action.view
+
+plugins:
+  - search:
+      lang:
+        - zh
+        - en
+      separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+
+extra:
+  homepage: /
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/qi-robotics/robot-world-model-tutorial
+      name: GitHub 仓库
+
+extra_css:
+  - assets/stylesheets/extra.css
+  - assets/stylesheets/components.css
+
+extra_javascript:
+  - assets/javascripts/mathjax.js
+  - assets/javascripts/visualizations.js
+  - assets/javascripts/tutorial.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets:
+      check_paths: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+nav:
+  - 首页:
+      - index.md
+      - 学习路线: roadmap.md
+      - 环境准备: setup.md
+      - 关于本教程: about.md
+  - 基础篇:
+      - basics/index.md
+      - 张量与数据: basics/tensors-and-data.md
+      - 神经网络训练: basics/neural-network-training.md
+      - 视觉编码: basics/vision-encoding.md
+      - 语言编码: basics/language-encoding.md
+      - 机器人状态与动作: basics/robot-state-and-action.md
+      - 自编码器: basics/autoencoder.md
+      - 变分自编码器: basics/vae.md
+      - 对比学习: basics/contrastive-learning.md
+      - CLIP: basics/clip.md
+      - MAE 与 JEPA: basics/mae-and-jepa.md
+  - 进阶篇:
+      - intermediate/index.md
+      - Attention: intermediate/attention.md
+      - Transformer: intermediate/transformer.md
+      - 多模态融合: intermediate/multimodal-fusion.md
+      - 时间序列建模: intermediate/temporal-modeling.md
+      - 自回归生成: intermediate/autoregressive-models.md
+      - Diffusion: intermediate/diffusion.md
+      - 视频预测: intermediate/video-prediction.md
+      - 潜空间动力学: intermediate/latent-dynamics.md
+      - 基于模型的控制: intermediate/model-based-control.md
+  - 高级篇:
+      - advanced/index.md
+      - 视觉语言模型: advanced/vlm.md
+      - Visual Grounding: advanced/visual-grounding.md
+      - 视觉语言动作模型: advanced/vla.md
+      - 动作表示: advanced/action-representation.md
+      - 世界模型: advanced/world-model.md
+      - RSSM 与 Dreamer: advanced/rssm-and-dreamer.md
+      - V-JEPA: advanced/v-jepa.md
+      - VLA-JEPA: advanced/vla-jepa.md
+      - 规划与策略: advanced/planning-and-policy.md
+      - 泛化: advanced/generalization.md
+      - Sim-to-Real: advanced/sim-to-real.md
+      - 安全与失败恢复: advanced/safety-and-recovery.md
+  - 实践项目:
+      - projects/index.md
+      - 表征学习小项目: projects/representation-learning.md
+      - 多模态对齐小项目: projects/multimodal-alignment.md
+      - 动作条件预测: projects/action-conditioned-prediction.md
+      - Mini-VLA: projects/mini-vla.md
+      - 迷你世界模型系统: projects/final-world-model-system.md
+  - 附录:
+      - 数学基础: appendices/math-foundations.md
+      - PyTorch 基础: appendices/pytorch-foundations.md
+      - 论文阅读模板: appendices/paper-reading-template.md
+      - 实验记录模板: appendices/experiment-template.md
+      - 术语表: glossary.md
+      - 参考文献: references.md
+  - 参与贡献:
+      - 写作指南: contributing/writing-guide.md
+      - 图示约定: contributing/diagrams.md
+      - 交互内容接口: contributing/interactive-content.md
+      - 笔记本约定: contributing/notebooks.md

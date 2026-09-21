@@ -1,0 +1,43 @@
+name: 内容建议
+description: 建议补充章节、例子、图示、术语或实践项目
+title: "[Content] "
+labels: ["content"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        本教程目前以结构化占位为主。欢迎提出后续应优先填写的内容。
+  - type: dropdown
+    id: kind
+    attributes:
+      label: 建议类型
+      options:
+        - 补充某一章正文
+        - 增加最小代码示例
+        - 增加图示或交互可视化
+        - 增加术语或参考文献
+        - 调整章节顺序或叙事
+        - 其他
+    validations:
+      required: true
+  - type: input
+    id: target
+    attributes:
+      label: 目标章节或文件
+      description: 例如 `docs/advanced/vla-jepa.md` 或“基础篇总览”
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 建议内容
+      description: 说明希望补充什么、为什么对读者有帮助。请不要编造未经验证的实验结论。
+    validations:
+      required: true
+  - type: textarea
+    id: references
+    attributes:
+      label: 可参考资料
+      description: 可选。论文、代码仓库或现有章节链接。
+    validations:
+      required: false

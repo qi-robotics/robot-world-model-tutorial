@@ -1,0 +1,141 @@
+.stage-card,
+.feature-card,
+.project-card {
+  height: 100%;
+  margin: 0;
+  padding: 1rem 1.05rem 1.05rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: var(--tutorial-radius);
+  background: var(--md-default-bg-color);
+  box-shadow: none;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.stage-card:hover,
+.feature-card:hover,
+.project-card:hover {
+  border-color: var(--md-primary-fg-color--light);
+  transform: translateY(-1px);
+}
+
+.stage-card .stage-label,
+.project-card .project-label,
+.feature-card .feature-label {
+  display: inline-block;
+  margin-bottom: 0.4rem;
+  color: var(--md-primary-fg-color);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.stage-card h3,
+.feature-card h3,
+.project-card h3 {
+  margin: 0 0 0.55rem;
+  font-size: 0.98rem;
+}
+
+.stage-card p,
+.feature-card p,
+.project-card p {
+  margin: 0 0 0.7rem;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.84rem;
+}
+
+.stage-card .stage-modules,
+.feature-card ul,
+.project-card ul {
+  margin: 0.2rem 0 0.8rem;
+  padding-left: 1.1rem;
+  color: var(--md-default-fg-color);
+  font-size: 0.8rem;
+}
+
+.wm-pipeline {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.7rem;
+  margin: 0.6rem 0 1.4rem;
+  padding: 0;
+  list-style: none;
+  counter-reset: pipeline;
+}
+
+.wm-pipeline li {
+  position: relative;
+  margin: 0;
+  padding: 0.85rem 0.85rem 0.9rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 12px;
+  background: var(--md-code-bg-color);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.wm-pipeline li::before {
+  counter-increment: pipeline;
+  content: counter(pipeline, decimal-leading-zero);
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--md-primary-fg-color);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.viz-slot,
+.tutorial-component {
+  margin: 1rem 0 1.3rem;
+  padding: 0.95rem 1rem;
+  border: 1px dashed var(--md-default-fg-color--lightest);
+  border-radius: var(--tutorial-radius);
+  background: color-mix(in srgb, var(--md-code-bg-color) 88%, transparent);
+}
+
+.viz-slot[data-viz-mounted="true"] {
+  border-style: solid;
+}
+
+.viz-fallback,
+.viz-slot [data-viz-fallback] {
+  margin: 0;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.84rem;
+}
+
+.viz-placeholder-title {
+  margin: 0 0 0.35rem;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.capability-chain {
+  margin: 0.4rem 0 1.3rem;
+  padding-left: 1.2rem;
+}
+
+.capability-chain li {
+  margin: 0.35rem 0;
+}
+
+.capability-chain .chain-arrow {
+  display: inline-block;
+  margin-right: 0.25rem;
+  color: var(--md-primary-fg-color);
+  font-weight: 700;
+}
+
+[data-md-color-scheme="slate"] .stage-card,
+[data-md-color-scheme="slate"] .feature-card,
+[data-md-color-scheme="slate"] .project-card,
+[data-md-color-scheme="slate"] .wm-pipeline li {
+  background: color-mix(in srgb, var(--md-default-bg-color) 88%, black);
+}
+
+@media screen and (max-width: 76.1875em) {
+  .wm-pipeline {
+    grid-template-columns: 1fr;
+  }
+}
