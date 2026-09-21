@@ -1,0 +1,7 @@
+# Colab 配套 Notebook 的本地运行环境。
+# 与仓库根目录的 MkDocs 文档环境分开，避免相互影响。
+jupyterlab==4.6.3
+ipykernel==7.3.0
+nbconvert==7.17.1
+numpy==1.26.4
+matplotlib==3.10.7
