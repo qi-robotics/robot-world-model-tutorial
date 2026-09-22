@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">输入层、隐藏层和输出层组成的动作预测网络</title>
+  <desc id="desc">结构化机器人观测从输入层进入，经过两层隐藏单元重新组合，最后输出末端位移和夹爪动作。</desc>
+  <rect width="1200" height="620" fill="#ffffff"/>
+  <text x="600" y="48" text-anchor="middle" font-family="sans-serif" font-size="28" font-weight="700" fill="#0f172a">从结构化观测到机器人动作</text>
+  <text x="190" y="100" text-anchor="middle" font-family="sans-serif" font-size="23" font-weight="700" fill="#1e3a8a">输入层</text>
+  <text x="590" y="100" text-anchor="middle" font-family="sans-serif" font-size="23" font-weight="700" fill="#334155">隐藏层</text>
+  <text x="1015" y="100" text-anchor="middle" font-family="sans-serif" font-size="23" font-weight="700" fill="#9a3412">输出层</text>
+  <g stroke="#94a3b8" stroke-width="2" opacity="0.55">
+    <path d="M220 160 L465 135 M220 160 L465 220 M220 160 L465 305 M220 160 L465 390 M220 160 L465 475"/>
+    <path d="M220 270 L465 135 M220 270 L465 220 M220 270 L465 305 M220 270 L465 390 M220 270 L465 475"/>
+    <path d="M220 380 L465 135 M220 380 L465 220 M220 380 L465 305 M220 380 L465 390 M220 380 L465 475"/>
+    <path d="M220 490 L465 135 M220 490 L465 220 M220 490 L465 305 M220 490 L465 390 M220 490 L465 475"/>
+    <path d="M515 135 L695 175 M515 135 L695 305 M515 135 L695 435"/>
+    <path d="M515 220 L695 175 M515 220 L695 305 M515 220 L695 435"/>
+    <path d="M515 305 L695 175 M515 305 L695 305 M515 305 L695 435"/>
+    <path d="M515 390 L695 175 M515 390 L695 305 M515 390 L695 435"/>
+    <path d="M515 475 L695 175 M515 475 L695 305 M515 475 L695 435"/>
+    <path d="M745 175 L965 215 M745 175 L965 325 M745 175 L965 435"/>
+    <path d="M745 305 L965 215 M745 305 L965 325 M745 305 L965 435"/>
+    <path d="M745 435 L965 215 M745 435 L965 325 M745 435 L965 435"/>
+  </g>
+  <g fill="#eff6ff" stroke="#2563eb" stroke-width="4">
+    <circle cx="190" cy="160" r="30"/><circle cx="190" cy="270" r="30"/><circle cx="190" cy="380" r="30"/><circle cx="190" cy="490" r="30"/>
+  </g>
+  <g fill="#f8fafc" stroke="#64748b" stroke-width="4">
+    <circle cx="490" cy="135" r="25"/><circle cx="490" cy="220" r="25"/><circle cx="490" cy="305" r="25"/><circle cx="490" cy="390" r="25"/><circle cx="490" cy="475" r="25"/>
+    <circle cx="720" cy="175" r="25"/><circle cx="720" cy="305" r="25"/><circle cx="720" cy="435" r="25"/>
+  </g>
+  <g fill="#fff7ed" stroke="#f97316" stroke-width="4">
+    <circle cx="995" cy="215" r="30"/><circle cx="995" cy="325" r="30"/><circle cx="995" cy="435" r="30"/>
+  </g>
+  <g font-family="sans-serif" font-size="19" fill="#1e3a8a" text-anchor="end">
+    <text x="145" y="166">关节 q</text><text x="145" y="276">物体位置 r</text><text x="145" y="386">接触 κ</text><text x="145" y="496">目标 g</text>
+  </g>
+  <g font-family="sans-serif" font-size="19" fill="#9a3412">
+    <text x="1040" y="221">水平位移 Δx</text><text x="1040" y="331">垂直位移 Δy</text><text x="1040" y="441">夹爪命令</text>
+  </g>
+  <path d="M350 545 H835" stroke="#334155" stroke-width="2"/>
+  <text x="592" y="575" text-anchor="middle" font-family="sans-serif" font-size="19" fill="#334155">连线保存可学习权重；圆形单元对输入加权求和并经过激活函数</text>
+</svg>

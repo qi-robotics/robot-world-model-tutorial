@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">训练损失和验证损失随训练轮数变化</title>
+  <desc id="desc">训练损失持续下降，验证损失先下降后上升，最低点是较合适的模型检查点。</desc>
+  <rect width="1200" height="620" fill="#ffffff"/>
+  <text x="600" y="48" text-anchor="middle" font-family="sans-serif" font-size="28" font-weight="700" fill="#0f172a">不能只看训练损失：验证曲线揭示模型何时开始过拟合</text>
+  <line x1="125" y1="505" x2="1080" y2="505" stroke="#334155" stroke-width="3"/>
+  <line x1="125" y1="105" x2="125" y2="505" stroke="#334155" stroke-width="3"/>
+  <text x="1075" y="548" text-anchor="end" font-family="sans-serif" font-size="21" fill="#334155">训练轮数 epoch</text>
+  <text x="125" y="88" font-family="sans-serif" font-size="21" fill="#334155">动作预测损失</text>
+  <path d="M150 155 C260 255 350 330 460 390 C620 455 820 478 1045 488" fill="none" stroke="#2563eb" stroke-width="7"/>
+  <path d="M150 175 C270 275 385 360 520 410 C620 438 690 425 760 386 C850 335 935 270 1045 210" fill="none" stroke="#f97316" stroke-width="7"/>
+  <line x1="650" y1="115" x2="650" y2="505" stroke="#16a34a" stroke-width="4" stroke-dasharray="12 10"/>
+  <circle cx="650" cy="430" r="13" fill="#16a34a"/>
+  <text x="650" y="88" text-anchor="middle" font-family="sans-serif" font-size="20" font-weight="700" fill="#166534">验证损失最低：保存模型</text>
+  <rect x="210" y="535" width="25" height="8" fill="#2563eb"/>
+  <text x="250" y="550" font-family="sans-serif" font-size="20" fill="#1e3a8a">训练损失持续下降</text>
+  <rect x="500" y="535" width="25" height="8" fill="#f97316"/>
+  <text x="540" y="550" font-family="sans-serif" font-size="20" fill="#9a3412">验证损失先降后升</text>
+  <rect x="825" y="120" width="220" height="78" rx="14" fill="#fff7ed" stroke="#fdba74" stroke-width="2"/>
+  <text x="935" y="151" text-anchor="middle" font-family="sans-serif" font-size="20" font-weight="700" fill="#9a3412">继续训练</text>
+  <text x="935" y="180" text-anchor="middle" font-family="sans-serif" font-size="19" fill="#9a3412">记住训练细节</text>
+  <rect x="175" y="235" width="210" height="78" rx="14" fill="#eff6ff" stroke="#93c5fd" stroke-width="2"/>
+  <text x="280" y="266" text-anchor="middle" font-family="sans-serif" font-size="20" font-weight="700" fill="#1e3a8a">训练早期</text>
+  <text x="280" y="295" text-anchor="middle" font-family="sans-serif" font-size="19" fill="#1e3a8a">两类损失都改善</text>
+</svg>

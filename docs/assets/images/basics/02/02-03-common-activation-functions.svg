@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">四种常用激活函数的曲线</title>
+  <desc id="desc">分别展示 ReLU、Sigmoid、Tanh 和 SiLU 的输入输出形状与取值范围。</desc>
+  <rect width="1200" height="620" fill="#ffffff"/>
+  <text x="600" y="45" text-anchor="middle" font-family="sans-serif" font-size="28" font-weight="700" fill="#0f172a">常用激活函数具有不同的输出范围和形状</text>
+  <g font-family="sans-serif" fill="#334155" stroke="#94a3b8" stroke-width="2">
+    <g transform="translate(80 90)">
+      <text x="220" y="20" text-anchor="middle" font-size="23" font-weight="700" fill="#1e3a8a" stroke="none">ReLU</text>
+      <line x1="20" y1="205" x2="420" y2="205"/><line x1="220" y1="45" x2="220" y2="255"/>
+      <path d="M35 205 L220 205 L395 60" fill="none" stroke="#2563eb" stroke-width="6" stroke-linecap="round"/>
+      <text x="220" y="235" text-anchor="middle" font-size="16" stroke="none">负数变为 0，正数保持不变</text>
+    </g>
+    <g transform="translate(680 90)">
+      <text x="220" y="20" text-anchor="middle" font-size="23" font-weight="700" fill="#1e3a8a" stroke="none">Sigmoid</text>
+      <line x1="20" y1="205" x2="420" y2="205"/><line x1="220" y1="45" x2="220" y2="255"/>
+      <path d="M35 190 C115 188 155 175 190 138 C225 100 260 72 395 65" fill="none" stroke="#2563eb" stroke-width="6" stroke-linecap="round"/>
+      <text x="220" y="235" text-anchor="middle" font-size="16" stroke="none">输出压缩到 0 与 1 之间</text>
+    </g>
+    <g transform="translate(80 350)">
+      <text x="220" y="20" text-anchor="middle" font-size="23" font-weight="700" fill="#1e3a8a" stroke="none">Tanh</text>
+      <line x1="20" y1="130" x2="420" y2="130"/><line x1="220" y1="40" x2="220" y2="230"/>
+      <path d="M35 205 C115 202 165 180 200 145 C235 108 270 61 395 55" fill="none" stroke="#2563eb" stroke-width="6" stroke-linecap="round"/>
+      <text x="220" y="240" text-anchor="middle" font-size="16" stroke="none">输出压缩到 -1 与 1 之间</text>
+    </g>
+    <g transform="translate(680 350)">
+      <text x="220" y="20" text-anchor="middle" font-size="23" font-weight="700" fill="#1e3a8a" stroke="none">SiLU / Swish</text>
+      <line x1="20" y1="160" x2="420" y2="160"/><line x1="220" y1="40" x2="220" y2="230"/>
+      <path d="M35 164 C105 170 155 184 205 166 C260 145 315 95 395 48" fill="none" stroke="#2563eb" stroke-width="6" stroke-linecap="round"/>
+      <text x="220" y="240" text-anchor="middle" font-size="16" stroke="none">平滑保留正值，负区间允许小响应</text>
+    </g>
+  </g>
+</svg>

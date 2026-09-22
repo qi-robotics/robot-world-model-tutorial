@@ -28,6 +28,34 @@
   font-weight: 650;
 }
 
+/* 让纵向 PNG 标志在导航栏中保持完整比例，并把原图白底处理成有意的徽标底板。 */
+.md-header__button.md-logo {
+  display: inline-flex;
+  width: 2rem;
+  height: 2rem;
+  margin: 0.2rem 0.35rem 0.2rem 0.1rem;
+  padding: 0.12rem 0.28rem;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 0.38rem;
+  background: #fff;
+}
+
+.md-header__button.md-logo img {
+  display: block;
+  width: auto;
+  height: 1.76rem;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.md-nav__button.md-logo img {
+  width: auto;
+  height: 2.2rem;
+  object-fit: contain;
+}
+
 .md-typeset .home-hero {
   margin: 0.2rem 0 1.6rem;
   padding: 0.2rem 0 0.4rem;
@@ -134,6 +162,16 @@
   .md-typeset .home-grid,
   .md-typeset .home-grid--two {
     grid-template-columns: 1fr;
+  }
+
+  .md-header__button.md-logo {
+    width: 1.85rem;
+    height: 1.85rem;
+    margin-right: 0.25rem;
+  }
+
+  .md-header__button.md-logo img {
+    height: 1.62rem;
   }
 }
 

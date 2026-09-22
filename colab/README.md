@@ -27,7 +27,7 @@ python -m pip install -r colab/requirements.txt
 python -m jupyter lab
 ```
 
-JupyterLab 启动后，在文件浏览器中进入 `colab/basics/01/`，打开对应 Notebook，再选择 `Run → Run All Cells`。
+JupyterLab 启动后，在文件浏览器中进入对应章节目录，例如 `colab/basics/01/` 或 `colab/basics/02/`，打开 Notebook，再选择 `Run → Run All Cells`。
 
 启动脚本会主动清除本机 ROS、OpenVINO 或其他工程留下的 `PYTHONPATH`、`LD_LIBRARY_PATH` 和 `LD_PRELOAD`，避免系统包覆盖 `.venv-colab` 中的 NumPy、Matplotlib 和 Jupyter 依赖。
 
@@ -60,6 +60,7 @@ env -u PYTHONPATH -u LD_LIBRARY_PATH -u LD_PRELOAD code .
 - 没有红色错误输出；
 - 所有图像均能正常显示；
 - 修改练习参数后仍能从头运行；
+- 每一行非空代码都有说明其实际作用的中文注释；
 - Notebook 不依赖本机绝对路径；
 - Notebook 中没有账号、密钥或私人数据。
 

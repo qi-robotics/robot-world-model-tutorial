@@ -15,7 +15,7 @@ theme:
   name: material
   custom_dir: overrides
   language: zh
-  logo: assets/images/logo.svg
+  logo: assets/images/logo.png
   favicon: assets/images/favicon.svg
   font: false
   icon:
@@ -124,6 +124,7 @@ nav:
   - 基础篇:
       - basics/index.md
       - 01 机器人眼中的世界是什么: basics/01-robot-view-of-the-world.md
+      - 02 神经网络怎样学会一个任务: basics/02-how-neural-networks-learn.md
       - 张量与数据: basics/tensors-and-data.md
       - 神经网络训练: basics/neural-network-training.md
       - 视觉编码: basics/vision-encoding.md

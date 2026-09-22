@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="560" viewBox="0 0 1280 560" role="img" aria-labelledby="title desc">
+  <title id="title">机械臂动作预测的一次前向计算</title>
+  <desc id="desc">输入目标相对位置和接触信号，依次经过线性层、ReLU 和输出层，得到向右移动动作。</desc>
+  <rect width="1280" height="560" fill="#ffffff"/>
+  <text x="640" y="48" text-anchor="middle" font-family="sans-serif" font-size="28" font-weight="700" fill="#0f172a">一次前向计算：把当前观测变成动作预测</text>
+  <rect x="55" y="125" width="245" height="255" rx="18" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+  <text x="177" y="165" text-anchor="middle" font-family="sans-serif" font-size="23" font-weight="700" fill="#1e3a8a">输入 x</text>
+  <text x="177" y="220" text-anchor="middle" font-family="sans-serif" font-size="21" fill="#1e3a8a">目标在右侧</text>
+  <text x="177" y="255" text-anchor="middle" font-family="sans-serif" font-size="25" fill="#0f172a">rₓ = 0.12 m</text>
+  <text x="177" y="310" text-anchor="middle" font-family="sans-serif" font-size="21" fill="#1e3a8a">尚未接触</text>
+  <text x="177" y="345" text-anchor="middle" font-family="sans-serif" font-size="25" fill="#0f172a">κ = 0</text>
+  <path d="M305 252 H385" stroke="#64748b" stroke-width="5" marker-end="url(#arrow)"/>
+  <rect x="395" y="125" width="245" height="255" rx="18" fill="#f8fafc" stroke="#64748b" stroke-width="3"/>
+  <text x="517" y="165" text-anchor="middle" font-family="sans-serif" font-size="23" font-weight="700" fill="#334155">线性层</text>
+  <text x="517" y="212" text-anchor="middle" font-family="sans-serif" font-size="22" fill="#0f172a">u = W₁x + b₁</text>
+  <text x="517" y="285" text-anchor="middle" font-family="monospace" font-size="24" fill="#0f172a">[ 0.48 ]</text>
+  <text x="517" y="330" text-anchor="middle" font-family="monospace" font-size="24" fill="#0f172a">[-0.48 ]</text>
+  <path d="M645 252 H725" stroke="#64748b" stroke-width="5" marker-end="url(#arrow)"/>
+  <rect x="735" y="125" width="210" height="255" rx="18" fill="#f0fdf4" stroke="#16a34a" stroke-width="3"/>
+  <text x="840" y="165" text-anchor="middle" font-family="sans-serif" font-size="23" font-weight="700" fill="#166534">ReLU</text>
+  <text x="840" y="212" text-anchor="middle" font-family="sans-serif" font-size="22" fill="#166534">h = max(0,u)</text>
+  <text x="840" y="285" text-anchor="middle" font-family="monospace" font-size="24" fill="#0f172a">[0.48]</text>
+  <text x="840" y="330" text-anchor="middle" font-family="monospace" font-size="24" fill="#94a3b8">[0.00]</text>
+  <path d="M950 252 H1025" stroke="#64748b" stroke-width="5" marker-end="url(#arrow)"/>
+  <rect x="1035" y="125" width="190" height="255" rx="18" fill="#fff7ed" stroke="#f97316" stroke-width="3"/>
+  <text x="1130" y="165" text-anchor="middle" font-family="sans-serif" font-size="23" font-weight="700" fill="#9a3412">输出动作</text>
+  <text x="1130" y="224" text-anchor="middle" font-family="sans-serif" font-size="22" fill="#9a3412">âₓ = W₂h</text>
+  <text x="1130" y="290" text-anchor="middle" font-family="sans-serif" font-size="29" font-weight="700" fill="#c2410c">+0.048 m</text>
+  <text x="1130" y="337" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#9a3412">末端向右移动</text>
+  <rect x="110" y="430" width="1060" height="82" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="640" y="463" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#334155">这组数值用于展示计算过程；真实训练从数据中学习 W₁、b₁、W₂，而不是由人手工指定。</text>
+  <text x="640" y="493" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#334155">输入变化后重新执行同样的四步计算，就得到该时刻的新动作预测。</text>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#64748b"/>
+    </marker>
+  </defs>
+</svg>

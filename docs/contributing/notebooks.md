@@ -5,10 +5,10 @@ Jupyter 笔记本适合探索实验，不适合作为本教程的主叙事。主
 ## 目录
 
 - 网站正文：`docs/`
-- 可执行示例：`examples/`
-- 探索性笔记本：`notebooks/`
+- Colab 实践：`colab/<阶段>/<章节>/`
+- 本地运行说明：`colab/README.md`
 
-当前站点 **没有** 启用 `mkdocs-jupyter`。因此 `notebooks/` 里的文件不会自动出现在 GitHub Pages 中。这是有意为之：避免文档构建依赖 PyTorch 或其他训练栈。
+当前站点 **没有** 启用 `mkdocs-jupyter`。Notebook 通过章节实践卡片在新标签页中打开 Google Colab，正文页面继续保留。这是有意为之：避免文档构建依赖完整训练栈。
 
 ## 以后若要嵌入笔记本
 
@@ -18,15 +18,15 @@ Jupyter 笔记本适合探索实验，不适合作为本教程的主叙事。主
 2. 明确哪些笔记本进入 `nav`
 3. 保证 `mkdocs build --strict` 仍能在 GitHub Actions 的精简环境中运行
 
-在此之前，章节中的“最小实现”应链接到 `examples/` 或给出短代码块。
+在此之前，章节中的可执行练习应链接到 `colab/` 下对应 Notebook。
 
 ## 笔记本文件名
 
 使用数字前缀，并与章节或项目对应：
 
 ```text
-notebooks/01-autoencoder.ipynb
-notebooks/07-mini-vla.ipynb
+colab/basics/01/01-01-observation-and-trajectory.ipynb
+colab/basics/02/02-02-training-and-generalization.ipynb
 ```
 
 每个笔记本开头用 Markdown 单元格写清：
@@ -35,6 +35,8 @@ notebooks/07-mini-vla.ipynb
 - 依赖
 - 期望在什么硬件上运行
 - 它验证哪一个问题，而不是“运行某个模型”
+
+每一行非空代码都要有中文注释，说明该行在当前任务中的实际作用。每个主要输出后紧跟 Markdown 解释，说明坐标、颜色、数值关系和可以得出的结论。可视化应优先服务于理解，不把适合直接打印的标量或形状强行改成图表。
 
 ## 与章节的关系
 
