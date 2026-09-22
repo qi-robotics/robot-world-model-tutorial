@@ -1,7 +1,12 @@
 # Colab 配套 Notebook 的本地运行环境。
 # 与仓库根目录的 MkDocs 文档环境分开，避免相互影响。
+# PyTorch 在 Linux / Windows 使用官方 CPU wheel，避免为教学 Notebook 下载 CUDA 运行库。
+--extra-index-url https://download.pytorch.org/whl/cpu
+
 jupyterlab==4.6.3
 ipykernel==7.3.0
 nbconvert==7.17.1
 numpy==1.26.4
 matplotlib==3.10.7
+torch==2.5.1+cpu; sys_platform != "darwin"
+torch==2.5.1; sys_platform == "darwin"

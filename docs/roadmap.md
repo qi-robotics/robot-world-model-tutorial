@@ -40,16 +40,17 @@ flowchart TB
 
 建议顺序：
 
-1. [张量与数据](basics/tensors-and-data.md)
-2. [神经网络训练](basics/neural-network-training.md)
-3. [视觉编码](basics/vision-encoding.md)
-4. [语言编码](basics/language-encoding.md)
-5. [机器人状态与动作](basics/robot-state-and-action.md)
-6. [自编码器](basics/autoencoder.md)
-7. [变分自编码器](basics/vae.md)
-8. [对比学习](basics/contrastive-learning.md)
-9. [CLIP](basics/clip.md)
-10. [MAE 与 JEPA](basics/mae-and-jepa.md)
+1. [机器人眼中的世界是什么](basics/01-robot-view-of-the-world.md)
+2. [神经网络怎样学会一个任务](basics/02-how-neural-networks-learn.md)
+3. [视觉编码：从像素到视觉特征](basics/vision-encoding.md)
+4. [空间与几何：从二维图像到三维关系](basics/spatial-geometry.md)
+5. [语言编码](basics/language-encoding.md)
+6. [机器人状态与动作](basics/robot-state-and-action.md)
+7. [自编码器](basics/autoencoder.md)
+8. [变分自编码器](basics/vae.md)
+9. [对比学习](basics/contrastive-learning.md)
+10. [CLIP](basics/clip.md)
+11. [MAE 与 JEPA](basics/mae-and-jepa.md)
 
 对应能力：现实变成数字，数字变成特征，特征表示当前状态。
 
@@ -118,5 +119,6 @@ flowchart TB
 ## 当前进度
 
 - 路线图结构：已冻结为网站导航
-- 各章正文：占位模板，待填写
+- 已完成正文：第 01～04 章
+- 后续章节：按课程规划逐章填写与验证
 - 项目代码：目录已建立，实现待补充

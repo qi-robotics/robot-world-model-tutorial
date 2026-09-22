@@ -43,15 +43,10 @@ flowchart LR
     B --> C["可检查的输出"]
 ```
 
-## 最小实现
+## 配套实践
 
-```python
-# TODO：项目入口
-
-
-def run_experiment():
-    raise NotImplementedError("《动作条件预测》待实现")
-```
+!!! example "项目实现位置"
+    网页只说明项目目标、接口与验收条件。可执行代码将在对应 Colab Notebook 或 `examples/` 项目目录中提供。
 
 ## 可视化与实验
 

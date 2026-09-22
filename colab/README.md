@@ -4,7 +4,7 @@
 
 ## 本地环境
 
-不要使用文档网站的 `.venv` 运行 Notebook。根目录 `.venv` 只负责 MkDocs，不包含 NumPy、Matplotlib 或完整的 JupyterLab。
+不要使用文档网站的 `.venv` 运行 Notebook。根目录 `.venv` 只负责 MkDocs；`.venv-colab` 会根据 `colab/requirements.txt` 安装 JupyterLab、NumPy、Matplotlib 和 CPU 版 PyTorch。
 
 Linux 和 macOS：
 
@@ -17,6 +17,14 @@ env -u PYTHONPATH -u LD_LIBRARY_PATH -u LD_PRELOAD \
 ./scripts/colab.sh
 ```
 
+安装完成后可以先确认 PyTorch 来自这个独立环境：
+
+```bash
+.venv-colab/bin/python -c "import torch; print(torch.__version__)"
+```
+
+第一次安装 PyTorch 需要下载较大的 wheel，请等待命令完整结束。Linux 和 Windows 默认安装 CPU 版，不需要 CUDA；macOS 使用官方通用 wheel。
+
 Windows PowerShell：
 
 ```powershell
@@ -24,12 +32,20 @@ python -m venv .venv-colab
 .venv-colab\Scripts\Activate.ps1
 python -m pip install --upgrade pip
 python -m pip install -r colab/requirements.txt
+python -c "import torch; print(torch.__version__)"
 python -m jupyter lab
 ```
 
-JupyterLab 启动后，在文件浏览器中进入对应章节目录，例如 `colab/basics/01/` 或 `colab/basics/02/`，打开 Notebook，再选择 `Run → Run All Cells`。
+JupyterLab 启动后，在文件浏览器中进入对应章节目录，例如 `colab/basics/03/` 或 `colab/basics/04/`，打开 Notebook，再选择 `Run → Run All Cells`。启动页中的 Python 3 内核就是 `.venv-colab` 的解释器，无需再次安装依赖。
 
 启动脚本会主动清除本机 ROS、OpenVINO 或其他工程留下的 `PYTHONPATH`、`LD_LIBRARY_PATH` 和 `LD_PRELOAD`，避免系统包覆盖 `.venv-colab` 中的 NumPy、Matplotlib 和 Jupyter 依赖。
+
+如果环境是在本次更新前创建的，不必删除重建，重新执行安装命令即可补上 PyTorch：
+
+```bash
+env -u PYTHONPATH -u LD_LIBRARY_PATH -u LD_PRELOAD \
+  .venv-colab/bin/python -m pip install -r colab/requirements.txt
+```
 
 ## 在 VS Code 中运行
 
@@ -63,5 +79,6 @@ env -u PYTHONPATH -u LD_LIBRARY_PATH -u LD_PRELOAD code .
 - 每一行非空代码都有说明其实际作用的中文注释；
 - Notebook 不依赖本机绝对路径；
 - Notebook 中没有账号、密钥或私人数据。
+- `import torch`、`import numpy` 和 `import matplotlib` 均来自 `.venv-colab`。
 
 本地运行生成的单元格输出可以用于检查，但是否保留在提交中应保持一致。当前建议提交前清空输出，让学生打开后按顺序运行。

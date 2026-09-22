@@ -111,6 +111,144 @@
   font-weight: 700;
 }
 
+.tutorial-viz {
+  overflow: hidden;
+}
+
+.tutorial-viz__header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.65rem;
+}
+
+.tutorial-viz__title {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.tutorial-viz__hint {
+  margin: 0.18rem 0 0;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.72rem;
+}
+
+.tutorial-viz__toggle {
+  flex: 0 0 auto;
+  min-width: 3.7rem;
+  padding: 0.32rem 0.65rem;
+  border: 1px solid var(--md-primary-fg-color--light);
+  border-radius: 999px;
+  color: var(--md-primary-fg-color);
+  cursor: pointer;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.tutorial-viz__toggle:hover,
+.tutorial-viz__toggle:focus-visible {
+  background: var(--md-accent-fg-color--transparent);
+}
+
+.tutorial-viz__canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 12rem;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--md-default-bg-color) 78%, var(--md-code-bg-color));
+}
+
+.tutorial-viz__label {
+  fill: var(--md-default-fg-color--light);
+  font-family: var(--md-text-font-family);
+  font-size: 13px;
+}
+
+.tutorial-viz__strong-label {
+  fill: var(--md-default-fg-color);
+  font-family: var(--md-text-font-family);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.viz-conv-kernel {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: tutorial-kernel-scan 4.8s ease-in-out infinite alternate;
+}
+
+.viz-conv-response {
+  animation: tutorial-response-pulse 2.4s ease-in-out infinite alternate;
+}
+
+.viz-depth-point {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: tutorial-depth-travel 4.2s ease-in-out infinite alternate;
+}
+
+.viz-base-point {
+  animation: tutorial-response-pulse 2.1s 0.6s ease-in-out infinite alternate;
+}
+
+.tutorial-viz.is-paused * {
+  animation-play-state: paused !important;
+}
+
+@keyframes tutorial-kernel-scan {
+  0% {
+    transform: translate(0, 0);
+  }
+  45% {
+    transform: translate(150px, 0);
+  }
+  55% {
+    transform: translate(150px, 54px);
+  }
+  100% {
+    transform: translate(40px, 108px);
+  }
+}
+
+@keyframes tutorial-response-pulse {
+  from {
+    opacity: 0.38;
+    transform: scale(0.88);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes tutorial-depth-travel {
+  from {
+    transform: translate(-55px, 30px);
+  }
+  to {
+    transform: translate(72px, -38px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tutorial-viz * {
+    animation: none !important;
+  }
+
+  .tutorial-viz__toggle {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 44.984375em) {
+  .tutorial-viz__canvas {
+    min-height: 9rem;
+  }
+}
+
 .capability-chain {
   margin: 0.4rem 0 1.3rem;
   padding-left: 1.2rem;

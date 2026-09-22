@@ -6,6 +6,8 @@
 *[VLA]: Vision-Language-Action model，视觉语言动作模型
 *[JEPA]: Joint-Embedding Predictive Architecture
 *[RSSM]: Recurrent State-Space Model
+*[CNN]: Convolutional Neural Network，卷积神经网络
+*[RGB-D]: 同时提供彩色图像与深度信息的视觉观测
 
 ## 表征
 
@@ -17,6 +19,20 @@
 | 表征坍缩 | representation collapse | 待填写 | TODO |
 | 重建 | reconstruction | 待填写 | TODO |
 | 预测式表征 | joint-embedding / JEPA | 待填写 | TODO |
+| 视觉编码器 | visual encoder，$E_{\mathrm{vis}}$ | 已填写 | 把像素映射为全局向量、空间特征图或视觉 token；输出是否保留位置取决于结构与训练目标。 |
+| 感受野 | receptive field | 已填写 | 某个特征值能够受输入中多大区域影响；感受野大不等于仍有精细空间分辨率。 |
+| 视觉 token | visual token | 已填写 | 与图像 patch 或特征图区域对应的特征向量；通常还需位置编码说明来源区域。 |
+
+## 空间与几何
+
+| 术语 | 英文 / 符号 | 状态 | 定义与易混点 |
+|---|---|---|---|
+| 相机内参 | camera intrinsics，$K$ | 已填写 | 把相机坐标中的归一化方向映射到像素坐标；与图像分辨率和裁剪缩放有关。 |
+| 相机外参 | camera extrinsics，$[R\mid t]$ | 已填写 | 描述两个坐标系之间的旋转和平移；必须明确变换方向。 |
+| 深度 | depth，$d(u,v)$ | 已填写 | 像素对应的距离测量；可能指相机 $z$ 方向距离或沿射线距离，不能混用。 |
+| 点云 | point cloud，$P$ | 已填写 | 一组三维点及可选颜色、语义属性；只包含传感器实际测到的表面。 |
+| 齐次变换 | homogeneous transform，$T$ | 已填写 | 用 $4\times4$ 矩阵统一表达三维旋转和平移；点与方向向量的齐次分量不同。 |
+| 刚体位姿 | rigid pose，$SE(3)$ | 已填写 | 不改变物体形状和尺度的三维旋转与平移；不是任意 $4\times4$ 矩阵。 |
 
 ## 动作与控制
 

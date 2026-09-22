@@ -18,6 +18,59 @@
   font-weight: 650;
 }
 
+.md-typeset h1 {
+  margin-bottom: 1rem;
+  color: var(--md-default-fg-color);
+  font-size: 1.72rem;
+  line-height: 1.28;
+}
+
+.md-typeset h2 {
+  margin-top: 2rem;
+  font-size: 1.28rem;
+}
+
+.md-typeset h3 {
+  font-size: 1.02rem;
+}
+
+/* 桌面端把本章目录放左侧、课程章节放右侧；移动端仍使用 Material 原生抽屉。 */
+@media screen and (min-width: 76.25em) {
+  .md-main__inner > .md-sidebar--secondary {
+    order: 0;
+  }
+
+  .md-main__inner > .md-content {
+    order: 1;
+  }
+
+  .md-main__inner > .md-sidebar--primary {
+    order: 2;
+  }
+
+  .md-sidebar--primary .md-sidebar__inner::before {
+    display: block;
+    margin: 0 0 0.65rem;
+    color: var(--md-default-fg-color--light);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+  }
+
+  .md-sidebar--primary .md-sidebar__inner::before {
+    content: "课程章节";
+  }
+}
+
+.md-sidebar .md-nav__link {
+  line-height: 1.38;
+}
+
+.md-sidebar .md-nav__item--section > .md-nav__link {
+  color: var(--md-default-fg-color);
+  font-weight: 700;
+}
+
 .md-typeset code,
 .md-typeset pre,
 .md-typeset kbd {

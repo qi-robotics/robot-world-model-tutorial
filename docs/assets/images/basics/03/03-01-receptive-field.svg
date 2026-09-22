@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">卷积网络中感受野逐层扩大</title>
+  <desc id="desc">输入图像经过两层三乘三卷积后，单个深层特征可利用更大的输入区域。</desc>
+  <rect width="1200" height="620" fill="#ffffff"/>
+  <text x="600" y="52" text-anchor="middle" font-family="sans-serif" font-size="28" font-weight="700" fill="#0f172a">局部观察怎样逐层变成更大范围的理解</text>
+  <g transform="translate(80,125)">
+    <text x="150" y="-24" text-anchor="middle" font-family="sans-serif" font-size="22" font-weight="700" fill="#1e3a8a">输入图像</text>
+    <rect width="300" height="300" rx="12" fill="#eff6ff" stroke="#2563eb" stroke-width="4"/>
+    <g stroke="#bfdbfe" stroke-width="2">
+      <path d="M50 0V300M100 0V300M150 0V300M200 0V300M250 0V300"/>
+      <path d="M0 50H300M0 100H300M0 150H300M0 200H300M0 250H300"/>
+    </g>
+    <rect x="50" y="100" width="250" height="200" fill="#f59e0b" opacity="0.22" stroke="#d97706" stroke-width="4"/>
+    <rect x="100" y="150" width="150" height="150" fill="#ef4444" opacity="0.28" stroke="#dc2626" stroke-width="4"/>
+    <rect x="150" y="200" width="50" height="50" fill="#7c3aed" opacity="0.8"/>
+  </g>
+  <path d="M410 275H500" stroke="#475569" stroke-width="5" marker-end="url(#arrow)"/>
+  <g transform="translate(510,175)">
+    <text x="105" y="-24" text-anchor="middle" font-family="sans-serif" font-size="22" font-weight="700" fill="#6d28d9">第 1 层特征</text>
+    <rect width="210" height="210" rx="12" fill="#f5f3ff" stroke="#7c3aed" stroke-width="4"/>
+    <g stroke="#ddd6fe" stroke-width="2">
+      <path d="M42 0V210M84 0V210M126 0V210M168 0V210"/>
+      <path d="M0 42H210M0 84H210M0 126H210M0 168H210"/>
+    </g>
+    <rect x="84" y="126" width="42" height="42" fill="#7c3aed"/>
+  </g>
+  <path d="M750 275H840" stroke="#475569" stroke-width="5" marker-end="url(#arrow)"/>
+  <g transform="translate(850,220)">
+    <text x="75" y="-24" text-anchor="middle" font-family="sans-serif" font-size="22" font-weight="700" fill="#9a3412">第 2 层特征</text>
+    <rect width="150" height="150" rx="12" fill="#fff7ed" stroke="#f97316" stroke-width="4"/>
+    <g stroke="#fed7aa" stroke-width="2">
+      <path d="M50 0V150M100 0V150M0 50H150M0 100H150"/>
+    </g>
+    <rect x="50" y="50" width="50" height="50" fill="#f97316"/>
+  </g>
+  <g font-family="sans-serif" font-size="20" fill="#334155">
+    <text x="230" y="478" text-anchor="middle">深层一个位置（紫）</text>
+    <text x="230" y="510" text-anchor="middle">间接依赖更大的输入区域（橙）</text>
+    <text x="615" y="430" text-anchor="middle">3×3 局部邻域</text>
+    <text x="925" y="420" text-anchor="middle">继续组合邻域</text>
+  </g>
+  <rect x="150" y="550" width="900" height="46" rx="20" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="600" y="580" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#334155">感受野扩大带来上下文；下采样同时会让空间网格变粗</text>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker></defs>
+</svg>

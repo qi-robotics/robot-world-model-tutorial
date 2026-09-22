@@ -12,22 +12,10 @@
 - [ ] TODO：能写一个最小的 `nn.Module` 前向过程
 - [ ] TODO：能看懂训练循环中的 `loss.backward()` 发生在什么对象上
 
-## 最小代码骨架
+## 代码实践
 
-```python
-import torch
-from torch import nn
-
-
-class Encoder(nn.Module):
-    def __init__(self, in_dim: int, latent_dim: int) -> None:
-        super().__init__()
-        self.net = nn.Linear(in_dim, latent_dim)
-
-    def forward(self, observation: torch.Tensor) -> torch.Tensor:
-        # observation: [B, ...]
-        raise NotImplementedError("附录示例待补充")
-```
+!!! example "代码统一放在 Notebook 中"
+    网页附录只解释 PyTorch 概念和张量接口。可执行实现由各章配套 Notebook 提供，安装与本地运行方法见[环境准备](../setup.md)。
 
 ## 输入、输出与张量形状
 
@@ -39,7 +27,7 @@ class Encoder(nn.Module):
 
 ## 与正文的关系
 
-- 基础篇各章的“最小实现”默认假设读者能读懂本页骨架。
+- 基础篇各章的 Notebook 默认读者理解本页介绍的张量与模块接口。
 - 训练细节放到 [神经网络训练](../basics/neural-network-training.md)，本页不展开优化器选择结论。
 
 ## 常见误区

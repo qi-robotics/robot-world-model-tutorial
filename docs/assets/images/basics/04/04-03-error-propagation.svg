@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">深度噪声与外参误差的不同表现</title>
+  <desc id="desc">随机深度噪声让点沿视线散开，外参偏差让整组点一致移动。</desc>
+  <rect width="1200" height="620" fill="#fff"/>
+  <text x="600" y="50" text-anchor="middle" font-family="sans-serif" font-size="28" font-weight="700" fill="#0f172a">误差模式帮助定位问题来自哪一段</text>
+  <g transform="translate(60,105)">
+    <rect width="510" height="420" rx="20" fill="#fff7ed" stroke="#f97316" stroke-width="3"/>
+    <text x="255" y="40" text-anchor="middle" font-family="sans-serif" font-size="23" font-weight="700" fill="#9a3412">深度噪声：点沿视线散开</text>
+    <circle cx="85" cy="330" r="11" fill="#111827"/><text x="85" y="370" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#334155">相机</text>
+    <line x1="85" y1="330" x2="430" y2="120" stroke="#fdba74" stroke-width="4" stroke-dasharray="10 8"/>
+    <g fill="#ef4444"><circle cx="278" cy="210" r="10"/><circle cx="306" cy="194" r="10"/><circle cx="337" cy="174" r="10"/><circle cx="365" cy="160" r="10"/><circle cx="395" cy="140" r="10"/></g>
+    <circle cx="337" cy="174" r="34" fill="none" stroke="#991b1b" stroke-width="3"/>
+    <text x="290" y="295" font-family="sans-serif" font-size="19" fill="#9a3412">同一像素附近的深度波动</text>
+  </g>
+  <g transform="translate(630,105)">
+    <rect width="510" height="420" rx="20" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+    <text x="255" y="40" text-anchor="middle" font-family="sans-serif" font-size="23" font-weight="700" fill="#1e3a8a">外参偏差：整组点一致移动</text>
+    <g fill="#94a3b8"><circle cx="150" cy="260" r="10"/><circle cx="190" cy="220" r="10"/><circle cx="235" cy="250" r="10"/><circle cx="280" cy="205" r="10"/><circle cx="320" cy="245" r="10"/></g>
+    <path d="M340 230H405" stroke="#7c3aed" stroke-width="5" marker-end="url(#a)"/>
+    <g fill="#ef4444"><circle cx="210" cy="185" r="10"/><circle cx="250" cy="145" r="10"/><circle cx="295" cy="175" r="10"/><circle cx="340" cy="130" r="10"/><circle cx="380" cy="170" r="10"/></g>
+    <text x="235" y="305" text-anchor="middle" font-family="sans-serif" font-size="19" fill="#475569">真实位置（灰）</text>
+    <text x="345" y="105" text-anchor="middle" font-family="sans-serif" font-size="19" fill="#991b1b">错误变换后的结果（红）</text>
+  </g>
+  <rect x="180" y="555" width="840" height="44" rx="18" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="600" y="584" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#334155">先分别验证深度 / 内参与外参，再连接学习式目标定位</text>
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#7c3aed"/></marker></defs>
+</svg>

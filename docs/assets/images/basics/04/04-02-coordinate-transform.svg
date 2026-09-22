@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">相机坐标到机器人基座坐标的变换</title>
+  <desc id="desc">同一个杯子点分别用相机坐标轴和基座坐标轴表示，通过相机到基座外参转换。</desc>
+  <rect width="1200" height="650" fill="#fff"/>
+  <text x="600" y="52" text-anchor="middle" font-family="sans-serif" font-size="28" font-weight="700" fill="#0f172a">同一个物理点，在不同坐标系中有不同数值</text>
+  <rect x="70" y="100" width="470" height="430" rx="22" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+  <text x="305" y="140" text-anchor="middle" font-family="sans-serif" font-size="23" font-weight="700" fill="#1e3a8a">相机坐标系 C</text>
+  <circle cx="190" cy="390" r="11" fill="#111827"/>
+  <path d="M190 390L370 390M190 390L190 220M190 390L115 470" stroke-width="5" fill="none"><animate attributeName="stroke" values="#ef4444;#2563eb;#16a34a;#ef4444" dur="0.01s" fill="freeze"/></path>
+  <path d="M190 390H370" stroke="#ef4444" stroke-width="5"/><path d="M190 390V220" stroke="#16a34a" stroke-width="5"/><path d="M190 390L115 470" stroke="#2563eb" stroke-width="5"/>
+  <text x="380" y="397" font-family="sans-serif" font-size="20" fill="#991b1b">z₍C₎</text><text x="175" y="205" font-family="sans-serif" font-size="20" fill="#166534">y₍C₎</text><text x="82" y="490" font-family="sans-serif" font-size="20" fill="#1e40af">x₍C₎</text>
+  <circle cx="420" cy="260" r="30" fill="#ef4444"/><text x="420" y="315" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#991b1b">杯子 ᴄp</text>
+  <rect x="660" y="100" width="470" height="430" rx="22" fill="#f0fdf4" stroke="#16a34a" stroke-width="3"/>
+  <text x="895" y="140" text-anchor="middle" font-family="sans-serif" font-size="23" font-weight="700" fill="#166534">机器人基座坐标系 B</text>
+  <circle cx="785" cy="420" r="24" fill="#64748b"/><rect x="740" y="445" width="90" height="25" rx="6" fill="#94a3b8"/>
+  <path d="M785 420H1010" stroke="#ef4444" stroke-width="5"/><path d="M785 420V200" stroke="#16a34a" stroke-width="5"/><path d="M785 420L700 505" stroke="#2563eb" stroke-width="5"/>
+  <text x="1020" y="427" font-family="sans-serif" font-size="20" fill="#991b1b">x₍B₎</text><text x="770" y="185" font-family="sans-serif" font-size="20" fill="#166534">z₍B₎</text><text x="665" y="525" font-family="sans-serif" font-size="20" fill="#1e40af">y₍B₎</text>
+  <circle cx="1015" cy="250" r="30" fill="#ef4444"/><text x="1015" y="305" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#991b1b">同一杯子 ᴮp</text>
+  <path d="M535 325H655" stroke="#7c3aed" stroke-width="5" marker-end="url(#a)"/>
+  <rect x="500" y="270" width="200" height="48" rx="18" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
+  <text x="600" y="301" text-anchor="middle" font-family="sans-serif" font-size="20" font-weight="700" fill="#6d28d9">ᴮT꜀ = [R | t]</text>
+  <rect x="250" y="565" width="700" height="54" rx="22" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="600" y="600" text-anchor="middle" font-family="sans-serif" font-size="21" fill="#334155">外参不是移动杯子，而是改变描述杯子的参考原点与坐标轴</text>
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#7c3aed"/></marker></defs>
+</svg>

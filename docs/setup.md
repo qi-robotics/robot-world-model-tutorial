@@ -1,6 +1,6 @@
 # 环境准备
 
-本页说明如何在本地预览本教程网站，以及后续填写章节时需要的最低工具。第一版只要求能构建和预览文档；训练代码所需的 PyTorch、仿真器和真机环境将在对应章节补充。
+本页说明两套彼此独立的本地环境：`.venv` 用于预览文档网站，`.venv-colab` 用于运行章节 Notebook。分开环境可以避免 PyTorch 等实验依赖拖慢网站构建。
 
 ## 预览文档网站
 
@@ -94,16 +94,27 @@ Settings → Pages → Build and deployment → Source → GitHub Actions
 https://qi-robotics.github.io/robot-world-model-tutorial/
 ```
 
-## 后续实验环境
+## 在本地运行章节 Notebook
 
-训练、仿真和真机相关依赖不要写入本仓库的 `requirements.txt`。文档站点只保留 MkDocs 构建依赖，保证 GitHub Pages 构建轻量、可复现。
+章节正文只讲原理、公式和图表，可执行代码统一放在 `colab/`。Linux 和 macOS 可在仓库根目录运行：
 
-实验代码请放到：
+```bash
+python3 -m venv .venv-colab
+env -u PYTHONPATH -u LD_LIBRARY_PATH -u LD_PRELOAD \
+  .venv-colab/bin/python -m pip install --upgrade pip
+env -u PYTHONPATH -u LD_LIBRARY_PATH -u LD_PRELOAD \
+  .venv-colab/bin/python -m pip install -r colab/requirements.txt
+./scripts/colab.sh
+```
+
+`colab/requirements.txt` 包含 CPU 版 PyTorch，不要求 CUDA。Windows、VS Code 和已有环境的更新方法见 [Colab 本地运行说明](https://github.com/qi-robotics/robot-world-model-tutorial/blob/main/colab/README.md)。
+
+训练、仿真和真机相关的大型专用依赖仍不要写入网站的根目录 `requirements.txt`。文档站点只保留 MkDocs 依赖，章节通用实验依赖放在 `colab/requirements.txt`，更大型系统实验再放到：
 
 - [`examples/`](https://github.com/qi-robotics/robot-world-model-tutorial/tree/main/examples)
-- [`notebooks/`](https://github.com/qi-robotics/robot-world-model-tutorial/tree/main/notebooks)
+- [`colab/`](https://github.com/qi-robotics/robot-world-model-tutorial/tree/main/colab)
 
-并在对应章节的“最小实现”一节链接过去。
+并在对应章节的“配套实践”中链接过去。
 
 ## 常见问题
 

@@ -47,19 +47,12 @@ flowchart LR
     B --> C["输出"]
 ```
 
-## 最小实现
+## 配套实践
 
-对应代码目录或接口待接入。当前仅保留可编译的函数签名。
+配套 Notebook 将在本章正文完成时一并接入。
 
-```python
-# TODO：最小可运行示例
-# 本章模块：Transformer
-
-
-def forward(*inputs):
-    """返回本章定义的输出张量。"""
-    raise NotImplementedError("《Transformer》示例待补充")
-```
+!!! example "代码实践"
+    本章网页只保留原理、公式、输入输出和图表。可执行实现将在对应章节的 Colab Notebook 中提供。
 
 ## 可视化与实验
 
