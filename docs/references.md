@@ -18,6 +18,8 @@
 
 ## 序列模型与生成模型
 
+- Rico Sennrich, Barry Haddow, Alexandra Birch. [Neural Machine Translation of Rare Words with Subword Units](https://arxiv.org/abs/1508.07909), 2015。对应第 05 章；重点理解子词怎样缓解固定词表的未登录词问题。
+- Taku Kudo, John Richardson. [SentencePiece: A simple and language independent subword tokenizer and detokenizer for Neural Text Processing](https://arxiv.org/abs/1808.06226), 2018。对应第 05 章；重点理解 tokenizer 是可复现的模型接口，而不是随意替换的字符串预处理。
 - TODO：Attention 与 Transformer
 - TODO：自回归模型
 - TODO：Diffusion
@@ -37,6 +39,7 @@
 ## 规划、控制与机器人部署
 
 - Richard Hartley, Andrew Zisserman. *Multiple View Geometry in Computer Vision*, 2nd ed., Cambridge University Press, 2004。对应第 04 章；重点核对投影矩阵、相机坐标和多视角几何的统一符号。
+- Kevin M. Lynch, Frank C. Park. *Modern Robotics: Mechanics, Planning, and Control*, Cambridge University Press, 2017。对应第 06 章；重点理解正向运动学、雅可比、奇异构型以及控制接口之间的关系。
 - TODO：MPC 与 model-based RL
 - TODO：泛化与 sim-to-real
 - TODO：安全控制与失败恢复

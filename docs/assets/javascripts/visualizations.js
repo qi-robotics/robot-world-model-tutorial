@@ -139,6 +139,78 @@
     addAnimationToggle(node);
   }
 
+  function renderLanguageTokenFlow(node, config) {
+    node.innerHTML = `
+      <div class="tutorial-viz">
+        <div class="tutorial-viz__header">
+          <div>
+            <p class="tutorial-viz__title" data-viz-title></p>
+            <p class="tutorial-viz__hint">离散 token 查表成为向量；mask 让补齐位置不参与任务汇总。</p>
+          </div>
+          <button class="tutorial-viz__toggle" type="button" data-viz-toggle aria-pressed="false">暂停</button>
+        </div>
+        <svg class="tutorial-viz__canvas" viewBox="0 0 780 260" role="img" aria-label="中文指令切分为 token 并形成任务向量">
+          <defs>
+            <marker id="language-arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L8,3 z" fill="currentColor"/>
+            </marker>
+          </defs>
+          <text x="32" y="34" class="tutorial-viz__strong-label">把红杯放到托盘上</text>
+          <g class="viz-language-tokens">
+            <rect x="32" y="58" width="64" height="44" rx="9" fill="#eef2ff" stroke="#6366f1"/><text x="64" y="86" text-anchor="middle" class="tutorial-viz__label">把</text>
+            <rect x="106" y="58" width="64" height="44" rx="9" fill="#eef2ff" stroke="#6366f1"/><text x="138" y="86" text-anchor="middle" class="tutorial-viz__label">红杯</text>
+            <rect x="180" y="58" width="64" height="44" rx="9" fill="#eef2ff" stroke="#6366f1"/><text x="212" y="86" text-anchor="middle" class="tutorial-viz__label">放到</text>
+            <rect x="254" y="58" width="64" height="44" rx="9" fill="#eef2ff" stroke="#6366f1"/><text x="286" y="86" text-anchor="middle" class="tutorial-viz__label">托盘</text>
+          </g>
+          <path d="M348 80 H430" stroke="currentColor" stroke-width="2.5" marker-end="url(#language-arrow)"/>
+          <text x="360" y="64" class="tutorial-viz__label">embedding</text>
+          <g class="viz-language-embeddings">
+            <rect x="458" y="48" width="35" height="78" rx="7" fill="#c7d2fe"/><rect x="503" y="48" width="35" height="78" rx="7" fill="#a5b4fc"/><rect x="548" y="48" width="35" height="78" rx="7" fill="#818cf8"/><rect x="593" y="48" width="35" height="78" rx="7" fill="#6366f1"/>
+          </g>
+          <text x="458" y="145" class="tutorial-viz__label">token 表示 [L, D]</text>
+          <path d="M646 86 H710 V174 H620" stroke="currentColor" stroke-width="2.5" fill="none" marker-end="url(#language-arrow)"/>
+          <rect x="430" y="170" width="190" height="58" rx="14" fill="#ecfdf5" stroke="#16a34a" stroke-width="2" class="viz-language-goal"/>
+          <text x="525" y="194" text-anchor="middle" class="tutorial-viz__strong-label">任务向量 zᵍ</text><text x="525" y="216" text-anchor="middle" class="tutorial-viz__label">动作 · 对象 · 目标</text>
+          <text x="32" y="177" class="tutorial-viz__label">mask</text><text x="32" y="205" class="tutorial-viz__strong-label">1　1　1　1　0　0</text><text x="32" y="230" class="tutorial-viz__label">PAD 不参与池化</text>
+        </svg>
+      </div>`;
+    setTitle(node, config, "从文字到任务向量");
+    addAnimationToggle(node);
+  }
+
+  function renderProprioActionLoop(node, config) {
+    node.innerHTML = `
+      <div class="tutorial-viz">
+        <div class="tutorial-viz__header">
+          <div>
+            <p class="tutorial-viz__title" data-viz-title></p>
+            <p class="tutorial-viz__hint">关节决定末端位置；接触增强时，安全接口缩小动作幅度。</p>
+          </div>
+          <button class="tutorial-viz__toggle" type="button" data-viz-toggle aria-pressed="false">暂停</button>
+        </div>
+        <svg class="tutorial-viz__canvas" viewBox="0 0 780 270" role="img" aria-label="二连杆运动与接触触发的动作限幅">
+          <defs>
+            <marker id="action-arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="currentColor"/></marker>
+          </defs>
+          <text x="32" y="32" class="tutorial-viz__strong-label">本体状态 qₜ</text>
+          <line x1="55" y1="220" x2="350" y2="220" stroke="currentColor" stroke-opacity="0.18" stroke-width="2"/>
+          <g class="viz-proprio-arm">
+            <line x1="90" y1="220" x2="205" y2="128" stroke="#6366f1" stroke-width="18" stroke-linecap="round"/>
+            <line x1="205" y1="128" x2="322" y2="168" stroke="#f97316" stroke-width="18" stroke-linecap="round"/>
+            <circle cx="90" cy="220" r="20" fill="#172033"/><circle cx="205" cy="128" r="17" fill="#fff" stroke="#f97316" stroke-width="8"/><circle cx="322" cy="168" r="15" fill="#16a34a"/>
+          </g>
+          <path d="M365 150 H450" stroke="currentColor" stroke-width="2.5" marker-end="url(#action-arrow)"/><text x="376" y="134" class="tutorial-viz__label">策略动作 ãₜ</text>
+          <rect x="468" y="78" width="268" height="145" rx="16" fill="#f8fafc" stroke="currentColor" stroke-opacity="0.25"/>
+          <text x="492" y="108" class="tutorial-viz__strong-label">安全接口</text>
+          <text x="492" y="140" class="tutorial-viz__label">接触力</text><rect x="557" y="126" width="145" height="16" rx="8" fill="#e2e8f0"/><rect x="557" y="126" width="92" height="16" rx="8" fill="#ef4444" class="viz-contact-meter"/>
+          <text x="492" y="180" class="tutorial-viz__label">动作幅度</text><line x1="575" y1="176" x2="700" y2="176" stroke="#16a34a" stroke-width="8" stroke-linecap="round" class="viz-safe-action"/>
+          <text x="492" y="207" class="tutorial-viz__label">反归一化 · 限幅 · 控制器</text>
+        </svg>
+      </div>`;
+    setTitle(node, config, "从身体状态到安全动作");
+    addAnimationToggle(node);
+  }
+
   function mount(root) {
     const scope = root || document;
     const nodes = scope.querySelectorAll("[data-viz]");
@@ -166,6 +238,8 @@
   register("placeholder", renderPlaceholder);
   register("convolution-window", renderConvolutionWindow);
   register("rgbd-backprojection", renderRgbdBackprojection);
+  register("language-token-flow", renderLanguageTokenFlow);
+  register("proprio-action-loop", renderProprioActionLoop);
 
   global.TutorialViz = {
     register: register,

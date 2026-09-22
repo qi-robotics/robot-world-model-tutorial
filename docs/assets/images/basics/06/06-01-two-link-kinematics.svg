@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" role="img" aria-labelledby="title desc">
+  <title id="title">平面二连杆正向运动学</title><desc id="desc">两个关节角和两段连杆长度共同决定机械臂末端位置。</desc>
+  <defs><style>.title{font:700 20px sans-serif;fill:#172033}.text{font:16px sans-serif;fill:#334155}.small{font:14px sans-serif;fill:#64748b}.arm{stroke:#6366f1;stroke-width:24;stroke-linecap:round}.guide{stroke:#94a3b8;stroke-width:2;fill:none;stroke-dasharray:7 6}</style></defs>
+  <rect width="1000" height="400" rx="22" fill="#fff"/><text x="40" y="45" class="title">关节状态 q 通过正向运动学决定末端位置</text>
+  <line x1="75" y1="335" x2="580" y2="335" class="guide"/><line x1="145" y1="350" x2="145" y2="95" class="guide"/>
+  <path d="M145 335L390 190" class="arm"/><path d="M390 190L630 245" class="arm"/>
+  <circle cx="145" cy="335" r="26" fill="#172033"/><circle cx="390" cy="190" r="24" fill="#f97316"/><circle cx="630" cy="245" r="22" fill="#16a34a"/>
+  <path d="M213 335A68 68 0 0 0 203 300" class="guide"/><path d="M458 206A70 70 0 0 0 449 157" class="guide"/>
+  <text x="205" y="292" class="text">q₁</text><text x="455" y="151" class="text">q₂</text><text x="245" y="233" class="text">l₁</text><text x="502" y="199" class="text">l₂</text><text x="650" y="251" class="text">末端 (x, y)</text>
+  <rect x="700" y="95" width="250" height="220" rx="18" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/><text x="725" y="132" class="text">x = l₁ cos q₁</text><text x="750" y="160" class="text">+ l₂ cos(q₁+q₂)</text><text x="725" y="207" class="text">y = l₁ sin q₁</text><text x="750" y="235" class="text">+ l₂ sin(q₁+q₂)</text><text x="725" y="282" class="small">同一目标可能有多组关节解</text>
+</svg>

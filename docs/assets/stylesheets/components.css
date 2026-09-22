@@ -194,6 +194,39 @@
   animation: tutorial-response-pulse 2.1s 0.6s ease-in-out infinite alternate;
 }
 
+.viz-language-tokens rect {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: tutorial-token-focus 3.2s ease-in-out infinite;
+}
+
+.viz-language-tokens rect:nth-of-type(2) { animation-delay: 0.35s; }
+.viz-language-tokens rect:nth-of-type(3) { animation-delay: 0.7s; }
+.viz-language-tokens rect:nth-of-type(4) { animation-delay: 1.05s; }
+
+.viz-language-embeddings,
+.viz-language-goal {
+  animation: tutorial-response-pulse 2.2s 0.8s ease-in-out infinite alternate;
+}
+
+.viz-proprio-arm {
+  transform-box: fill-box;
+  transform-origin: 18% 88%;
+  animation: tutorial-arm-sweep 4.5s ease-in-out infinite alternate;
+}
+
+.viz-contact-meter {
+  transform-box: fill-box;
+  transform-origin: left center;
+  animation: tutorial-contact-level 3s ease-in-out infinite alternate;
+}
+
+.viz-safe-action {
+  transform-box: fill-box;
+  transform-origin: left center;
+  animation: tutorial-safe-action 3s ease-in-out infinite alternate;
+}
+
 .tutorial-viz.is-paused * {
   animation-play-state: paused !important;
 }
@@ -231,6 +264,26 @@
   to {
     transform: translate(72px, -38px);
   }
+}
+
+@keyframes tutorial-token-focus {
+  0%, 55%, 100% { opacity: 0.55; transform: translateY(0) scale(1); }
+  18%, 35% { opacity: 1; transform: translateY(-7px) scale(1.06); }
+}
+
+@keyframes tutorial-arm-sweep {
+  from { transform: rotate(-5deg); }
+  to { transform: rotate(11deg); }
+}
+
+@keyframes tutorial-contact-level {
+  from { transform: scaleX(0.25); opacity: 0.55; }
+  to { transform: scaleX(1); opacity: 1; }
+}
+
+@keyframes tutorial-safe-action {
+  from { transform: scaleX(1); }
+  to { transform: scaleX(0.35); }
 }
 
 @media (prefers-reduced-motion: reduce) {

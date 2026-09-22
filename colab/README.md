@@ -36,7 +36,7 @@ python -c "import torch; print(torch.__version__)"
 python -m jupyter lab
 ```
 
-JupyterLab 启动后，在文件浏览器中进入对应章节目录，例如 `colab/basics/03/` 或 `colab/basics/04/`，打开 Notebook，再选择 `Run → Run All Cells`。启动页中的 Python 3 内核就是 `.venv-colab` 的解释器，无需再次安装依赖。
+JupyterLab 启动后，在文件浏览器中进入对应章节目录，例如 `colab/basics/03/` 到 `colab/basics/06/`，打开 Notebook，再选择 `Run → Run All Cells`。启动页中的 Python 3 内核就是 `.venv-colab` 的解释器，无需再次安装依赖。
 
 启动脚本会主动清除本机 ROS、OpenVINO 或其他工程留下的 `PYTHONPATH`、`LD_LIBRARY_PATH` 和 `LD_PRELOAD`，避免系统包覆盖 `.venv-colab` 中的 NumPy、Matplotlib 和 Jupyter 依赖。
 
