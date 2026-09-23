@@ -49,7 +49,7 @@
 - 图示优先 Mermaid；复杂图再放到 `docs/assets/diagrams/`。
 - 教程正文不嵌入 Python 实现代码；只说明接口、张量形状和关键计算步骤。
 - 可执行代码统一放入 `colab/<阶段>/<章节>/`，正文使用实践卡片链接对应 Notebook。
-- 内部链接使用 Markdown 文件路径，例如 `[CLIP](../basics/clip.md)`。
+- 内部链接使用 Markdown 文件路径，例如 `[视觉表征学习](../basics/04-visual-representation-learning.md)`。
 
 ## 推荐语气
 

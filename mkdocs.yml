@@ -126,24 +126,19 @@ nav:
       - 单元一 · 现实与学习:
           - 01 观察世界: basics/01-robot-view-of-the-world.md
           - 02 神经网络学习: basics/02-how-neural-networks-learn.md
-      - 单元二 · 多模态观测:
-          - 03 视觉编码: basics/vision-encoding.md
-          - 04 空间几何: basics/spatial-geometry.md
-          - 05 语言编码: basics/language-encoding.md
-          - 06 本体与动作: basics/robot-state-and-action.md
-      - 单元三 · 表示学习:
-          - 07.1 自编码器: basics/autoencoder.md
-          - 07.2 变分自编码器: basics/vae.md
-          - 08.1 对比学习: basics/contrastive-learning.md
-          - 08.2 CLIP: basics/clip.md
-          - 08.3 MAE 与 JEPA: basics/mae-and-jepa.md
-          - 09 多模态融合: intermediate/multimodal-fusion.md
+      - 单元二 · 观测与动作接口:
+          - 03 视觉编码: basics/03-vision-encoding.md
+          - 04 视觉表征学习: basics/04-visual-representation-learning.md
+          - 05 语言编码: basics/05-language-encoding.md
+          - 06 三维感知与坐标变换: basics/06-spatial-geometry.md
+          - 07 本体、触觉与动作: basics/07-robot-state-and-action.md
   - 进阶篇:
       - 进阶篇概览: intermediate/index.md
       - 单元一 · 序列与上下文:
           - 12 时间与记忆: intermediate/temporal-modeling.md
           - 13 Attention: intermediate/attention.md
           - 14 Transformer: intermediate/transformer.md
+          - 15 多模态 Context: intermediate/multimodal-fusion.md
       - 单元二 · 动作生成:
           - 16 动作表示: advanced/action-representation.md
           - 17 自回归生成: intermediate/autoregressive-models.md

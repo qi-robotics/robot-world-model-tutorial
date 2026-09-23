@@ -14,7 +14,7 @@ V-JEPA 把预测式联合嵌入放到视频上：在表示空间预测未来或�
 
 ## 前置知识
 
-- [RSSM 与 Dreamer](rssm-and-dreamer.md)、[MAE 与 JEPA](../basics/mae-and-jepa.md)
+- [RSSM 与 Dreamer](rssm-and-dreamer.md)、[视觉表征学习](../basics/04-visual-representation-learning.md)
 
 ## 从上一章遗留的问题开始
 

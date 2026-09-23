@@ -14,11 +14,11 @@
 
 ## 前置知识
 
-- [MAE 与 JEPA](../basics/mae-and-jepa.md)
+- [视觉表征学习](../basics/04-visual-representation-learning.md)
 
 ## 从上一章遗留的问题开始
 
-上一章：[MAE 与 JEPA](../basics/mae-and-jepa.md)。
+上一章：[时间序列建模](temporal-modeling.md)。
 
 基础篇给出了当前特征，但还没有一种机制回答：面对这句话、这个目标，应该看图像或历史里的哪一块。
 

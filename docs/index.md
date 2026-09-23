@@ -9,7 +9,7 @@
 <p class="home-lead">
 这是一套面向机器人学习的中文渐进式教程：从张量、编码和多模态表征出发，
 逐步走到 Attention、生成模型、VLM、VLA、世界模型、规划控制，以及仿真与真机闭环。
-当前仓库先提供完整站点框架与章节骨架，正文将按路线图逐步填写。
+基础篇七章正文与配套实践现已完成，进阶篇和高级篇将继续沿学习路线逐步完善。
 </p>
 
 <p class="home-cta" markdown>
@@ -57,13 +57,13 @@ flowchart LR
 
 <p class="stage-label">Stage 01</p>
 
-### [基础篇：世界如何被表示](basics/index.md)
+### [基础篇：观测与动作怎样成为模型接口](basics/index.md)
 
-核心问题：图像、语言、机器人状态和动作，怎样变成模型内部可学习的表示？
+核心问题：现实交互、视觉、语言、空间关系、机器人状态和动作，怎样变成模型能够学习和组合的输入输出？
 
-- 张量、训练与编码器
-- AE / VAE / 对比学习
-- CLIP、MAE、JEPA
+- 轨迹、数据契约与神经网络训练
+- 视觉编码与视觉表征学习
+- 语言、三维感知、坐标变换、本体、触觉与动作接口
 
 [进入基础篇](basics/index.md)
 
@@ -73,13 +73,13 @@ flowchart LR
 
 <p class="stage-label">Stage 02</p>
 
-### [进阶篇：世界如何变化](intermediate/index.md)
+### [进阶篇：机器人怎样生成动作并预见变化](intermediate/index.md)
 
-核心问题：模型如何理解上下文、时间和动作，并预测未来可能发生什么？
+核心问题：模型怎样构建 Context、生成动作序列，并预测动作可能造成的未来？
 
-- Attention 与 Transformer
-- 自回归、Diffusion、视频预测
-- 潜空间动力学与基于模型的控制
+- Attention、Transformer 与 Context Model
+- 自回归、Diffusion、Flow Matching 与 Action Expert
+- World Model、候选未来与基于模型的控制
 
 [进入进阶篇](intermediate/index.md)
 
@@ -175,16 +175,15 @@ flowchart LR
 
 - 站点框架、导航、主题、搜索、公式与 Mermaid：**已完成**
 - 本地预览、严格构建、GitHub Pages 工作流：**已完成**
-- 各章节结构化占位页：**已完成**
-- 第 01～06 章正文与第 03～06 章配套实验：**已完成**
-- 后续章节正文、配套 Notebook 与实验图：**持续完善**
+- 基础篇第 01～07 章正文、图示与 15 份配套 Notebook：**已完成并验证**
+- 进阶篇、高级篇正文与配套实践：**持续完善**
 - 作者信息、引用与许可证文本：**待补充**
 
 </div>
 
 ## Citation
 
-正文尚未完成，以下引用块仅作占位，作者与年份请在发布前更新。
+教程仍在持续建设，以下引用块仅作占位，作者与年份请在发布前更新。
 
 <div class="citation-block" markdown>
 

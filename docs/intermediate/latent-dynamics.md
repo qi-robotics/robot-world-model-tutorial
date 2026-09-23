@@ -14,7 +14,7 @@
 
 ## 前置知识
 
-- [视频预测](video-prediction.md)、[变分自编码器](../basics/vae.md)
+- [视频预测](video-prediction.md)、[视觉表征学习](../basics/04-visual-representation-learning.md)
 
 ## 从上一章遗留的问题开始
 

@@ -14,7 +14,7 @@
 
 ## 前置知识
 
-- [Transformer](transformer.md)、[CLIP](../basics/clip.md)
+- [Transformer](transformer.md)、[语言编码与图文对齐](../basics/05-language-encoding.md)
 
 ## 从上一章遗留的问题开始
 

@@ -28,7 +28,7 @@
 ## 与正文的关系
 
 - 基础篇各章的 Notebook 默认读者理解本页介绍的张量与模块接口。
-- 训练细节放到 [神经网络训练](../basics/neural-network-training.md)，本页不展开优化器选择结论。
+- 训练细节放到 [神经网络怎样学会一个任务](../basics/02-how-neural-networks-learn.md)，本页不展开优化器选择结论。
 
 ## 常见误区
 

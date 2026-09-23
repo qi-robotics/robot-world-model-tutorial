@@ -1,6 +1,6 @@
-# 06 本体与动作
+# 07 本体、触觉与动作：机器人怎样描述自身并执行指令
 
-第 05 章把自然语言变成了任务表示，但“把红杯放到托盘上”仍无法直接执行。策略必须知道机械臂当前姿态、夹爪是否闭合、是否已经接触杯子；它还必须明确输出的七个数字究竟是关节角、末端位姿增量，还是力矩命令。
+第 06 章已经把目标从图像坐标转换到机器人使用的三维空间，但“把红杯放到托盘上”仍无法直接执行。策略必须知道机械臂当前姿态、夹爪是否闭合、是否已经接触杯子；它还必须明确输出的七个数字究竟是关节角、末端位姿增量，还是力矩命令。
 
 相机主要观察外部世界，本体感觉和触觉则告诉机器人“我的身体在哪里、正在承受什么”。本章把这些信号与动作统一成清晰的数据接口，并解释学习策略、运动学和底层控制器之间的边界。
 
@@ -89,8 +89,8 @@ $$
 它直观展示了“关节角改变一点，末端位置会怎样变化”。真实机械臂在三维空间中使用一串刚体变换，原理仍是沿运动链逐级组合。
 
 <figure markdown="span">
-  ![二连杆关节状态与末端位置](../assets/images/basics/06/06-01-two-link-kinematics.svg){ width="1000" loading=lazy }
-  <figcaption>图 06-1　二连杆的关节角决定末端位置；同一个末端目标可能对应多组关节构型，也可能超出可达范围。（本教程绘制）</figcaption>
+  ![二连杆关节状态与末端位置](../assets/images/basics/07/07-01-two-link-kinematics.svg){ width="1000" loading=lazy }
+  <figcaption>图 07-1　二连杆的关节角决定末端位置；同一个末端目标可能对应多组关节构型，也可能超出可达范围。（本教程绘制）</figcaption>
 </figure>
 
 ### 雅可比连接瞬时速度
@@ -153,7 +153,7 @@ $$
 
 二者数值相同也可能产生完全不同方向。数据集、训练代码和机器人控制器必须共享同一约定。
 
-旋转增量不能长期简单逐分量累加欧拉角。小角度时可以近似，较大旋转应使用旋转矩阵、单位四元数或 $SE(3)$ 上的组合，并明确左乘还是右乘。第 04 章的坐标变换规则在动作接口中仍然成立。
+旋转增量不能长期简单逐分量累加欧拉角。小角度时可以近似，较大旋转应使用旋转矩阵、单位四元数或 $SE(3)$ 上的组合，并明确左乘还是右乘。第 06 章的坐标变换规则在动作接口中仍然成立。
 
 ## 6. 时间、延迟和尺度也是接口的一部分
 
@@ -200,8 +200,8 @@ $$
 | `valid_mask` | $[B,T]$ | 哪些时间步是真实数据而非 padding |
 
 <figure markdown="span">
-  ![机器人观测、策略动作与底层控制器接口](../assets/images/basics/06/06-02-observation-action-interface.svg){ width="1040" loading=lazy }
-  <figcaption>图 06-2　策略读取视觉、语言、本体和接触信号，输出规范化动作；安全层负责反归一化、限幅与控制器转换，反馈再进入下一轮观测。（本教程绘制）</figcaption>
+  ![机器人观测、策略动作与底层控制器接口](../assets/images/basics/07/07-02-observation-action-interface.svg){ width="1040" loading=lazy }
+  <figcaption>图 07-2　策略读取视觉、语言、本体和接触信号，输出规范化动作；安全层负责反归一化、限幅与控制器转换，反馈再进入下一轮观测。（本教程绘制）</figcaption>
 </figure>
 
 数据 schema 应包含版本号。若后来把动作从“基座坐标增量”改为“末端坐标速度”，即使数组仍是七维，也应视为不兼容版本。形状相同并不代表物理语义相同。
@@ -242,7 +242,7 @@ $$
 
 <div class="project-card" markdown>
 
-<p class="project-label">实践 06-01</p>
+<p class="project-label">实践 07-01</p>
 
 ### 二连杆正向运动学
 
@@ -250,13 +250,13 @@ $$
 
 预计时间：20～25 分钟
 
-<a class="md-button md-button--primary" href="https://colab.research.google.com/github/qi-robotics/robot-world-model-tutorial/blob/main/colab/basics/06/06-01-two-link-forward-kinematics.ipynb" target="_blank" rel="noopener noreferrer">在 Colab 中运行</a>
+<a class="md-button md-button--primary" href="https://colab.research.google.com/github/qi-robotics/robot-world-model-tutorial/blob/main/colab/basics/07/07-01-two-link-forward-kinematics.ipynb" target="_blank" rel="noopener noreferrer">在 Colab 中运行</a>
 
 </div>
 
 <div class="project-card" markdown>
 
-<p class="project-label">实践 06-02</p>
+<p class="project-label">实践 07-02</p>
 
 ### 观测与动作数据契约
 
@@ -264,7 +264,7 @@ $$
 
 预计时间：20～30 分钟
 
-<a class="md-button md-button--primary" href="https://colab.research.google.com/github/qi-robotics/robot-world-model-tutorial/blob/main/colab/basics/06/06-02-observation-action-schema.ipynb" target="_blank" rel="noopener noreferrer">在 Colab 中运行</a>
+<a class="md-button md-button--primary" href="https://colab.research.google.com/github/qi-robotics/robot-world-model-tutorial/blob/main/colab/basics/07/07-02-observation-action-schema.ipynb" target="_blank" rel="noopener noreferrer">在 Colab 中运行</a>
 
 </div>
 
@@ -297,17 +297,44 @@ $$
 至此，机器人当前时刻的主要输入和动作接口已经出现：
 
 $$
-o_t=\left(I_t,D_t,o_t^{\mathrm{lang}},s_t^{\mathrm{prop}},s_t^{\mathrm{touch}}\right),
-\qquad a_t\in\mathbb R^A.
+o_t=\left(I_t,d_t,s_t^{\mathrm{prop}},s_t^{\mathrm{touch}}\right),
+\qquad
+g=\left(Z^{\mathrm{lang}},z^g\right),
+\qquad
+a_t\in\mathbb R^A.
 $$
 
-VLA 的动作头最终要输出符合本章契约的 $a_t$，世界模型则用相同动作预测状态变化：
+这些数据不会原样拼接后就自动成为机器人智能。视觉、语言、三维目标、本体和触觉具有不同形状与时间特性，进阶篇首先要把它们编码并组织为任务相关的上下文：
 
 $$
-p(z_{t+1}\mid z_t,a_t).
+C_t=\operatorname{ContextModel}(o_{\leq t},a_{<t},g).
 $$
 
-如果策略输出使用米制末端增量，而世界模型训练数据记录的是归一化关节速度，两者就无法直接连接。统一接口是后续多模态融合、生成策略和未来预测能够组合起来的前提。
+Action Expert 再根据同一个 $C_t$ 生成动作或动作分块，World Model 则接收上下文和候选动作，预测动作执行后的状态变化：
+
+$$
+A_t\sim\operatorname{ActionExpert}(A\mid C_t),
+\qquad
+\hat z_{t+1:t+H}
+=\operatorname{WorldModel}(C_t,A_t).
+$$
+
+在本教程的命名中，Context Model 与 Action Expert 共同组成 Action Model：前者负责把多模态历史整理成条件，后者负责在这个条件下产生动作分布。World Model 不直接替代二者，而是回答候选动作可能把系统带向什么未来。
+
+三个组件对基础篇接口的要求并不相同，但必须共享同一套物理语义：
+
+| 后续组件 | 读取的主要内容 | 产生的接口 | 本章留下的约束 |
+|---|---|---|---|
+| Context Model | 多模态观测、历史动作、时间与 mask | 任务相关上下文 $C_t$ | 区分模态、时间、缺失值和部署可用信号 |
+| Action Expert | $C_t$ 与动作历史 | $[B,H,A]$ 动作分块或动作分布 | 动作空间、坐标系、单位、频率和归一化必须固定 |
+| World Model | $C_t$、真实或候选动作 | 未来状态、观测或任务结果 | 必须区分动作命令与真实执行结果，并保持坐标语义一致 |
+
+<figure markdown="span">
+  ![基础篇的多模态与动作接口怎样连接 Context Model、Action Expert 和 World Model](../assets/images/basics/07/07-03-foundation-to-advanced-models.svg){ width="1120" loading=lazy }
+  <figcaption>图 07-3　基础篇并未直接得到完整策略，而是准备了三个后续模型能够共享的数据契约。候选动作仍需经过未来评价、安全检查和控制器执行，执行结果再成为下一轮观测。（本教程绘制）</figcaption>
+</figure>
+
+如果 Action Expert 输出米制末端增量，而 World Model 的训练数据记录的是归一化关节速度，两者就无法直接连接；如果模型把控制器收到的命令当作机器人已经完成的运动，未来预测也会从错误状态继续展开。统一字段、单位、坐标系、频率、动作语义和执行反馈，是多模态融合、生成策略和未来预测能够组合起来的前提。
 
 ## 12. 本章小结
 
@@ -315,8 +342,10 @@ $$
 
 动作接口必须明确空间、坐标系、绝对或增量、单位、频率、延迟、归一化和安全边界。策略输出只是命令，不是已经发生的状态；执行结果必须通过传感器反馈进入下一轮闭环。
 
-## 下一章
+## 进入进阶篇
 
-视觉、几何、语言、本体、触觉和动作现在都有了明确接口，但大量机器人数据没有人工标签。下一步要学习一种能够压缩输入、利用无标签数据的表示。
+视觉、语言、三维目标、本体、触觉和动作现在都有了明确接口，但它们还没有自动组成一个能够长期决策的机器人模型。遮挡、运动趋势和任务阶段要求模型从历史中构建 Context；同一任务的多条合理轨迹要求 Action Expert 能够生成动作分布；机器人还需要 World Model 预测候选动作执行后的结果。
 
-下一章：[自编码器](autoencoder.md)。
+进阶篇将沿着三个接口继续展开：Context Model 使用 Attention 与 Transformer 组织当前观测和历史，Action Expert 使用自回归、Diffusion 或 Flow Matching 生成动作序列，World Model 则在动作条件下预测未来变化。
+
+[进入进阶篇：机器人怎样生成动作并预见变化](../intermediate/index.md)

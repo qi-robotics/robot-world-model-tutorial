@@ -14,7 +14,7 @@
 
 ## 前置知识
 
-- [世界模型](world-model.md)、[变分自编码器](../basics/vae.md)
+- [世界模型](world-model.md)、[视觉表征学习](../basics/04-visual-representation-learning.md)
 
 ## 从上一章遗留的问题开始
 

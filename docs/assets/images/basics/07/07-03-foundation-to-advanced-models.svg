@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="610" viewBox="0 0 1120 610" role="img" aria-labelledby="title desc">
+  <title id="title">基础篇接口怎样连接进阶篇三个模型</title>
+  <desc id="desc">视觉、语言、三维目标、本体、触觉、历史动作与掩码进入上下文模型；动作专家生成候选动作，世界模型预测候选未来，选中的动作经过安全和控制接口执行并形成下一次观测。</desc>
+  <defs>
+    <style>
+      .title{font:700 25px sans-serif;fill:#172033}.label{font:700 18px sans-serif;fill:#1e293b}.text{font:16px sans-serif;fill:#334155}.small{font:14px sans-serif;fill:#64748b}.input{fill:#f8fafc;stroke:#94a3b8;stroke-width:2}.context{fill:#eff6ff;stroke:#2563eb;stroke-width:2}.action{fill:#f5f3ff;stroke:#7c3aed;stroke-width:2}.world{fill:#ecfdf5;stroke:#16a34a;stroke-width:2}.safety{fill:#fff7ed;stroke:#ea580c;stroke-width:2}.arrow{fill:none;stroke:#475569;stroke-width:3;marker-end:url(#arrow)}.return{fill:none;stroke:#64748b;stroke-width:2.5;stroke-dasharray:8 7;marker-end:url(#arrow)}
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+  </defs>
+  <rect width="1120" height="610" fill="#ffffff"/>
+  <text x="560" y="42" text-anchor="middle" class="title">基础篇交付的是可连接、可执行、可验证的接口</text>
+
+  <g transform="translate(35,88)">
+    <rect width="265" height="380" rx="18" class="input"/>
+    <text x="133" y="38" text-anchor="middle" class="label">基础篇准备的数据</text>
+    <g class="text">
+      <rect x="24" y="62" width="217" height="38" rx="8" fill="#e0f2fe"/><text x="133" y="87" text-anchor="middle">视觉 token / 特征图</text>
+      <rect x="24" y="108" width="217" height="38" rx="8" fill="#ede9fe"/><text x="133" y="133" text-anchor="middle">语言 token / 任务向量</text>
+      <rect x="24" y="154" width="217" height="38" rx="8" fill="#dcfce7"/><text x="133" y="179" text-anchor="middle">三维目标与坐标系</text>
+      <rect x="24" y="200" width="217" height="38" rx="8" fill="#fef3c7"/><text x="133" y="225" text-anchor="middle">本体、触觉与力</text>
+      <rect x="24" y="246" width="217" height="38" rx="8" fill="#fee2e2"/><text x="133" y="271" text-anchor="middle">历史动作 a&lt;t</text>
+      <rect x="24" y="292" width="217" height="38" rx="8" fill="#f1f5f9"/><text x="133" y="317" text-anchor="middle">时间、mask 与有效性</text>
+    </g>
+    <text x="133" y="354" text-anchor="middle" class="small">形状 · 单位 · 坐标系 · 频率</text>
+  </g>
+
+  <path d="M310 250H355" class="arrow"/>
+  <g transform="translate(370,165)">
+    <rect width="230" height="170" rx="18" class="context"/>
+    <text x="115" y="40" text-anchor="middle" class="label">Context Model</text>
+    <text x="115" y="70" text-anchor="middle" class="text">组织当前观测与历史</text>
+    <text x="115" y="98" text-anchor="middle" class="small">Attention / Transformer</text>
+    <rect x="50" y="118" width="130" height="34" rx="17" fill="#dbeafe" stroke="#2563eb"/>
+    <text x="115" y="141" text-anchor="middle" class="text">上下文 Cₜ</text>
+  </g>
+
+  <path d="M610 220C640 220 645 150 675 150" class="arrow"/>
+  <g transform="translate(690,82)">
+    <rect width="265" height="145" rx="18" class="action"/>
+    <text x="133" y="38" text-anchor="middle" class="label">Action Expert</text>
+    <text x="133" y="68" text-anchor="middle" class="text">生成一种或多种合理动作</text>
+    <text x="133" y="95" text-anchor="middle" class="small">自回归 / Diffusion / Flow Matching</text>
+    <text x="133" y="123" text-anchor="middle" class="text">aₜ:ₜ₊H₋₁ ∈ ℝᴴˣᴬ</text>
+  </g>
+
+  <path d="M610 280C640 280 645 360 675 360" class="arrow"/>
+  <path d="M823 237V285" class="arrow"/>
+  <g transform="translate(690,300)">
+    <rect width="265" height="145" rx="18" class="world"/>
+    <text x="133" y="38" text-anchor="middle" class="label">World Model</text>
+    <text x="133" y="68" text-anchor="middle" class="text">接收 Context 与候选动作</text>
+    <text x="133" y="95" text-anchor="middle" class="small">预测状态变化与任务结果</text>
+    <text x="133" y="123" text-anchor="middle" class="text">ẑₜ₊₁:ₜ₊H</text>
+  </g>
+
+  <path d="M965 370H995" class="arrow"/>
+  <g transform="translate(1005,310)">
+    <rect width="90" height="120" rx="16" fill="#f8fafc" stroke="#475569" stroke-width="2"/>
+    <text x="45" y="37" text-anchor="middle" class="label">选择</text>
+    <text x="45" y="65" text-anchor="middle" class="small">任务</text>
+    <text x="45" y="86" text-anchor="middle" class="small">风险</text>
+    <text x="45" y="107" text-anchor="middle" class="small">可行性</text>
+  </g>
+
+  <path d="M1050 440V493H845" class="arrow"/>
+  <g transform="translate(365,490)">
+    <rect width="570" height="82" rx="18" class="safety"/>
+    <text x="285" y="32" text-anchor="middle" class="label">动作契约、安全层与底层控制器</text>
+    <text x="285" y="59" text-anchor="middle" class="text">反归一化 · 限幅 · IK · 碰撞检查 · 执行</text>
+  </g>
+  <path d="M365 535H165V478" class="return"/>
+  <text x="230" y="523" text-anchor="middle" class="small">执行结果成为下一次观测</text>
+</svg>

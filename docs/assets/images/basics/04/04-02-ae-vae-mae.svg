@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">AE、VAE 与 MAE 的结构差异</title>
+  <desc id="desc">三条横向流程分别展示自编码器、变分自编码器和掩码自编码器的输入、潜在表示与重建目标。</desc>
+  <rect width="1200" height="700" fill="#ffffff"/>
+  <text x="600" y="48" text-anchor="middle" font-family="sans-serif" font-size="28" font-weight="700" fill="#0f172a">三种重建式学习，共享目标但约束不同</text>
+
+  <g font-family="sans-serif">
+    <g transform="translate(45,95)">
+      <rect width="1110" height="160" rx="16" fill="#f8fafc" stroke="#2563eb" stroke-width="2"/>
+      <text x="28" y="36" font-size="23" font-weight="700" fill="#1e3a8a">AE</text>
+      <g transform="translate(70,40)">
+        <rect width="150" height="84" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+        <text x="75" y="37" text-anchor="middle" font-size="18" fill="#1e3a8a">完整图像</text>
+        <text x="75" y="61" text-anchor="middle" font-size="16" fill="#475569">I</text>
+        <path d="M170 42H245" stroke="#475569" stroke-width="3" marker-end="url(#arrow)"/>
+        <rect x="265" width="150" height="84" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+        <text x="340" y="37" text-anchor="middle" font-size="18" fill="#1e3a8a">编码器</text>
+        <text x="340" y="61" text-anchor="middle" font-size="16" fill="#475569">E(I)</text>
+        <path d="M435 42H500" stroke="#475569" stroke-width="3" marker-end="url(#arrow)"/>
+        <rect x="520" y="10" width="92" height="64" rx="20" fill="#bfdbfe" stroke="#1d4ed8" stroke-width="2"/>
+        <text x="566" y="49" text-anchor="middle" font-size="19" font-weight="700" fill="#1e3a8a">z</text>
+        <path d="M632 42H697" stroke="#475569" stroke-width="3" marker-end="url(#arrow)"/>
+        <rect x="717" width="150" height="84" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+        <text x="792" y="37" text-anchor="middle" font-size="18" fill="#1e3a8a">解码器</text>
+        <text x="792" y="61" text-anchor="middle" font-size="16" fill="#475569">D(z)</text>
+        <path d="M887 42H917" stroke="#475569" stroke-width="3" marker-end="url(#arrow)"/>
+        <rect x="935" y="5" width="90" height="74" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+        <text x="980" y="35" text-anchor="middle" font-size="17" fill="#1e3a8a">重建</text>
+        <text x="980" y="59" text-anchor="middle" font-size="16" fill="#475569">图像</text>
+      </g>
+    </g>
+
+    <g transform="translate(45,275)">
+      <rect width="1110" height="185" rx="16" fill="#f8fafc" stroke="#7c3aed" stroke-width="2"/>
+      <text x="28" y="36" font-size="23" font-weight="700" fill="#6d28d9">VAE</text>
+      <g transform="translate(70,48)">
+        <rect width="150" height="84" rx="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+        <text x="75" y="37" text-anchor="middle" font-size="18" fill="#6d28d9">完整图像</text>
+        <text x="75" y="61" text-anchor="middle" font-size="16" fill="#475569">I</text>
+        <path d="M170 42H230" stroke="#475569" stroke-width="3" marker-end="url(#arrow)"/>
+        <rect x="250" width="165" height="84" rx="10" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
+        <text x="332" y="34" text-anchor="middle" font-size="18" fill="#6d28d9">编码器</text>
+        <text x="332" y="60" text-anchor="middle" font-size="16" fill="#475569">μ 与 log σ²</text>
+        <path d="M435 42H480" stroke="#475569" stroke-width="3" marker-end="url(#arrow)"/>
+        <rect x="500" y="2" width="150" height="80" rx="22" fill="#ddd6fe" stroke="#6d28d9" stroke-width="2"/>
+        <text x="575" y="32" text-anchor="middle" font-size="17" fill="#6d28d9">ε ～ N(0,I)</text>
+        <text x="575" y="58" text-anchor="middle" font-size="17" font-weight="700" fill="#6d28d9">z=μ+σ⊙ε</text>
+        <path d="M670 42H715" stroke="#475569" stroke-width="3" marker-end="url(#arrow)"/>
+        <rect x="735" width="150" height="84" rx="10" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
+        <text x="810" y="37" text-anchor="middle" font-size="18" fill="#6d28d9">解码器</text>
+        <text x="810" y="61" text-anchor="middle" font-size="16" fill="#475569">D(z)</text>
+        <path d="M905 42H917" stroke="#475569" stroke-width="3" marker-end="url(#arrow)"/>
+        <rect x="935" y="5" width="90" height="74" rx="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+        <text x="980" y="35" text-anchor="middle" font-size="17" fill="#6d28d9">重建误差</text>
+        <text x="980" y="59" text-anchor="middle" font-size="16" fill="#475569">+ KL</text>
+      </g>
+    </g>
+
+    <g transform="translate(45,480)">
+      <rect width="1110" height="170" rx="16" fill="#f8fafc" stroke="#16a34a" stroke-width="2"/>
+      <text x="28" y="36" font-size="23" font-weight="700" fill="#166534">MAE</text>
+      <g transform="translate(120,44)">
+        <rect width="160" height="90" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+        <g stroke="#16a34a" stroke-width="1">
+          <path d="M40 0V90M80 0V90M120 0V90M0 30H160M0 60H160"/>
+        </g>
+        <g fill="#94a3b8"><rect x="41" y="1" width="38" height="28"/><rect x="121" y="31" width="38" height="28"/><rect x="1" y="61" width="38" height="28"/></g>
+        <text x="80" y="116" text-anchor="middle" font-size="16" fill="#475569">遮挡后的 patch</text>
+        <path d="M180 45H250" stroke="#475569" stroke-width="3" marker-end="url(#arrow)"/>
+        <rect x="270" y="3" width="170" height="84" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+        <text x="355" y="36" text-anchor="middle" font-size="18" fill="#166534">编码器</text>
+        <text x="355" y="61" text-anchor="middle" font-size="16" fill="#475569">只读可见 patch</text>
+        <path d="M460 45H530" stroke="#475569" stroke-width="3" marker-end="url(#arrow)"/>
+        <rect x="550" y="3" width="170" height="84" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+        <text x="635" y="36" text-anchor="middle" font-size="18" fill="#166534">解码器</text>
+        <text x="635" y="61" text-anchor="middle" font-size="16" fill="#475569">补入 mask token</text>
+        <path d="M740 45H810" stroke="#475569" stroke-width="3" marker-end="url(#arrow)"/>
+        <rect x="830" y="3" width="160" height="84" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+        <text x="910" y="36" text-anchor="middle" font-size="18" fill="#166534">恢复目标</text>
+        <text x="910" y="61" text-anchor="middle" font-size="16" fill="#475569">只计算遮挡区域</text>
+      </g>
+    </g>
+  </g>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#475569"/>
+    </marker>
+  </defs>
+</svg>

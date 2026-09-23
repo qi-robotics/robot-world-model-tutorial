@@ -14,10 +14,7 @@
 
 ## 前置知识
 
-- [自编码器](../basics/autoencoder.md)
-- [变分自编码器](../basics/vae.md)
-- [对比学习](../basics/contrastive-learning.md)
-- [MAE 与 JEPA](../basics/mae-and-jepa.md)
+- [视觉表征学习](../basics/04-visual-representation-learning.md)
 
 ## 从上一章遗留的问题开始
 

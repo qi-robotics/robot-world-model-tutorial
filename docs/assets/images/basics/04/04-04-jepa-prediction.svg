@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">JEPA 根据可见上下文预测目标区域表示</title>
+  <desc id="desc">可见图像块进入上下文编码器和预测器，完整目标分支产生停止梯度的目标表示，二者在表示空间计算误差。</desc>
+  <rect width="1200" height="650" fill="#ffffff"/>
+  <text x="600" y="48" text-anchor="middle" font-family="sans-serif" font-size="28" font-weight="700" fill="#0f172a">在表示空间预测被隐藏的内容</text>
+
+  <g font-family="sans-serif">
+    <g transform="translate(60,105)">
+      <text x="120" y="0" text-anchor="middle" font-size="21" font-weight="700" fill="#1e3a8a">上下文分支</text>
+      <rect x="0" y="30" width="240" height="180" rx="12" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+      <g stroke="#2563eb" stroke-width="1"><path d="M60 30V210M120 30V210M180 30V210M0 75H240M0 120H240M0 165H240"/></g>
+      <g fill="#94a3b8"><rect x="61" y="31" width="58" height="43"/><rect x="121" y="76" width="58" height="43"/><rect x="181" y="121" width="58" height="43"/></g>
+      <path d="M38 142h52v23H38zM47 128h34v17H47z" fill="#ef4444"/>
+      <text x="120" y="240" text-anchor="middle" font-size="17" fill="#475569">只输入可见 patch</text>
+    </g>
+
+    <path d="M325 220H405" stroke="#475569" stroke-width="4" marker-end="url(#arrow)"/>
+    <g transform="translate(425,165)">
+      <rect width="180" height="110" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+      <text x="90" y="46" text-anchor="middle" font-size="20" font-weight="700" fill="#1e3a8a">上下文编码器</text>
+      <text x="90" y="76" text-anchor="middle" font-size="17" fill="#475569">E_c(x_c)</text>
+    </g>
+    <path d="M625 220H695" stroke="#475569" stroke-width="4" marker-end="url(#arrow)"/>
+    <g transform="translate(715,150)">
+      <rect width="190" height="140" rx="14" fill="#f5f3ff" stroke="#7c3aed" stroke-width="3"/>
+      <text x="95" y="46" text-anchor="middle" font-size="20" font-weight="700" fill="#6d28d9">预测器</text>
+      <text x="95" y="78" text-anchor="middle" font-size="17" fill="#475569">P(z_c, m_t)</text>
+      <rect x="38" y="96" width="114" height="25" rx="8" fill="#ddd6fe"/>
+      <text x="95" y="114" text-anchor="middle" font-size="15" fill="#6d28d9">目标位置 m_t</text>
+    </g>
+    <path d="M925 220H985" stroke="#475569" stroke-width="4" marker-end="url(#arrow)"/>
+    <g transform="translate(1005,175)">
+      <rect width="135" height="90" rx="22" fill="#ede9fe" stroke="#7c3aed" stroke-width="3"/>
+      <text x="67" y="40" text-anchor="middle" font-size="19" font-weight="700" fill="#6d28d9">预测表示</text>
+      <text x="67" y="66" text-anchor="middle" font-size="18" fill="#475569">ẑ_t</text>
+    </g>
+
+    <g transform="translate(60,390)">
+      <text x="120" y="0" text-anchor="middle" font-size="21" font-weight="700" fill="#166534">目标分支（仅训练时）</text>
+      <rect x="0" y="30" width="240" height="120" rx="12" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+      <rect x="18" y="88" width="204" height="28" rx="4" fill="#d6b88c"/>
+      <path d="M55 62h52v26H55zM64 46h34v18H64z" fill="#ef4444"/>
+      <rect x="165" y="54" width="42" height="34" fill="#3b82f6"/>
+      <rect x="108" y="40" width="56" height="48" fill="none" stroke="#16a34a" stroke-width="4" stroke-dasharray="7 5"/>
+      <text x="120" y="176" text-anchor="middle" font-size="17" fill="#475569">目标区域 x_t</text>
+    </g>
+    <path d="M325 480H405" stroke="#475569" stroke-width="4" marker-end="url(#arrow)"/>
+    <g transform="translate(425,425)">
+      <rect width="180" height="110" rx="14" fill="#f0fdf4" stroke="#16a34a" stroke-width="3"/>
+      <text x="90" y="46" text-anchor="middle" font-size="20" font-weight="700" fill="#166534">目标编码器</text>
+      <text x="90" y="76" text-anchor="middle" font-size="17" fill="#475569">E_t(x_t)</text>
+    </g>
+    <path d="M625 480H760" stroke="#475569" stroke-width="4" marker-end="url(#arrow)"/>
+    <g transform="translate(780,435)">
+      <rect width="150" height="90" rx="22" fill="#dcfce7" stroke="#16a34a" stroke-width="3"/>
+      <text x="75" y="38" text-anchor="middle" font-size="19" font-weight="700" fill="#166534">目标表示</text>
+      <text x="75" y="65" text-anchor="middle" font-size="18" fill="#475569">sg(z_t)</text>
+    </g>
+    <path d="M930 480H1010V290" fill="none" stroke="#16a34a" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#greenArrow)"/>
+    <rect x="965" y="335" width="165" height="58" rx="12" fill="#f8fafc" stroke="#64748b" stroke-width="2"/>
+    <text x="1048" y="360" text-anchor="middle" font-size="17" font-weight="700" fill="#0f172a">表示空间误差</text>
+    <text x="1048" y="382" text-anchor="middle" font-size="16" fill="#475569">‖ẑ_t − sg(z_t)‖²</text>
+  </g>
+
+  <text x="600" y="617" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#475569">目标分支提供学习目标；推理时只保留上下文编码器与预测器</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+    <marker id="greenArrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#16a34a"/></marker>
+  </defs>
+</svg>

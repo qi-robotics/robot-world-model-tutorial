@@ -14,7 +14,7 @@
 
 ## 前置知识
 
-- [CLIP](../basics/clip.md)
+- [语言编码与图文对齐](../basics/05-language-encoding.md)
 - [多模态融合](../intermediate/multimodal-fusion.md)
 - [视觉语言模型](../advanced/vlm.md)
 

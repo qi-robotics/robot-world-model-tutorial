@@ -6,7 +6,7 @@
 
 ## 对应章节
 
-- `docs/basics/contrastive-learning.md`
+- `docs/basics/04-visual-representation-learning.md`
 
 ## 输入 / 输出
 

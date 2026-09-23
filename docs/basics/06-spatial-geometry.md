@@ -1,8 +1,8 @@
-# 04 空间与几何
+# 06 三维感知与坐标变换：从相机像素到机器人目标
 
-第 03 章让视觉编码器找到了红色杯子在图像中的位置。假设它预测杯子中心位于像素 $(u,v)=(420,260)$，机械臂仍然无法据此移动：同一个像素方向上可以放着一个近处的小杯子，也可以放着一个远处的大杯子；相机的“向右”也不一定对应机器人基座坐标系的“向右”。
+第 03、04 章让视觉编码器获得了红色杯子的图像特征，第 05 章又让语言指令能够指定目标对象。假设模型最终把目标定位在像素 $(u,v)=(420,260)$，机械臂仍然无法据此移动：同一个像素方向上可以放着一个近处的小杯子，也可以放着一个远处的大杯子；相机的“向右”也不一定对应机器人基座坐标系的“向右”。
 
-本章补上从视觉到行动之间的几何桥梁。我们从针孔相机模型出发，解释三维点怎样投影到二维像素；随后利用深度把像素反投影回相机坐标系，再通过齐次变换得到机器人基座坐标。最后把单点推广到点云、物体姿态和抓取目标，并检查深度噪声与标定误差会怎样传到动作端。
+本章补上从视觉观测到机器人目标之间的三维感知链路。我们从针孔相机模型出发，解释三维点怎样投影到二维像素；随后利用深度把像素反投影回相机坐标系，再通过齐次变换得到机器人基座坐标。最后把单点推广到点云、物体姿态和抓取目标，并检查深度噪声与标定误差会怎样传到动作端。
 
 几何模型不会自动识别哪个像素属于杯子，学习模型也不会自动知道相机安装在机器人哪里。实际系统需要两者配合：视觉模型提供目标区域或关键点，几何模块把这些观测变成具有坐标系和单位的三维量。
 
@@ -72,8 +72,8 @@ $$
 其中尺度 $\lambda=Z_C$。如果把 $(X_C,Y_C,Z_C)$ 同时乘以相同正数，$X_C/Z_C$ 和 $Y_C/Z_C$ 不变，投影仍落在同一个像素。因此一个像素只确定从相机光心出发的一条射线，不能单独决定点在射线上的距离。
 
 <figure markdown="span">
-  ![三维点通过针孔相机投影到二维像素](../assets/images/basics/04/04-01-pinhole-projection.svg){ width="1040" loading=lazy }
-  <figcaption>图 04-1　近处点和远处点只要位于同一条成像射线上，就会落到同一个像素；深度提供了沿射线的位置。（本教程绘制）</figcaption>
+  ![三维点通过针孔相机投影到二维像素](../assets/images/basics/06/06-01-pinhole-projection.svg){ width="1040" loading=lazy }
+  <figcaption>图 06-1　近处点和远处点只要位于同一条成像射线上，就会落到同一个像素；深度提供了沿射线的位置。（本教程绘制）</figcaption>
 </figure>
 
 真实镜头还会产生径向和切向畸变，尤其在画面边缘更明显。相机标定通常同时估计内参与畸变参数。若深度已经与彩色图对齐、图像也已经去畸变，后续公式可直接使用；否则应先根据设备的数据契约完成校正。不能一边使用畸变后的像素，一边套用理想针孔公式而不计误差。
@@ -100,7 +100,7 @@ $$
 这一步把第 03 章得到的二维目标位置与深度测量结合起来，得到相机坐标系中的三维点。注意，有些传感器报告的是沿成像射线的欧氏距离，而不是 $Z_C$；两者代入同一公式会产生系统误差，必须以设备说明为准。
 
 !!! example "反投影实现放在 Notebook 中"
-    单像素反投影、整幅深度图向量化计算、无效深度过滤和点云绘制见 [实践 04-01](https://colab.research.google.com/github/qi-robotics/robot-world-model-tutorial/blob/main/colab/basics/04/04-01-rgbd-backprojection.ipynb)。
+    单像素反投影、整幅深度图向量化计算、无效深度过滤和点云绘制见 [实践 06-01](https://colab.research.google.com/github/qi-robotics/robot-world-model-tutorial/blob/main/colab/basics/06/06-01-rgbd-backprojection.ipynb)。
 
 输出 $[0.133,0.027,0.8]$ 的单位是米，因为输入深度使用米。像素 $u,v$ 没有米制单位，内参焦距使用像素；公式把像素偏移除以像素焦距得到无量纲方向，再乘深度恢复长度。
 
@@ -160,8 +160,8 @@ $$
 这不是另一套相机模型，只是把“世界到相机”和“相机到像素”两步写在同一个式子中。
 
 <figure markdown="span">
-  ![杯子位置从相机坐标变换到机器人基座坐标](../assets/images/basics/04/04-02-coordinate-transform.svg){ width="1040" loading=lazy }
-  <figcaption>图 04-2　相机和机器人基座使用不同原点与轴方向；外参 ${}^{B}T_C$ 把相机测量转换成控制器使用的坐标。（本教程绘制）</figcaption>
+  ![杯子位置从相机坐标变换到机器人基座坐标](../assets/images/basics/06/06-02-coordinate-transform.svg){ width="1040" loading=lazy }
+  <figcaption>图 06-2　相机和机器人基座使用不同原点与轴方向；外参 ${}^{B}T_C$ 把相机测量转换成控制器使用的坐标。（本教程绘制）</figcaption>
 </figure>
 
 外参（extrinsics）描述两个坐标系之间的固定或可计算关系。固定在环境中的相机通常通过手眼标定得到相机到基座的变换；装在末端的相机会随机械臂运动，此时还要结合当前关节状态和正向运动学更新变换。
@@ -298,8 +298,8 @@ $$
 如果相机相对基座的真实变换为 $T$，系统却使用有偏差的 $\hat T$，所有点都会被相似地旋转或平移。一个很小的角度误差，在远距离处也会形成明显位置偏差。深度噪声常随像素和表面变化，外参偏差则更像稳定的系统误差；观察误差模式有助于定位来源。
 
 <figure markdown="span">
-  ![深度误差和外参误差如何影响三维目标位置](../assets/images/basics/04/04-03-error-propagation.svg){ width="1040" loading=lazy }
-  <figcaption>图 04-3　随机深度噪声使点沿视线散开，外参偏差会让整组点产生一致的平移或旋转。（本教程绘制）</figcaption>
+  ![深度误差和外参误差如何影响三维目标位置](../assets/images/basics/06/06-03-error-propagation.svg){ width="1040" loading=lazy }
+  <figcaption>图 06-3　随机深度噪声使点沿视线散开，外参偏差会让整组点产生一致的平移或旋转。（本教程绘制）</figcaption>
 </figure>
 
 一个可靠的调试顺序是：先用已知尺寸的标定物验证深度和内参，再用基座坐标中的固定标记验证外参，最后才连接学习式目标检测。否则多个误差来源叠加后，很难判断是哪一段出了问题。
@@ -309,7 +309,7 @@ $$
 配套实验把相机坐标点变换到基座坐标，并通过“变换后再逆变换”检查计算方向。齐次坐标最后一维为 1，表示它是一个位置点；方向向量的最后一维应为 0，因为纯平移不应改变方向。
 
 !!! example "坐标变换实现放在 Notebook 中"
-    齐次点变换、逆变换校验以及深度与标定误差实验见 [实践 04-02](https://colab.research.google.com/github/qi-robotics/robot-world-model-tutorial/blob/main/colab/basics/04/04-02-transforms-and-calibration-error.ipynb)。
+    齐次点变换、逆变换校验以及深度与标定误差实验见 [实践 06-02](https://colab.research.google.com/github/qi-robotics/robot-world-model-tutorial/blob/main/colab/basics/06/06-02-transforms-and-calibration-error.ipynb)。
 
 实际工程还应检查输入矩阵形状、旋转合法性、时间戳、长度单位和坐标系名称。一个名为 `transform` 的匿名矩阵很容易被反向使用，建议变量名明确写出目标与来源，如 `transform_base_camera`。
 
@@ -326,7 +326,7 @@ $$
 
 <div class="project-card" markdown>
 
-<p class="project-label">实践 04-01</p>
+<p class="project-label">实践 06-01</p>
 
 ### 从 RGB-D 图像生成目标点云
 
@@ -334,13 +334,13 @@ $$
 
 预计时间：20～25 分钟
 
-<a class="md-button md-button--primary" href="https://colab.research.google.com/github/qi-robotics/robot-world-model-tutorial/blob/main/colab/basics/04/04-01-rgbd-backprojection.ipynb" target="_blank" rel="noopener noreferrer">在 Colab 中运行</a>
+<a class="md-button md-button--primary" href="https://colab.research.google.com/github/qi-robotics/robot-world-model-tutorial/blob/main/colab/basics/06/06-01-rgbd-backprojection.ipynb" target="_blank" rel="noopener noreferrer">在 Colab 中运行</a>
 
 </div>
 
 <div class="project-card" markdown>
 
-<p class="project-label">实践 04-02</p>
+<p class="project-label">实践 06-02</p>
 
 ### 坐标变换与误差敏感性
 
@@ -348,7 +348,7 @@ $$
 
 预计时间：20～30 分钟
 
-<a class="md-button md-button--primary" href="https://colab.research.google.com/github/qi-robotics/robot-world-model-tutorial/blob/main/colab/basics/04/04-02-transforms-and-calibration-error.ipynb" target="_blank" rel="noopener noreferrer">在 Colab 中运行</a>
+<a class="md-button md-button--primary" href="https://colab.research.google.com/github/qi-robotics/robot-world-model-tutorial/blob/main/colab/basics/06/06-02-transforms-and-calibration-error.ipynb" target="_blank" rel="noopener noreferrer">在 Colab 中运行</a>
 
 </div>
 
@@ -404,8 +404,8 @@ $$
 
 学习式检测、分割和关键点模块负责指出目标在图像中的证据，几何模块负责将证据还原为具有物理尺度的空间关系。深度噪声、像素误差与标定偏差会一路传播到抓取目标，因此最终应在机器人坐标和任务尺度上审查误差。
 
-现在，机器人已经能够表达“红色区域对应的物体在基座前方某处”，但它仍不知道语言中的“红色杯子”指向哪个对象，也不知道“放进盒子”描述了怎样的目标关系。下一章将把文字从离散符号变成任务表示，并让语言开始选择视觉世界中的对象与目标。
+现在，机器人已经能够表达“语言指定的目标位于机器人基座前方某处”，但要产生可执行动作，还必须知道机械臂当前姿态、夹爪和接触状态，以及动作向量中的每个数字究竟控制什么。
 
 ## 下一章
 
-[05 语言编码：从文字到任务表示](language-encoding.md)
+[07 本体、触觉与动作：机器人怎样描述自身并执行指令](07-robot-state-and-action.md)

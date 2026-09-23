@@ -5,7 +5,7 @@
 - 文档站点：<https://qi-robotics.github.io/robot-world-model-tutorial/>
 - 仓库：<https://github.com/qi-robotics/robot-world-model-tutorial>
 
-当前仓库已经搭好可长期维护的文档网站框架。各章节是结构化占位页，便于之后直接填写正文，而不是从零设计目录。
+当前仓库已经完成基础篇七章正文、配套图示与 15 份 Colab Notebook，并搭好可长期维护的文档网站框架。进阶篇和高级篇将按学习路线继续编写与验证。
 
 ## 本地预览
 
@@ -84,13 +84,12 @@ https://qi-robotics.github.io/robot-world-model-tutorial/
 能力演进：
 
 ```text
-现实世界如何变成数字
-→ 数字如何变成特征
-→ 特征如何表示当前状态
-→ 模型如何关联历史信息
-→ 模型如何表达多个未来
-→ 语言如何定义任务目标
-→ 模型如何生成机器人动作
+现实交互如何成为训练数据
+→ 像素如何成为视觉表征
+→ 语言和几何如何明确任务目标
+→ 身体状态与动作如何形成接口
+→ 模型如何从历史构建 Context
+→ Action Expert 如何生成动作序列
 → 世界模型如何预测动作后果
 → Planner / Policy 如何选择动作
 → 机器人如何根据新观测闭环纠错
@@ -100,18 +99,18 @@ https://qi-robotics.github.io/robot-world-model-tutorial/
 
 | 阶段 | 核心问题 | 入口 |
 |---|---|---|
-| 基础篇 | 世界如何被表示 | `docs/basics/` |
+| 基础篇 | 观测与动作怎样成为模型接口 | `docs/basics/` |
 | 进阶篇 | 世界如何变化 | `docs/intermediate/` |
 | 高级篇 | 机器人如何为了目标行动 | `docs/advanced/` |
 
-实践项目在 `docs/projects/`，配套代码目录在 `examples/`。
+实践项目在 `docs/projects/`，章节配套 Notebook 在 `colab/`，可复用示例在 `examples/`。
 
 ## 仓库布局
 
 ```text
 docs/          Markdown 教程正文
-examples/      最小代码示例（当前为占位）
-notebooks/     探索性笔记本（默认不嵌入站点）
+colab/         可在 Colab 或本地运行的章节实践
+examples/      可复用的项目示例与说明
 scripts/       本地预览、构建与检查脚本
 .github/       Issue / PR 模板与 GitHub Actions
 ```

@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">机器人视觉中正样本定义的影响</title>
+  <desc id="desc">上方展示保留红杯任务语义的合理增强，下方展示改变颜色或裁掉目标的危险增强，右侧显示相应的嵌入约束。</desc>
+  <rect width="1200" height="650" fill="#ffffff"/>
+  <text x="600" y="48" text-anchor="middle" font-family="sans-serif" font-size="28" font-weight="700" fill="#0f172a">正样本必须保持同一任务状态</text>
+
+  <g font-family="sans-serif">
+    <g transform="translate(55,100)">
+      <rect width="1090" height="220" rx="16" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+      <text x="28" y="38" font-size="22" font-weight="700" fill="#166534">合理：轻微亮度和视角变化后，红杯仍然存在且位置语义一致</text>
+      <g transform="translate(70,65)">
+        <rect width="230" height="120" rx="10" fill="#eff6ff" stroke="#64748b" stroke-width="2"/>
+        <rect x="12" y="82" width="206" height="25" rx="4" fill="#d6b88c"/>
+        <path d="M60 50h55v32H60zM70 33h35v20H70z" fill="#ef4444"/>
+        <rect x="160" y="45" width="45" height="37" fill="#3b82f6"/>
+        <text x="115" y="143" text-anchor="middle" font-size="17" fill="#334155">视图 A</text>
+      </g>
+      <path d="M330 126H420" stroke="#16a34a" stroke-width="4" marker-end="url(#greenArrow)"/>
+      <text x="375" y="112" text-anchor="middle" font-size="16" fill="#166534">增强</text>
+      <g transform="translate(440,65)">
+        <rect width="230" height="120" rx="10" fill="#f8fafc" stroke="#64748b" stroke-width="2"/>
+        <rect x="12" y="82" width="206" height="25" rx="4" fill="#d6b88c"/>
+        <path d="M67 48h55v34H67zM77 31h35v21H77z" fill="#ef4444"/>
+        <rect x="164" y="43" width="45" height="39" fill="#3b82f6"/>
+        <text x="115" y="143" text-anchor="middle" font-size="17" fill="#334155">视图 A⁺</text>
+      </g>
+      <path d="M700 126H790" stroke="#16a34a" stroke-width="4" marker-end="url(#greenArrow)"/>
+      <g transform="translate(815,66)">
+        <circle cx="58" cy="58" r="38" fill="#bbf7d0" stroke="#16a34a" stroke-width="3"/>
+        <circle cx="132" cy="58" r="38" fill="#dcfce7" stroke="#16a34a" stroke-width="3"/>
+        <path d="M96 58H94" stroke="#166534" stroke-width="5"/>
+        <text x="95" y="125" text-anchor="middle" font-size="18" fill="#166534">嵌入靠近</text>
+      </g>
+    </g>
+
+    <g transform="translate(55,350)">
+      <rect width="1090" height="230" rx="16" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+      <text x="28" y="38" font-size="22" font-weight="700" fill="#9a3412">危险：增强改变了颜色条件，或裁剪后只剩桌面背景</text>
+      <g transform="translate(70,70)">
+        <rect width="230" height="120" rx="10" fill="#eff6ff" stroke="#64748b" stroke-width="2"/>
+        <rect x="12" y="82" width="206" height="25" rx="4" fill="#d6b88c"/>
+        <path d="M60 50h55v32H60zM70 33h35v20H70z" fill="#ef4444"/>
+        <rect x="160" y="45" width="45" height="37" fill="#3b82f6"/>
+        <text x="115" y="143" text-anchor="middle" font-size="17" fill="#334155">原始任务：红杯</text>
+      </g>
+      <path d="M330 130H420" stroke="#ea580c" stroke-width="4" marker-end="url(#orangeArrow)"/>
+      <text x="375" y="113" text-anchor="middle" font-size="16" fill="#9a3412">错误增强</text>
+      <g transform="translate(440,70)">
+        <rect width="230" height="120" rx="10" fill="#f8fafc" stroke="#64748b" stroke-width="2"/>
+        <rect x="12" y="82" width="206" height="25" rx="4" fill="#d6b88c"/>
+        <path d="M67 48h55v34H67zM77 31h35v21H77z" fill="#3b82f6"/>
+        <rect x="164" y="43" width="45" height="39" fill="#3b82f6"/>
+        <text x="115" y="143" text-anchor="middle" font-size="17" fill="#334155">颜色已改变</text>
+      </g>
+      <path d="M700 130H790" stroke="#ea580c" stroke-width="4" marker-end="url(#orangeArrow)"/>
+      <g transform="translate(815,70)">
+        <circle cx="58" cy="58" r="38" fill="#fed7aa" stroke="#ea580c" stroke-width="3"/>
+        <circle cx="132" cy="58" r="38" fill="#ffedd5" stroke="#ea580c" stroke-width="3"/>
+        <path d="M96 58H94" stroke="#9a3412" stroke-width="5"/>
+        <text x="95" y="125" text-anchor="middle" font-size="18" fill="#9a3412">错误地要求靠近</text>
+      </g>
+    </g>
+  </g>
+
+  <defs>
+    <marker id="greenArrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#16a34a"/></marker>
+    <marker id="orangeArrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#ea580c"/></marker>
+  </defs>
+</svg>

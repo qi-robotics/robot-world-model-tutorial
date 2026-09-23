@@ -14,7 +14,7 @@
 
 ## 前置知识
 
-- [多模态融合](../intermediate/multimodal-fusion.md)、[CLIP](../basics/clip.md)
+- [多模态融合](../intermediate/multimodal-fusion.md)、[语言编码与图文对齐](../basics/05-language-encoding.md)
 
 ## 从上一章遗留的问题开始
 
