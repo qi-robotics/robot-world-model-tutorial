@@ -15,7 +15,7 @@
 ## 前置知识
 
 - [语言编码与图文对齐](../basics/05-language-encoding.md)
-- [多模态融合](../intermediate/multimodal-fusion.md)
+- [进阶篇的多模态 Context 规划](../intermediate/index.md)
 - [视觉语言模型](../advanced/vlm.md)
 
 ## 从上一章遗留的问题开始

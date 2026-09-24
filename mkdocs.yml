@@ -134,21 +134,18 @@ nav:
           - 07 本体、触觉与动作: basics/07-robot-state-and-action.md
   - 进阶篇:
       - 进阶篇概览: intermediate/index.md
-      - 单元一 · 序列与上下文:
-          - 12 时间与记忆: intermediate/temporal-modeling.md
-          - 13 Attention: intermediate/attention.md
-          - 14 Transformer: intermediate/transformer.md
-          - 15 多模态 Context: intermediate/multimodal-fusion.md
-      - 单元二 · 动作生成:
-          - 16 动作表示: advanced/action-representation.md
-          - 17 自回归生成: intermediate/autoregressive-models.md
-          - 18 Diffusion: intermediate/diffusion.md
-      - 单元三 · 预测未来:
-          - 22 视频预测: intermediate/video-prediction.md
-          - 23 潜空间动力学: intermediate/latent-dynamics.md
-      - 单元四 · 选择动作:
-          - 26 模型控制: intermediate/model-based-control.md
-          - 27 规划与策略: advanced/planning-and-policy.md
+      - 单元一 · 历史与上下文:
+          - 08 时间与记忆: intermediate/08-time-and-memory.md
+          - 09 Attention 与 Transformer: intermediate/09-attention-and-transformer.md
+          - 10 多模态 Context Model: intermediate/10-multimodal-context-model.md
+      - 单元二 · 生成式动作:
+          - 11 从示范到动作序列: intermediate/11-demonstrations-to-action-sequences.md
+          - 12 Diffusion 与 Flow Matching: intermediate/12-diffusion-and-flow-matching.md
+          - 13 生成式 Action Model: intermediate/13-generative-action-model.md
+      - 单元三 · 世界模型与规划:
+          - 14 动作条件 World Model: intermediate/14-action-conditioned-world-model.md
+          - 15 长程想象与不确定性: intermediate/15-long-horizon-imagination-and-uncertainty.md
+          - 16 目标评价、CEM 与 MPC: intermediate/16-objective-cem-and-mpc.md
   - 高级篇:
       - 高级篇概览: advanced/index.md
       - 单元一 · 语言驱动行动:

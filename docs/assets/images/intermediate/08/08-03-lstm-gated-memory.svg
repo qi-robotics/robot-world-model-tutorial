@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="590" viewBox="0 0 1080 590" role="img" aria-labelledby="title desc">
+  <title id="title">LSTM 门控记忆通道</title>
+  <desc id="desc">旧 cell state 经过遗忘门保留，新候选记忆经过输入门写入，更新后的 cell state 再经过输出门形成当前隐藏状态。</desc>
+  <defs>
+    <style>
+      .title{font:700 25px sans-serif;fill:#172033}.head{font:700 18px sans-serif;fill:#1e293b}.text{font:16px sans-serif;fill:#334155}.small{font:14px sans-serif;fill:#64748b}.memory{fill:#eff6ff;stroke:#2563eb;stroke-width:2.5}.gate{fill:#fff7ed;stroke:#ea580c;stroke-width:2}.candidate{fill:#f5f3ff;stroke:#7c3aed;stroke-width:2}.output{fill:#ecfdf5;stroke:#16a34a;stroke-width:2}.input{fill:#f8fafc;stroke:#94a3b8;stroke-width:2}.arrow{fill:none;stroke:#475569;stroke-width:3;marker-end:url(#arrow)}.memoryline{fill:none;stroke:#2563eb;stroke-width:5;marker-end:url(#bluearrow)}
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+    <marker id="bluearrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/></marker>
+  </defs>
+  <rect width="1080" height="590" fill="#ffffff"/>
+  <text x="540" y="42" text-anchor="middle" class="title">LSTM 用门控制旧记忆、新信息与当前输出</text>
+
+  <rect x="55" y="102" width="150" height="58" rx="12" class="memory"/><text x="130" y="138" text-anchor="middle" class="head">旧记忆 cₜ₋₁</text>
+  <path d="M205 131H885" class="memoryline"/>
+  <rect x="275" y="94" width="120" height="74" rx="14" class="gate"/><text x="335" y="123" text-anchor="middle" class="head">遗忘门</text><text x="335" y="149" text-anchor="middle" class="small">fₜ ⊙ cₜ₋₁</text>
+  <rect x="885" y="102" width="150" height="58" rx="12" class="memory"/><text x="960" y="138" text-anchor="middle" class="head">新记忆 cₜ</text>
+
+  <rect x="70" y="440" width="200" height="64" rx="14" class="input"/><text x="170" y="467" text-anchor="middle" class="head">当前输入与旧输出</text><text x="170" y="490" text-anchor="middle" class="small">[xₜ, hₜ₋₁]</text>
+
+  <rect x="330" y="315" width="135" height="76" rx="14" class="gate"/><text x="398" y="345" text-anchor="middle" class="head">输入门</text><text x="398" y="372" text-anchor="middle" class="small">iₜ</text>
+  <rect x="510" y="315" width="150" height="76" rx="14" class="candidate"/><text x="585" y="345" text-anchor="middle" class="head">候选记忆</text><text x="585" y="372" text-anchor="middle" class="small">c̃ₜ</text>
+  <circle cx="720" cy="245" r="28" fill="#ffffff" stroke="#7c3aed" stroke-width="2.5"/><text x="720" y="252" text-anchor="middle" class="head">＋</text>
+  <path d="M270 460H398V403" class="arrow"/><path d="M270 475H585V403" class="arrow"/>
+  <path d="M465 353H493" class="arrow"/><text x="480" y="338" text-anchor="middle" class="small">×</text>
+  <path d="M660 353H720V278" class="arrow"/>
+  <path d="M720 217V176" class="arrow"/>
+  <text x="720" y="305" text-anchor="middle" class="small">写入新内容</text>
+
+  <rect x="790" y="315" width="135" height="76" rx="14" class="gate"/><text x="858" y="345" text-anchor="middle" class="head">输出门</text><text x="858" y="372" text-anchor="middle" class="small">oₜ</text>
+  <path d="M270 490H858V403" class="arrow"/>
+  <path d="M960 160V278H982" class="arrow"/>
+  <rect x="930" y="286" width="105" height="58" rx="12" class="output"/><text x="982" y="321" text-anchor="middle" class="head">tanh</text>
+  <circle cx="938" cy="410" r="20" fill="#ffffff" stroke="#16a34a" stroke-width="2.5"/><text x="938" y="417" text-anchor="middle" class="head">×</text>
+  <path d="M982 344V410H966" class="arrow"/>
+  <path d="M858 391V410H910" class="arrow"/>
+  <rect x="840" y="438" width="195" height="64" rx="14" class="output"/><text x="938" y="465" text-anchor="middle" class="head">当前输出 hₜ</text><text x="938" y="489" text-anchor="middle" class="small">oₜ ⊙ tanh(cₜ)</text>
+  <path d="M938 430V438" class="arrow"/>
+
+  <text x="540" y="550" text-anchor="middle" class="text">门控不是人工规则，而是由数据学习出的逐维信息比例</text>
+</svg>

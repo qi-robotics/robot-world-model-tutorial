@@ -14,11 +14,11 @@
 
 ## 前置知识
 
-- [多模态融合](../intermediate/multimodal-fusion.md)、[语言编码与图文对齐](../basics/05-language-encoding.md)
+- [进阶篇的多模态 Context 规划](../intermediate/index.md)、[语言编码与图文对齐](../basics/05-language-encoding.md)
 
 ## 从上一章遗留的问题开始
 
-上一章：[基于模型的控制](../intermediate/model-based-control.md)。
+上一阶段：[进阶篇](../intermediate/index.md)。
 
 进阶篇已经能融合模态并做预测，但任务目标仍常以硬编码奖励或状态差给出，而不是自然语言。
 

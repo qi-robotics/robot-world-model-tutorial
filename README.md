@@ -100,7 +100,7 @@ https://qi-robotics.github.io/robot-world-model-tutorial/
 | 阶段 | 核心问题 | 入口 |
 |---|---|---|
 | 基础篇 | 观测与动作怎样成为模型接口 | `docs/basics/` |
-| 进阶篇 | 世界如何变化 | `docs/intermediate/` |
+| 进阶篇 | 机器人怎样生成动作并预见变化 | `docs/intermediate/` |
 | 高级篇 | 机器人如何为了目标行动 | `docs/advanced/` |
 
 实践项目在 `docs/projects/`，章节配套 Notebook 在 `colab/`，可复用示例在 `examples/`。

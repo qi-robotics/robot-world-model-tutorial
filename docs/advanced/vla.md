@@ -14,7 +14,7 @@
 
 ## 前置知识
 
-- [Visual Grounding](visual-grounding.md)、[自回归生成](../intermediate/autoregressive-models.md)
+- [Visual Grounding](visual-grounding.md)、[进阶篇的 Action Model 规划](../intermediate/index.md)
 
 ## 从上一章遗留的问题开始
 

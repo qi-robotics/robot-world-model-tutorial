@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="570" viewBox="0 0 1120 570" role="img" aria-labelledby="title desc">
+  <title id="title">多模态 token 布局</title><desc id="desc">语言、视觉、本体、触觉与动作 token 带有模态、时间、相机和有效性信息。</desc>
+  <defs><style>.title{font:700 25px sans-serif;fill:#172033}.head{font:700 17px sans-serif;fill:#1e293b}.text{font:15px sans-serif;fill:#475569}.small{font:14px sans-serif;fill:#64748b}.lang{fill:#fff7ed;stroke:#ea580c;stroke-width:2}.vis{fill:#eff6ff;stroke:#2563eb;stroke-width:2}.state{fill:#ecfdf5;stroke:#16a34a;stroke-width:2}.touch{fill:#f5f3ff;stroke:#7c3aed;stroke-width:2}.action{fill:#fef2f2;stroke:#dc2626;stroke-width:2}.sum{fill:#f8fafc;stroke:#64748b;stroke-width:2}.dash{fill:#f1f5f9;stroke:#94a3b8;stroke-width:2;stroke-dasharray:7 5}</style></defs>
+  <rect width="1120" height="570" fill="#fff"/><text x="560" y="42" text-anchor="middle" class="title">统一维度之前，先保留每个 token 的身份</text>
+  <text x="55" y="102" class="head">内容 token</text>
+  <rect x="180" y="72" width="130" height="54" rx="10" class="lang"/><text x="245" y="105" text-anchor="middle" class="head">语言目标</text>
+  <rect x="330" y="72" width="130" height="54" rx="10" class="vis"/><text x="395" y="105" text-anchor="middle" class="head">相机 1 patch</text>
+  <rect x="480" y="72" width="130" height="54" rx="10" class="vis"/><text x="545" y="105" text-anchor="middle" class="head">相机 2 patch</text>
+  <rect x="630" y="72" width="130" height="54" rx="10" class="state"/><text x="695" y="105" text-anchor="middle" class="head">本体状态</text>
+  <rect x="780" y="72" width="130" height="54" rx="10" class="touch"/><text x="845" y="105" text-anchor="middle" class="head">触觉</text>
+  <rect x="930" y="72" width="130" height="54" rx="10" class="action"/><text x="995" y="105" text-anchor="middle" class="head">历史动作</text>
+  <text x="55" y="192" class="head">加入标识</text>
+  <rect x="180" y="158" width="880" height="70" rx="12" class="sum"/><text x="620" y="188" text-anchor="middle" class="head">内容 + 模态 + 时间 + 空间 / 相机 + 本体类型</text><text x="620" y="213" text-anchor="middle" class="small">所有向量投影到共同维度 D，但保持来源可区分</text>
+  <text x="55" y="292" class="head">序列布局</text>
+  <rect x="180" y="258" width="105" height="58" rx="9" class="lang"/><text x="232" y="292" text-anchor="middle" class="text">lang</text>
+  <rect x="296" y="258" width="105" height="58" rx="9" class="vis"/><text x="348" y="292" text-anchor="middle" class="text">cam1 t−1</text>
+  <rect x="412" y="258" width="105" height="58" rx="9" class="dash"/><text x="464" y="292" text-anchor="middle" class="text">cam2 缺失</text>
+  <rect x="528" y="258" width="105" height="58" rx="9" class="state"/><text x="580" y="292" text-anchor="middle" class="text">state t−1</text>
+  <rect x="644" y="258" width="105" height="58" rx="9" class="touch"/><text x="696" y="292" text-anchor="middle" class="text">touch t−1</text>
+  <rect x="760" y="258" width="105" height="58" rx="9" class="action"/><text x="812" y="292" text-anchor="middle" class="text">action t−1</text>
+  <rect x="876" y="258" width="105" height="58" rx="9" class="vis"/><text x="928" y="292" text-anchor="middle" class="text">cam1 t</text>
+  <rect x="992" y="258" width="68" height="58" rx="9" class="state"/><text x="1026" y="292" text-anchor="middle" class="text">…</text>
+  <text x="55" y="386" class="head">有效位</text>
+  <g class="text" text-anchor="middle"><text x="232" y="382">1</text><text x="348" y="382">1</text><text x="464" y="382">0</text><text x="580" y="382">1</text><text x="696" y="382">1</text><text x="812" y="382">1</text><text x="928" y="382">1</text><text x="1026" y="382">1</text></g>
+  <rect x="180" y="426" width="880" height="88" rx="14" class="sum"/><text x="620" y="459" text-anchor="middle" class="head">Context Transformer</text><text x="620" y="488" text-anchor="middle" class="small">mask 排除缺失位置；Attention 在有效 token 之间建立任务相关联系</text>
+  <text x="620" y="544" text-anchor="middle" class="text">输出：全局向量、Context token，或供动作块使用的 action query</text>
+</svg>

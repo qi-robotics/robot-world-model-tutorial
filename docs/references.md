@@ -11,7 +11,7 @@
 ## 表征学习
 
 - Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun. [Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385), 2015。对应第 03 章；重点理解残差块为何让新层学习 $F(X)$ 并保留输入旁路。
-- Alexey Dosovitskiy et al. [An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale](https://arxiv.org/abs/2010.11929), 2020。对应第 03 与第 14 章；重点理解图像 patch 怎样变成 token，而不是在第 03 章提前展开 Transformer。
+- Alexey Dosovitskiy et al. [An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale](https://arxiv.org/abs/2010.11929), 2020。对应第 03 与第 09 章；重点理解图像 patch 怎样变成 token，而不是在第 03 章提前展开 Transformer。
 - TODO：自编码器、VAE、对比学习
 - TODO：CLIP 与多模态对齐
 - TODO：MAE、JEPA 与表征坍缩

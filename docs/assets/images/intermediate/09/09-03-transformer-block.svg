@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="700" viewBox="0 0 820 700" role="img" aria-labelledby="title desc">
+  <title id="title">Pre-Norm Transformer Block</title><desc id="desc">输入经过归一化和多头注意力后与残差相加，再经过第二次归一化和逐位置 MLP，与第二条残差相加得到输出。</desc>
+  <defs><style>.title{font:700 25px sans-serif;fill:#172033}.head{font:700 18px sans-serif;fill:#1e293b}.text{font:16px sans-serif;fill:#334155}.small{font:14px sans-serif;fill:#64748b}.norm{fill:#f8fafc;stroke:#64748b;stroke-width:2}.attn{fill:#eff6ff;stroke:#2563eb;stroke-width:2.5}.mlp{fill:#f5f3ff;stroke:#7c3aed;stroke-width:2.5}.add{fill:#ecfdf5;stroke:#16a34a;stroke-width:2.5}.arrow{fill:none;stroke:#475569;stroke-width:3;marker-end:url(#a)}.skip{fill:none;stroke:#ea580c;stroke-width:2.5;stroke-dasharray:8 6;marker-end:url(#o)}</style><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0L0 6L9 3z" fill="#475569"/></marker><marker id="o" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0L0 6L9 3z" fill="#ea580c"/></marker></defs>
+  <rect width="820" height="700" fill="#fff"/><text x="40" y="42" class="title">Pre-Norm Transformer Block</text>
+  <rect x="320" y="610" width="180" height="54" rx="12" class="norm"/><text x="410" y="643" text-anchor="middle" class="head">输入 token X</text>
+  <rect x="320" y="515" width="180" height="54" rx="12" class="norm"/><text x="410" y="548" text-anchor="middle" class="head">LayerNorm</text>
+  <rect x="285" y="405" width="250" height="68" rx="14" class="attn"/><text x="410" y="434" text-anchor="middle" class="head">Multi-Head Attention</text><text x="410" y="458" text-anchor="middle" class="small">token 之间交换信息</text>
+  <circle cx="410" cy="345" r="28" class="add"/><text x="410" y="353" text-anchor="middle" class="head">＋</text>
+  <rect x="320" y="250" width="180" height="54" rx="12" class="norm"/><text x="410" y="283" text-anchor="middle" class="head">LayerNorm</text>
+  <rect x="285" y="140" width="250" height="68" rx="14" class="mlp"/><text x="410" y="169" text-anchor="middle" class="head">逐 token MLP</text><text x="410" y="193" text-anchor="middle" class="small">每个位置内部非线性变换</text>
+  <circle cx="410" cy="85" r="28" class="add"/><text x="410" y="93" text-anchor="middle" class="head">＋</text>
+  <path d="M410 610V577" class="arrow"/><path d="M410 515V481" class="arrow"/><path d="M410 405V381" class="arrow"/><path d="M410 317V312" class="arrow"/><path d="M410 250V216" class="arrow"/><path d="M410 140V121" class="arrow"/><path d="M410 57V50" class="arrow"/>
+  <path d="M320 637H185V345H374" class="skip"/><text x="185" y="490" text-anchor="middle" class="small">第一条残差</text>
+  <path d="M382 345H225V85H374" class="skip"/><text x="225" y="218" text-anchor="middle" class="small">第二条残差</text>
+  <text x="590" y="446" class="text">跨位置读取</text><text x="590" y="176" class="text">位置内更新</text><text x="410" y="30" text-anchor="middle" class="small">输出 Y</text>
+</svg>

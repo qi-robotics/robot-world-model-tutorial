@@ -57,17 +57,15 @@ flowchart TB
 
 建议顺序：
 
-1. [时间序列建模](intermediate/temporal-modeling.md)
-2. [Attention](intermediate/attention.md)
-3. [Transformer](intermediate/transformer.md)
-4. [多模态 Context Model](intermediate/multimodal-fusion.md)
-5. [动作表示与 Action Chunk](advanced/action-representation.md)
-6. [自回归生成](intermediate/autoregressive-models.md)
-7. [Diffusion](intermediate/diffusion.md)
-8. Flow Matching（页面待建立）
-9. [视频预测](intermediate/video-prediction.md)
-10. [潜空间动力学](intermediate/latent-dynamics.md)
-11. [基于模型的控制](intermediate/model-based-control.md)
+1. [08 时间与记忆：RNN、LSTM 与 GRU 怎样理解历史](intermediate/08-time-and-memory.md)
+2. [09 Attention 与 Transformer：怎样从历史中读取相关信息](intermediate/09-attention-and-transformer.md)
+3. [10 多模态 Context Model：怎样形成任务相关上下文](intermediate/10-multimodal-context-model.md)
+4. [11 从示范学习到动作序列：第一个 Action Model](intermediate/11-demonstrations-to-action-sequences.md)
+5. [12 Diffusion 与 Flow Matching：学习连续、多峰的动作分布](intermediate/12-diffusion-and-flow-matching.md)
+6. [13 生成式 Action Model：从候选动作到滚动执行](intermediate/13-generative-action-model.md)
+7. [14 动作条件 World Model：做了这个动作以后会怎样](intermediate/14-action-conditioned-world-model.md)
+8. [15 长程想象：潜状态、不确定性与误差累积](intermediate/15-long-horizon-imagination-and-uncertainty.md)
+9. [16 从候选未来到动作选择：目标评价、CEM 与 MPC](intermediate/16-objective-cem-and-mpc.md)
 
 对应能力：构建 Context，生成候选动作，预测动作后果，并开始利用候选未来进行控制。
 
@@ -110,12 +108,12 @@ flowchart TB
 
 - 如果只想先建立全局图景：先读本页和三篇阶段总览，再进入 [世界模型](advanced/world-model.md)。
 - 如果从零开始：按基础篇顺序读，遇到公式可并行查阅 [数学基础](appendices/math-foundations.md) 与 [PyTorch 基础](appendices/pytorch-foundations.md)。
-- 如果已经熟悉 Transformer：可从 [多模态融合](intermediate/multimodal-fusion.md) 或 [VLM](advanced/vlm.md) 切入，但仍建议回看第 04 章中的表征坍缩问题。
+- 如果已经熟悉 Transformer：仍建议从第 10 章的多模态 Context Model 切入，并回看第 04 章中的表征坍缩问题；该页面完成前可先进入 [VLM](advanced/vlm.md)。
 - 每一章末尾的“下一章”不是目录跳转，而是留下一个旧方法无法回答的问题。
 
 ## 当前进度
 
 - 基础篇结构：已调整为两个单元、七个章节
 - 已完成正文：第 01～07 章；15 份基础篇配套 Notebook 均已实现，并完成页面入口、图文说明与运行检查
-- 后续章节：按课程规划逐章填写与验证
+- 进阶篇：第 08～16 章正文、图示与 18 份配套 Notebook 已完成，并已形成 Context—Action Model—World Model—MPC 的完整闭环
 - 项目代码：基础篇轻量实践已建立，进阶篇项目待后续实现

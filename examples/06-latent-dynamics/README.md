@@ -6,7 +6,7 @@
 
 ## 对应章节
 
-- `docs/intermediate/latent-dynamics.md`
+- `docs/intermediate/index.md`（第 15 章完成后再更新为对应页面）
 
 ## 输入 / 输出
 

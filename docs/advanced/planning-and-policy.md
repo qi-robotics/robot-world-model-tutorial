@@ -14,7 +14,7 @@
 
 ## 前置知识
 
-- [VLA-JEPA](vla-jepa.md)、[基于模型的控制](../intermediate/model-based-control.md)
+- [VLA-JEPA](vla-jepa.md)、[进阶篇的规划基础](../intermediate/index.md)
 
 ## 从上一章遗留的问题开始
 

@@ -14,7 +14,7 @@
 
 ## 前置知识
 
-- [视觉语言动作模型](vla.md)、[Diffusion](../intermediate/diffusion.md)
+- [视觉语言动作模型](vla.md)、[进阶篇的生成式 Action Model 规划](../intermediate/index.md)
 
 ## 从上一章遗留的问题开始
 

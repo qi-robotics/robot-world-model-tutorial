@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="560" viewBox="0 0 1040 560" role="img" aria-labelledby="title desc">
+  <title id="title">相同当前观测可能对应不同历史</title>
+  <desc id="desc">三条不同的机械臂运动与接触历史汇聚到相似的当前观测，但分别表示准备接触、刚刚释放和抓取失败。</desc>
+  <defs>
+    <style>
+      .title{font:700 25px sans-serif;fill:#172033}.head{font:700 18px sans-serif;fill:#1e293b}.text{font:16px sans-serif;fill:#334155}.small{font:14px sans-serif;fill:#64748b}.panel{fill:#f8fafc;stroke:#94a3b8;stroke-width:2}.approach{fill:#eff6ff;stroke:#2563eb;stroke-width:2}.release{fill:#f5f3ff;stroke:#7c3aed;stroke-width:2}.fail{fill:#fff7ed;stroke:#ea580c;stroke-width:2}.now{fill:#ecfdf5;stroke:#16a34a;stroke-width:2.5}.line{fill:none;stroke:#475569;stroke-width:3;marker-end:url(#arrow)}.trace{fill:none;stroke-width:3}.axis{stroke:#cbd5e1;stroke-width:1.5}
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+  </defs>
+  <rect width="1040" height="560" fill="#ffffff"/>
+  <text x="520" y="42" text-anchor="middle" class="title">当前看起来相同，历史含义可能完全不同</text>
+
+  <g transform="translate(36,78)">
+    <rect width="295" height="360" rx="16" class="panel"/>
+    <text x="148" y="36" text-anchor="middle" class="head">历史 A：正在接近</text>
+    <line x1="38" y1="185" x2="258" y2="185" class="axis"/>
+    <line x1="38" y1="68" x2="38" y2="185" class="axis"/>
+    <path d="M45 84 C105 95 175 125 250 166" class="trace" stroke="#2563eb"/>
+    <circle cx="45" cy="84" r="6" fill="#2563eb"/><circle cx="250" cy="166" r="6" fill="#2563eb"/>
+    <text x="148" y="215" text-anchor="middle" class="text">末端逐步下降</text>
+    <rect x="40" y="242" width="215" height="42" rx="9" class="approach"/>
+    <text x="148" y="268" text-anchor="middle" class="text">此前没有接触</text>
+    <text x="148" y="318" text-anchor="middle" class="small">含义：准备接触杯子</text>
+  </g>
+
+  <g transform="translate(373,78)">
+    <rect width="295" height="360" rx="16" class="panel"/>
+    <text x="148" y="36" text-anchor="middle" class="head">历史 B：正在离开</text>
+    <line x1="38" y1="185" x2="258" y2="185" class="axis"/>
+    <line x1="38" y1="68" x2="38" y2="185" class="axis"/>
+    <path d="M45 166 C105 150 175 110 250 84" class="trace" stroke="#7c3aed"/>
+    <circle cx="45" cy="166" r="6" fill="#7c3aed"/><circle cx="250" cy="84" r="6" fill="#7c3aed"/>
+    <text x="148" y="215" text-anchor="middle" class="text">末端逐步上升</text>
+    <rect x="40" y="242" width="215" height="42" rx="9" class="release"/>
+    <text x="148" y="268" text-anchor="middle" class="text">此前出现接触峰值</text>
+    <text x="148" y="318" text-anchor="middle" class="small">含义：已经释放杯子</text>
+  </g>
+
+  <g transform="translate(710,78)">
+    <rect width="295" height="360" rx="16" class="panel"/>
+    <text x="148" y="36" text-anchor="middle" class="head">历史 C：抓取失败</text>
+    <line x1="38" y1="185" x2="258" y2="185" class="axis"/>
+    <line x1="38" y1="68" x2="38" y2="185" class="axis"/>
+    <path d="M45 126 C92 120 124 145 162 124 C198 104 220 132 250 126" class="trace" stroke="#ea580c"/>
+    <circle cx="45" cy="126" r="6" fill="#ea580c"/><circle cx="250" cy="126" r="6" fill="#ea580c"/>
+    <text x="148" y="215" text-anchor="middle" class="text">末端停留并小幅抖动</text>
+    <rect x="40" y="242" width="215" height="42" rx="9" class="fail"/>
+    <text x="148" y="268" text-anchor="middle" class="text">夹爪闭合但没有接触</text>
+    <text x="148" y="318" text-anchor="middle" class="small">含义：需要重新抓取</text>
+  </g>
+
+  <path d="M184 450V484H442" class="line"/>
+  <path d="M520 450V484" class="line"/>
+  <path d="M858 450V484H598" class="line"/>
+  <rect x="395" y="470" width="250" height="66" rx="14" class="now"/>
+  <text x="520" y="497" text-anchor="middle" class="head">相似的当前观测</text>
+  <text x="520" y="522" text-anchor="middle" class="small">位置相同 · 当前接触接近零</text>
+</svg>

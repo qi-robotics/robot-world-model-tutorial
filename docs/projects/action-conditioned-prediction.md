@@ -14,8 +14,8 @@
 
 ## 前置知识
 
-- [视频预测](../intermediate/video-prediction.md)
-- [潜空间动力学](../intermediate/latent-dynamics.md)
+- [进阶篇的动作条件 World Model 规划](../intermediate/index.md)
+- [进阶篇的长程想象规划](../intermediate/index.md)
 - [世界模型](../advanced/world-model.md)
 
 ## 从上一章遗留的问题开始

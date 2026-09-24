@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="500" viewBox="0 0 1080 500" role="img" aria-labelledby="title desc">
+  <title id="title">RNN 沿时间展开</title>
+  <desc id="desc">同一个循环单元在四个时间步共享参数，输入依次更新隐藏状态，并产生完整隐藏状态序列和最后隐藏状态。</desc>
+  <defs>
+    <style>
+      .title{font:700 25px sans-serif;fill:#172033}.head{font:700 18px sans-serif;fill:#1e293b}.text{font:16px sans-serif;fill:#334155}.small{font:14px sans-serif;fill:#64748b}.cell{fill:#eff6ff;stroke:#2563eb;stroke-width:2.5}.input{fill:#f8fafc;stroke:#94a3b8;stroke-width:2}.output{fill:#ecfdf5;stroke:#16a34a;stroke-width:2}.final{fill:#fff7ed;stroke:#ea580c;stroke-width:2}.arrow{fill:none;stroke:#475569;stroke-width:3;marker-end:url(#arrow)}.dash{fill:none;stroke:#64748b;stroke-width:2;stroke-dasharray:7 6}
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+  </defs>
+  <rect width="1080" height="500" fill="#ffffff"/>
+  <text x="540" y="42" text-anchor="middle" class="title">RNN 用共享参数逐步更新记忆</text>
+
+  <g transform="translate(84,175)">
+    <rect x="0" y="0" width="130" height="86" rx="14" class="cell"/>
+    <text x="65" y="35" text-anchor="middle" class="head">RNN 单元</text><text x="65" y="61" text-anchor="middle" class="small">共享参数 θ</text>
+    <rect x="20" y="150" width="90" height="48" rx="10" class="input"/><text x="65" y="180" text-anchor="middle" class="text">x₁</text>
+    <rect x="20" y="-90" width="90" height="48" rx="10" class="output"/><text x="65" y="-60" text-anchor="middle" class="text">h₁</text>
+    <path d="M65 150V98" class="arrow"/><path d="M65 0V-38" class="arrow"/>
+  </g>
+  <g transform="translate(334,175)">
+    <rect x="0" y="0" width="130" height="86" rx="14" class="cell"/>
+    <text x="65" y="35" text-anchor="middle" class="head">RNN 单元</text><text x="65" y="61" text-anchor="middle" class="small">共享参数 θ</text>
+    <rect x="20" y="150" width="90" height="48" rx="10" class="input"/><text x="65" y="180" text-anchor="middle" class="text">x₂</text>
+    <rect x="20" y="-90" width="90" height="48" rx="10" class="output"/><text x="65" y="-60" text-anchor="middle" class="text">h₂</text>
+    <path d="M65 150V98" class="arrow"/><path d="M65 0V-38" class="arrow"/>
+  </g>
+  <g transform="translate(584,175)">
+    <rect x="0" y="0" width="130" height="86" rx="14" class="cell"/>
+    <text x="65" y="35" text-anchor="middle" class="head">RNN 单元</text><text x="65" y="61" text-anchor="middle" class="small">共享参数 θ</text>
+    <rect x="20" y="150" width="90" height="48" rx="10" class="input"/><text x="65" y="180" text-anchor="middle" class="text">x₃</text>
+    <rect x="20" y="-90" width="90" height="48" rx="10" class="output"/><text x="65" y="-60" text-anchor="middle" class="text">h₃</text>
+    <path d="M65 150V98" class="arrow"/><path d="M65 0V-38" class="arrow"/>
+  </g>
+  <g transform="translate(834,175)">
+    <rect x="0" y="0" width="130" height="86" rx="14" class="cell"/>
+    <text x="65" y="35" text-anchor="middle" class="head">RNN 单元</text><text x="65" y="61" text-anchor="middle" class="small">共享参数 θ</text>
+    <rect x="20" y="150" width="90" height="48" rx="10" class="input"/><text x="65" y="180" text-anchor="middle" class="text">xₜ</text>
+    <rect x="20" y="-90" width="90" height="48" rx="10" class="final"/><text x="65" y="-60" text-anchor="middle" class="text">hₜ</text>
+    <path d="M65 150V98" class="arrow"/><path d="M65 0V-38" class="arrow"/>
+  </g>
+
+  <path d="M214 218H326" class="arrow"/><path d="M464 218H576" class="arrow"/><path d="M714 218H826" class="arrow"/>
+  <text x="270" y="205" text-anchor="middle" class="small">传递记忆</text><text x="520" y="205" text-anchor="middle" class="small">传递记忆</text><text x="770" y="205" text-anchor="middle" class="small">传递记忆</text>
+  <path d="M149 82H899" class="dash"/>
+  <text x="540" y="68" text-anchor="middle" class="small">完整记忆序列 H = [h₁, h₂, h₃, …, hₜ]</text>
+  <text x="540" y="455" text-anchor="middle" class="text">每一步读取当前输入 x，并把更新后的隐藏状态 h 交给下一时刻</text>
+</svg>

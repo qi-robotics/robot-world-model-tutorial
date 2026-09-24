@@ -6,7 +6,7 @@
 
 ## 对应章节
 
-- `docs/intermediate/attention.md`
+- `docs/intermediate/index.md`（第 09 章完成后再更新为对应页面）
 
 ## 输入 / 输出
 
