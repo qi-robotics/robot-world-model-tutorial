@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="650" viewBox="0 0 1120 650" role="img" aria-labelledby="title desc">
+<title id="title">Multi-Head Attention 的并行读取过程</title>
+<desc id="desc">同一组输入 token 被投影为不同注意力头各自的 Query、Key、Value；每个头独立计算 Attention，随后拼接并经输出投影融合。</desc>
+<defs><style>
+.title{font:700 25px sans-serif;fill:#172033}.head{font:700 18px sans-serif;fill:#1e293b}.text{font:16px sans-serif;fill:#334155}.small{font:14px sans-serif;fill:#64748b}.input{fill:#f8fafc;stroke:#64748b;stroke-width:2}.projection{fill:#fff7ed;stroke:#ea580c;stroke-width:2}.attention{fill:#eff6ff;stroke:#2563eb;stroke-width:2.5}.merge{fill:#f5f3ff;stroke:#7c3aed;stroke-width:2.5}.output{fill:#ecfdf5;stroke:#16a34a;stroke-width:2}.arrow{fill:none;stroke:#475569;stroke-width:2.5;marker-end:url(#arrow)}.bus{fill:none;stroke:#94a3b8;stroke-width:2}
+</style><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0L0 6L9 3z" fill="#475569"/></marker></defs>
+<rect width="1120" height="650" fill="#fff"/><text x="560" y="42" text-anchor="middle" class="title">同一组 token，多个独立的读取子空间</text>
+<rect x="430" y="76" width="260" height="62" rx="12" class="input"/><text x="560" y="103" text-anchor="middle" class="head">输入序列 X</text><text x="560" y="126" text-anchor="middle" class="small">视觉、语言、触觉或历史状态 token</text>
+<path d="M560 138V160H225M560 160H895" class="bus"/><path d="M225 160V190M560 160V190M895 160V190" class="arrow"/>
+<rect x="105" y="190" width="240" height="95" rx="14" class="projection"/><text x="225" y="222" text-anchor="middle" class="head">注意力头 1 的投影</text><text x="225" y="250" text-anchor="middle" class="text">Q₁=XWQ₁ · K₁=XWK₁</text><text x="225" y="273" text-anchor="middle" class="text">V₁=XWV₁</text>
+<rect x="440" y="190" width="240" height="95" rx="14" class="projection"/><text x="560" y="222" text-anchor="middle" class="head">注意力头 2 的投影</text><text x="560" y="250" text-anchor="middle" class="text">Q₂=XWQ₂ · K₂=XWK₂</text><text x="560" y="273" text-anchor="middle" class="text">V₂=XWV₂</text>
+<rect x="775" y="190" width="240" height="95" rx="14" class="projection"/><text x="895" y="222" text-anchor="middle" class="head">注意力头 H 的投影</text><text x="895" y="250" text-anchor="middle" class="text">QH=XWQH · KH=XWKH</text><text x="895" y="273" text-anchor="middle" class="text">VH=XWVH</text>
+<path d="M225 285V330M560 285V330M895 285V330" class="arrow"/>
+<rect x="125" y="330" width="200" height="82" rx="14" class="attention"/><text x="225" y="363" text-anchor="middle" class="head">Attention₁</text><text x="225" y="390" text-anchor="middle" class="small">独立计算权重与读取结果</text>
+<rect x="460" y="330" width="200" height="82" rx="14" class="attention"/><text x="560" y="363" text-anchor="middle" class="head">Attention₂</text><text x="560" y="390" text-anchor="middle" class="small">独立计算权重与读取结果</text>
+<rect x="795" y="330" width="200" height="82" rx="14" class="attention"/><text x="895" y="363" text-anchor="middle" class="head">AttentionH</text><text x="895" y="390" text-anchor="middle" class="small">独立计算权重与读取结果</text>
+<path d="M225 412V445H425V470M560 412V470M895 412V445H695V470" class="arrow"/>
+<rect x="365" y="470" width="390" height="68" rx="14" class="merge"/><text x="560" y="500" text-anchor="middle" class="head">Concat：拼接各头输出</text><text x="560" y="524" text-anchor="middle" class="small">保留不同子空间提供的读取结果</text>
+<path d="M560 538V565" class="arrow"/>
+<rect x="450" y="565" width="220" height="52" rx="12" class="output"/><text x="560" y="598" text-anchor="middle" class="head">输出投影 WO 融合</text>
+<text x="560" y="642" text-anchor="middle" class="small">头是并行 Attention 计算分支，不是人工指定的语义标签。</text>
+</svg>

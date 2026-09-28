@@ -11,7 +11,7 @@
 - 区分 padding mask、causal mask 和模态有效性；
 - 解释 Self-Attention、Cross-Attention 和 Multi-Head Attention 的接口；
 - 说明为什么 Attention 仍然需要位置或时间信息；
-- 读懂一个 Pre-Norm Transformer Block 的数据流；
+- 读懂一个 Pre-Norm（前归一化）Transformer Block（模块）的数据流；
 - 区分 Transformer Encoder、因果 Decoder 和 Encoder–Decoder；
 - 说明 Attention 权重为什么不能直接等同于因果解释；
 - 把 Transformer 的输出连接到下一章的多模态 Context Model。
@@ -30,7 +30,19 @@ $$
 
 ## 2. Query、Key 和 Value
 
-设当前查询为 $q$，历史中第 $i$ 个位置的匹配标识为 $k_i$，实际内容为 $v_i$。模型先计算查询与所有 Key 的相似度，再把相似度转成权重，最后对 Value 加权求和：
+先把一个具体问题说清楚。假设机器人正在判断是否闭合夹爪。此时的 Query 不是“正确动作”这个监督标签，也不是原样输入的一句中文，而是模型当前用于发起读取的数值表示。它可以来自当前决策 token，也可以来自融合了当前视觉、本体和触觉信息的隐藏表示。换成 Self-Attention 时，每个历史 token 都会各自形成 Query；换成 Cross-Attention 时，Query 可以来自动作/任务侧，而 Key 和 Value 来自观测历史。
+
+这些对象在计算时全是数字。语言指令会先被分成一个或多个 token ID，再通过 embedding 表查到向量；token ID 本身只是离散索引，embedding 表中的向量参数也会在训练中根据任务损失更新。“是否应该闭合夹爪”这句话通常不会天然等于一个 token 或一个固定向量。图像由视觉编码器变成 patch 特征，关节和触觉也会经归一化、线性投影或专用编码器变成向量。随后可加上模态、相机和时间位置表示，再把每个向量作为一个 token 表示。基础篇第 03—07 章介绍的视觉、语言、本体和触觉接口，正是这些数值表示的来源。
+
+例如，令当前决策表示为 $x_q$，第 $i$ 个历史 token 为 $x_i$。模型分别用可学习的投影矩阵把它们变成 Query、Key 和 Value：
+
+$$
+q=x_qW_Q,\qquad k_i=x_iW_K,\qquad v_i=x_iW_V.
+$$
+
+$W_Q$、$W_K$、$W_V$ 是模型参数，不是人工编写的匹配表。训练开始时它们由初始化规则给出初值；模型根据预测与目标之间的损失，通过反向传播得到梯度，再由优化器逐步更新这些矩阵。训练数据通常不会直接告诉模型“这个头的 Key 应代表接触”，而是通过最终任务误差间接塑造有用的投影。换句话说，监督标签参与训练，但它不是 Query；Query/Key/Value 的具体匹配方式是模型从训练中学出的。
+
+有了这些向量后，模型先计算 Query 与每个 Key 的相似度，再把分数变成相对读取权重，最后对对应 Value 加权求和：
 
 $$
 s_i=q^\top k_i,
@@ -51,7 +63,7 @@ $$
   <figcaption>图 09-1　当前查询与各历史位置的 Key 计算相似度，Softmax 得到读取权重，再对相应 Value 加权。查询变化时，被读取的历史也会变化。（本教程绘制）</figcaption>
 </figure>
 
-在机器人任务中，Query 可以表示“当前是否应该闭合夹爪”，Key 可以编码每个历史时刻发生了什么，Value 则携带对应的视觉、本体或触觉内容。需要注意，这只是接口含义，不意味着模型会自动学成人类命名的规则；它仍需要通过训练目标学习哪些匹配有用。
+这里的自然语言说法只是帮助理解任务意图。实际模型看到的是 $q$、$k_i$、$v_i$ 等向量及其运算，不会在计算图里读取“接触”这个汉字，也不保证某个向量维度就能被解释为“夹爪应该闭合”。
 
 ## 3. 缩放点积 Attention
 
@@ -71,6 +83,8 @@ V\in\mathbb R^{B\times N_k\times d_v},
 $$
 
 则注意力权重形状是 $[B,N_q,N_k]$，输出形状是 $[B,N_q,d_v]$。每个 Query 都会得到一行对全部 Key 的权重。
+
+公式中的 $\alpha$ 就是注意力权重：它由当前输入的 Query-Key 分数经过 Softmax 即时计算得到，不是另存的一组可训练参数，也不是监督标签。权重会随输入、层和注意力头改变；第 10 节讨论的正是怎样把这些中间读取比例用于调试，以及它们不能证明什么。
 
 点积会随 $d_k$ 增大而产生更大波动。如果直接送入 Softmax，权重容易过早接近 0 或 1，使梯度集中在少数位置。除以 $\sqrt{d_k}$ 可以让相似度尺度更稳定。Softmax 不是在判断某个位置“绝对正确”，而是在当前可读取位置之间分配相对权重。
 
@@ -117,7 +131,7 @@ Self-Attention 和 Cross-Attention 不是互斥架构。一套 Context Model 可
 
 ## 6. Multi-Head Attention 为什么需要多个头
 
-单个注意力头只形成一套相似度和加权读取。Multi-Head Attention 把模型维度投影成多组较小的 Query、Key 和 Value，让不同头并行读取：
+“头”（head）不是一个机器人部件，也不是完整网络层，而是一条独立的注意力计算分支。单头先用自己的一组投影矩阵形成 $Q$、$K$、$V$，再计算一张权重表并输出一组读取结果；它只能在自己这一套投影空间中匹配和汇总信息。Multi-Head Attention 则把同一批输入分别送入多组彼此独立的投影，让多个分支并行完成读取：
 
 $$
 \operatorname{head}_j=\operatorname{Attention}(QW_Q^{(j)},KW_K^{(j)},VW_V^{(j)}),
@@ -128,6 +142,13 @@ $$
 $$
 
 在同一个机器人片段中，一个头可能更关注接触变化，另一个头可能更关注语言目标与视觉对象的对应，还有一个头可能跟踪动作与本体变化。但这种解释必须经过实验验证，不能只凭一张权重图给每个头命名。不同头也可能学习相似模式，甚至有些头对最终输出贡献很小。
+
+下面的图把“多个头”画成并行分支：每个分支都接收同一组 token，但拥有自己的 $W_Q^{(j)}$、$W_K^{(j)}$、$W_V^{(j)}$，因此可以产生不同的注意力权重和输出。各头的结果先拼接，再由 $W_O$ 投影回模型维度。分支编号只是结构编号，图中没有预先规定“头 1 必须看接触、头 2 必须看语言”；这些分工若存在，是训练形成的，必须用实验检查。
+
+<figure markdown="span">
+  ![多头注意力的并行计算分支](../assets/images/intermediate/09/09-03-multi-head-attention.svg){ width="1080" loading=lazy }
+  <figcaption>图 09-3　每个注意力头使用独立投影并各自完成一次读取，拼接后再映射回模型维度。（本教程绘制）</figcaption>
+</figure>
 
 多头并不会降低注意力矩阵的主要长度开销。对于长度为 $N$ 的 Self-Attention，权重矩阵规模仍随 $N^2$ 增长。多相机、高分辨率视觉 token 和长历史组合时，序列长度会很快成为内存与实时推理瓶颈。
 
@@ -145,9 +166,22 @@ $p_t$ 可以是固定正弦编码，也可以是可学习向量。图像 token �
 
 位置编码并不能自动保证因果性。一个带时间位置的 token 仍然可以通过全连接注意力读取未来，因果任务仍需 causal mask。
 
-## 8. 从 Attention 到 Transformer Block
+## 8. Transformer 怎样把 Attention 组成完整网络
 
-一次 Attention 只是按权重混合信息。完整 Transformer Block 还需要前馈网络、残差连接和归一化。常见 Pre-Norm 结构写成
+先看原论文中的经典架构。图左是 Encoder（编码器）堆栈，图右是 Decoder（解码器）堆栈；两侧都重复 $N$ 个层。该图来自机器翻译的 Encoder–Decoder Transformer，不代表所有现代 Transformer 都必须同时有左右两部分。
+
+<figure markdown="span">
+  ![Vaswani 等人原论文中的 Transformer 架构图](../assets/images/intermediate/09/09-04-original-transformer-figure1.png){ width="640" loading=lazy }
+  <figcaption>图 09-4　Transformer 原始 Encoder–Decoder 架构，转载自 Vaswani 等人（2017）《Attention Is All You Need》图 1；<a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener noreferrer">论文与原图来源</a>。</figcaption>
+</figure>
+
+读图时从底部沿箭头向上。左侧把输入 token 变成 Embedding（嵌入向量），与 Positional Encoding（位置编码）相加后进入 Encoder。每个 Encoder 层先做 Multi-Head Self-Attention，让输入序列各位置交换信息；再经过 Add & Norm（残差相加与归一化）；接着用 Feed Forward（前馈网络）逐位置变换特征，再做一次 Add & Norm。图中的 $N\times$ 表示重复堆叠多层，原论文实验采用 $N=6$。
+
+右侧 Decoder 的底部输入是右移一位的目标序列（Outputs shifted right），并加入位置编码。它先经过 Masked Multi-Head Attention，因果 mask 阻止当前位置读取未来目标；然后通过第二个 Attention 子层读取左侧 Encoder 的输出：Decoder 当前表示作为 Query，Encoder 输出作为 Key 和 Value，这就是 Cross-Attention；随后再经过逐位置前馈网络。最上面的 Linear（线性层）和 Softmax 把每个位置映射为下一个目标 token 的概率。这个结构解释了为什么 Decoder 同时需要“读自己的过去”和“读输入序列”。
+
+原图中的 Add & Norm 方框位于各个子层输出之后，画的是 Post-Norm（后归一化）次序。今天常用实现也可能采用 Pre-Norm（前归一化）；下方公式和图 09-5 展示的是 Pre-Norm，二者的主要区别是 LayerNorm（层归一化）位于子层计算之前还是残差相加之后，并不是箭头方向不同。
+
+一次 Attention 只按权重混合信息。完整 Transformer Block 还需使用残差连接保留输入，并用前馈网络更新每个 token 自身的特征。以 Pre-Norm 为例，设输入为 $X\in\mathbb R^{B\times T\times d_{model}}$，其数据流可分为两步：
 
 $$
 X'=X+\operatorname{MHA}(\operatorname{LN}(X)),
@@ -157,14 +191,16 @@ $$
 Y=X'+\operatorname{MLP}(\operatorname{LN}(X')).
 $$
 
-LayerNorm 稳定每个 token 的特征尺度；残差连接让新计算是在旧表示基础上补充信息，也为深层网络提供更直接的梯度路径；MLP 对每个 token 独立进行非线性特征变换。多个 Block 层叠后，信息可以反复在 token 之间传播，再在每个位置内部更新。
+第一步先对每个 token 做 LayerNorm，再用 Multi-Head Attention 让位置之间交换信息，最后把这项新信息加回原始 $X$ 得到 $X'$。第二步归一化 $X'$，送入逐 token 的 MLP，再加回 $X'$ 得到输出 $Y$。MLP 通常是“升维线性层—非线性激活（如 ReLU 或 GELU）—降维线性层”；它在每个位置分别计算，但所有位置共享同一组 MLP 参数。Attention 负责 token 之间的信息交换，MLP 负责每个 token 内部的非线性特征变换。
+
+LayerNorm 使 token 的特征尺度更稳定；残差路径把子层输入直接送到加法节点，使每个子层可以学习“在已有表示上增加什么”，而不是每层都从头重写表示。图中的虚线是残差支路，实线是经过归一化和子层计算的支路；两个方形加法框接收两条输入，箭头都明确终止在框边。
 
 <figure markdown="span">
-  ![Pre-Norm Transformer Block](../assets/images/intermediate/09/09-03-transformer-block.svg){ width="820" loading=lazy }
-  <figcaption>图 09-3　Pre-Norm Transformer Block 由归一化、Multi-Head Attention、残差、逐 token MLP 和第二条残差组成。Attention 负责位置之间的信息交换，MLP 负责位置内部的非线性变换。（本教程绘制）</figcaption>
+  ![Pre-Norm Transformer Block 数据流](../assets/images/intermediate/09/09-05-pre-norm-transformer-block.svg){ width="840" loading=lazy }
+  <figcaption>图 09-5　虚线分别把原始 $X$ 和中间结果 $X'$ 送到两个残差加法节点；与 Attention、MLP 子层的计算结果相加后，依次得到 $X'$ 和 $Y$。（本教程绘制）</figcaption>
 </figure>
 
-Pre-Norm 与 Post-Norm 的差别在于 LayerNorm 放在子层之前还是残差相加之后。二者都能工作，但深层训练稳定性与初始化行为不同。本教程后续默认使用 Pre-Norm，并在出现其他结构时明确标注。
+因此，Pre-Norm（前归一化）可以概括为“LayerNorm → 子层 → 与原输入相加”；Post-Norm（后归一化）则是“子层 → 与原输入相加 → LayerNorm”。原论文采用后者，许多较深的后续模型采用前者以改善优化稳定性。本教程后续默认采用 Pre-Norm，遇到 Post-Norm 会明确标注；两者不能仅凭图中都有 Add & Norm 就当成同一顺序。
 
 ## 9. Encoder、因果 Decoder 与 Encoder–Decoder
 
@@ -174,11 +210,13 @@ Encoder–Decoder 结构先用 Encoder 表示输入，再让 Decoder 通过 Cros
 
 “Encoder”不表示没有时间，“Decoder”也不必生成自然语言。决定模型含义的是输入、mask、训练目标和输出接口。第 11 章讨论自回归动作时会再次使用因果 Decoder。
 
-## 10. Attention 权重能说明什么
+## 10. Attention 权重：读取过程的可观察量
 
-注意力权重可以显示某个 Query 在当前层从哪些 Value 读取了较多信息，是很有用的调试工具。例如，padding 位置获得高权重通常说明 mask 有误，语言查询始终只看背景则提示视觉对应可能没有学好。
+第 3 节已经定义了权重 $\alpha_{ij}$：对第 $i$ 个 Query，它表示当前层在归一化后分给第 $j$ 个 Key/Value 位置的比例；所有可读取位置的权重之和为 1。权重是由当前 Query 与 Keys 动态算出的中间结果，不是独立训练参数。把这些数画成热图，就能观察信息读取大致流向哪里，因此它是调试工具，而不是额外的模型输出目标。
 
-但权重不等于因果解释。后续层、残差路径和 MLP 都会继续改变表示；一个位置权重较高，不代表改变它一定最影响最终动作；多个 Value 也可能携带重复信息。更可靠的检查还应包括遮挡或删除输入、打乱历史、替换模态、比较输出变化和闭环任务评测。
+例如，若 padding 位置获得非零权重，通常说明 mask 没有正确作用；若任务 Query 长期只读取背景 token，则可能提示视觉对齐或训练目标存在问题。解释热图时要同时看 Query 属于哪个 token、Key/Value 对应哪一时刻/模态、当前 mask 允许读取哪些位置，以及展示的是哪一层、哪一个头。
+
+但权重不等于因果解释。高权重只表示这次计算分配了较大读取比例，并不说明这个位置是最终动作的唯一依据，也不说明删除它必然造成最大变化。后续层、残差路径和 MLP 会继续处理表示，多个 Value 还可能提供重复信息。更可靠的检查是遮挡/删除输入、打乱历史、替换模态，再比较模型输出和闭环任务表现；也可以做权重干预，但应与输入干预区分。
 
 ## 11. 计算成本与机器人实时性
 

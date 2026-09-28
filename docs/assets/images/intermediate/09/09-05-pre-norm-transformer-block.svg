@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="820" viewBox="0 0 840 820" role="img" aria-labelledby="title desc">
+<title id="title">Pre-Norm Transformer Block 的残差数据流</title>
+<desc id="desc">输入分支先经过 LayerNorm 和多头注意力，再与未变换的输入相加；随后经过 LayerNorm 和逐 token 前馈网络，再与第一阶段输出相加。</desc>
+<defs><style>
+.title{font:700 24px sans-serif;fill:#172033}.head{font:700 17px sans-serif;fill:#1e293b}.text{font:15px sans-serif;fill:#334155}.small{font:13px sans-serif;fill:#64748b}.input{fill:#f8fafc;stroke:#64748b;stroke-width:2}.norm{fill:#fff7ed;stroke:#ea580c;stroke-width:2}.attention{fill:#eff6ff;stroke:#2563eb;stroke-width:2.5}.mlp{fill:#f5f3ff;stroke:#7c3aed;stroke-width:2.5}.add{fill:#ecfdf5;stroke:#16a34a;stroke-width:2}.arrow{fill:none;stroke:#475569;stroke-width:2.5;marker-end:url(#arrow)}.skip{fill:none;stroke:#ea580c;stroke-width:2.5;stroke-dasharray:8 6;marker-end:url(#skip)}
+</style><marker id="arrow" markerWidth="10" markerHeight="6" refX="9" refY="3" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L0 6L9 3z" fill="#475569"/></marker><marker id="skip" markerWidth="10" markerHeight="6" refX="9" refY="3" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L0 6L9 3z" fill="#ea580c"/></marker></defs>
+<rect width="840" height="820" fill="#fff"/><text x="420" y="39" text-anchor="middle" class="title">Pre-Norm：先归一化，再做子层计算</text>
+<g transform="translate(0 65)">
+<rect x="315" y="680" width="210" height="54" rx="12" class="input"/><text x="420" y="713" text-anchor="middle" class="head">输入 token X</text>
+<rect x="325" y="570" width="190" height="54" rx="12" class="norm"/><text x="420" y="603" text-anchor="middle" class="head">LayerNorm(X)</text>
+<rect x="285" y="455" width="270" height="70" rx="14" class="attention"/><text x="420" y="484" text-anchor="middle" class="head">Multi-Head Attention</text><text x="420" y="508" text-anchor="middle" class="small">不同 token 之间交换信息</text>
+<rect x="335" y="350" width="170" height="60" rx="12" class="add"/><text x="420" y="386" text-anchor="middle" class="head">＋ 残差相加</text>
+<rect x="325" y="255" width="190" height="54" rx="12" class="norm"/><text x="420" y="288" text-anchor="middle" class="head">LayerNorm(X′)</text>
+<rect x="285" y="140" width="270" height="70" rx="14" class="mlp"/><text x="420" y="169" text-anchor="middle" class="head">逐 token MLP</text><text x="420" y="193" text-anchor="middle" class="small">每个位置分别作非线性特征变换</text>
+<rect x="335" y="48" width="170" height="60" rx="12" class="add"/><text x="420" y="84" text-anchor="middle" class="head">＋ 残差相加</text>
+<path d="M420 680V624M420 570V525M420 455V410M420 350V309M420 255V210M420 140V108" class="arrow"/>
+<rect x="335" y="3" width="170" height="38" rx="10" class="input"/><text x="420" y="28" text-anchor="middle" class="text">输出 Y</text><path d="M420 48V41" class="arrow"/>
+<path d="M315 707H145V380H335" class="skip"/><text x="128" y="554" text-anchor="middle" class="small">保留原始 X</text>
+<path d="M505 380H680V78H505" class="skip"/><text x="700" y="258" text-anchor="middle" class="small">保留 X′</text>
+<text x="605" y="475" class="text">Attention 子层</text><text x="605" y="495" class="small">从其他位置读取信息</text><text x="605" y="160" class="text">MLP 子层</text><text x="605" y="181" class="small">更新各位置自身表示</text>
+</g>
+</svg>
