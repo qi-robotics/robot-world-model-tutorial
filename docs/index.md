@@ -2,7 +2,7 @@
 
 <p class="home-kicker">Robot World Model Tutorial</p>
 
-# 从编码到行动
+# 机器人世界模型教程
 
 <p class="home-subtitle">机器人世界模型渐进式教程</p>
 
@@ -189,7 +189,7 @@ flowchart LR
 
 ```bibtex
 @misc{robot_world_model_tutorial,
-  title        = {从编码到行动：机器人世界模型渐进式教程},
+  title        = {机器人世界模型教程：从编码到行动},
   author       = {{TODO}},
   year         = {2026},
   howpublished = {\url{https://qi-robotics.github.io/robot-world-model-tutorial/}},

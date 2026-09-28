@@ -7,7 +7,7 @@ export PYTHONPATH :=
 .PHONY: help setup serve build check
 
 help:
-	@echo "从编码到行动 · 常用命令"
+	@echo "机器人世界模型教程 · 常用命令"
 	@echo "  make setup  创建虚拟环境并安装依赖"
 	@echo "  make serve  启动本地实时预览"
 	@echo "  make build  构建静态网站"

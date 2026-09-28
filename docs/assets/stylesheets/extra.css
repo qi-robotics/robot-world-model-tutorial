@@ -81,6 +81,15 @@
   font-weight: 650;
 }
 
+/* 当前页标题由自定义页眉显示；主题默认会在滚动激活标题状态时将其淡出。 */
+.md-header__title--active .md-header__topic {
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+  transition: none;
+  z-index: 0;
+}
+
 /* 让纵向 PNG 标志在导航栏中保持完整比例，并把原图白底处理成有意的徽标底板。 */
 .md-header__button.md-logo {
   display: inline-flex;
