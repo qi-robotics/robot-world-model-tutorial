@@ -146,20 +146,21 @@ nav:
           - 13 生成式 Action Model: intermediate/13-generative-action-model.md
   - 高级篇:
       - 高级篇概览: advanced/index.md
-      - 单元一 · 语言驱动行动:
-          - 28 视觉语言模型: advanced/vlm.md
-          - 29 Visual Grounding: advanced/visual-grounding.md
-          - 30 视觉语言动作: advanced/vla.md
-      - 单元二 · 通用机器人:
-          - 33 泛化与迁移: advanced/generalization.md
-      - 单元三 · 世界模型:
-          - 35 世界模型: advanced/world-model.md
-          - 36.1 RSSM 与 Dreamer: advanced/rssm-and-dreamer.md
-          - 36.2 V-JEPA: advanced/v-jepa.md
-          - 37 VLA-JEPA: advanced/vla-jepa.md
-      - 单元四 · 真实机器人:
-          - 43 Sim-to-Real: advanced/sim-to-real.md
-          - 45 安全与恢复: advanced/safety-and-recovery.md
+      - 单元一 · 世界预测与决策:
+          - 14 动作条件世界模型: advanced/14-action-conditioned-world-model.md
+          - 15 视觉世界模型: advanced/15-visual-world-models.md
+          - 16 世界模型与规划: advanced/16-world-model-planning.md
+          - 17 Dreamer 4 与想象训练: advanced/17-dreamer4-imagination-training.md
+      - 后续资料 · 旧版草案待整合:
+          - 视觉语言模型: advanced/vlm.md
+          - 语言与场景对应: advanced/visual-grounding.md
+          - 视觉语言动作模型: advanced/vla.md
+          - 泛化与迁移: advanced/generalization.md
+          - 世界模型旧版提纲: advanced/world-model.md
+          - V-JEPA: advanced/v-jepa.md
+          - VLA-JEPA: advanced/vla-jepa.md
+          - Sim-to-Real: advanced/sim-to-real.md
+          - 安全与恢复: advanced/safety-and-recovery.md
   - 实践项目:
       - projects/index.md
       - 表征学习小项目: projects/representation-learning.md

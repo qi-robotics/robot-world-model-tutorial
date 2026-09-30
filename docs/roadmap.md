@@ -66,28 +66,20 @@ flowchart TB
 
 对应能力：构建 Context，生成候选动作，并连接动作约束检查、滚动执行和实时动作块衔接。执行前怎样预测动作后果，将在高级篇继续讨论。
 
-### 高级篇：机器人如何为了目标行动
+### 高级篇：从预测世界到自主行动
 
 核心问题：
 
-> 机器人如何理解语言任务、生成动作、预测后果并闭环执行？
+> 怎样从真实交互中学习预测，再用预测选择动作或训练策略？
 
-建议顺序：
+单元一按连续编号阅读：
 
-1. [视觉语言模型](advanced/vlm.md)
-2. [Visual Grounding](advanced/visual-grounding.md)
-3. [视觉语言动作模型](advanced/vla.md)
-4. [动作表示](advanced/action-representation.md)
-5. [世界模型](advanced/world-model.md)
-6. [RSSM 与 Dreamer](advanced/rssm-and-dreamer.md)
-7. [V-JEPA](advanced/v-jepa.md)
-8. [VLA-JEPA](advanced/vla-jepa.md)
-9. [规划与策略](advanced/planning-and-policy.md)
-10. [泛化](advanced/generalization.md)
-11. [Sim-to-Real](advanced/sim-to-real.md)
-12. [安全与失败恢复](advanced/safety-and-recovery.md)
+1. [14 从交互数据训练动作条件世界模型](advanced/14-action-conditioned-world-model.md)
+2. [15 视觉世界模型：预测图像，还是预测表征？](advanced/15-visual-world-models.md)
+3. [16 用世界模型选择动作：目标、搜索与滚动规划](advanced/16-world-model-planning.md)
+4. [17 Dreamer 4：在生成的世界中学习策略](advanced/17-dreamer4-imagination-training.md)
 
-对应能力：语言定义目标，生成动作，预测后果，选择动作，闭环纠错。
+前两章学习预测；后两章分别讨论行动时搜索和训练时改进策略。单元二第 18—21 章仍在规划，参见[高级篇概览](advanced/index.md#unit-two)。旧版草案不是当前正式章节。
 
 ## 实践如何插入
 
@@ -103,9 +95,9 @@ flowchart TB
 
 ## 阅读建议
 
-- 如果只想先建立全局图景：先读本页和三篇阶段总览，再进入 [世界模型](advanced/world-model.md)。
+- 如果只想先建立全局图景：先读本页和三篇阶段总览，再进入 [第 14 章](advanced/14-action-conditioned-world-model.md)。
 - 如果从零开始：按基础篇顺序读，遇到公式可并行查阅 [数学基础](appendices/math-foundations.md) 与 [PyTorch 基础](appendices/pytorch-foundations.md)。
-- 如果已经熟悉 Transformer：仍建议从第 10 章的多模态 Context Model 切入，并回看第 04 章中的表征坍缩问题；该页面完成前可先进入 [VLM](advanced/vlm.md)。
+- 如果已经熟悉 Transformer：仍建议从第 10 章的多模态 Context Model 切入，并回看第 04 章中的表征坍缩问题。
 - 每一章末尾的“下一章”不是目录跳转，而是留下一个旧方法无法回答的问题。
 
 ## 当前进度
@@ -113,4 +105,5 @@ flowchart TB
 - 基础篇结构：已调整为两个单元、七个章节
 - 已完成正文：第 01～07 章；15 份基础篇配套 Notebook 均已实现，并完成页面入口、图文说明与运行检查
 - 进阶篇：保留第 08～13 章两个单元及 12 份配套 Notebook，覆盖 Context、生成式 Action Model 与滚动执行；世界模型与规划转入高级篇规划
-- 项目代码：基础篇轻量实践已建立，进阶篇项目待后续实现
+- 高级篇：第 14—17 章第一版、11 张图和 4 份轻量 Notebook 已实现；官方大型模型训练未做完整复现
+- 项目代码：基础篇、进阶篇及高级篇单元一均有轻量教学实践，综合系统留待后续单元

@@ -2,6 +2,12 @@
 
 本目录存放教程的可运行 Notebook。在线学习时可以从课程网站跳转到 Google Colab；作者在推送到 GitHub 前，也可以使用独立的本地环境检查显示效果。
 
+## 高级篇单元一检查
+
+第 14—17 章第一版各有一份 Notebook，位于 `colab/advanced/14/` 至 `colab/advanced/17/`。它们只使用本地生成的教学数据，不下载大模型。第 14 章实际训练小型神经网络，其余三份分别演示视觉评价、规划反馈与想象训练信号；不是官方大型模型的完整复现。
+
+本地依赖准备完成后，可运行 `.venv-colab/bin/python scripts/check_advanced_unit_one.py`，自动检查逐行中文注释、输出解释并执行四份 Notebook。执行结果和图像保存到打印出的临时目录，不覆盖源笔记本。新增文件必须先推送到 GitHub 的对应分支，网页上的 Colab 链接才能读取到它们。
+
 ## 本地环境
 
 不要使用文档网站的 `.venv` 运行 Notebook。根目录 `.venv` 只负责 MkDocs；`.venv-colab` 会根据 `colab/requirements.txt` 安装 JupyterLab、NumPy、Matplotlib 和 CPU 版 PyTorch。

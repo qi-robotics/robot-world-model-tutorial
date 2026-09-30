@@ -1,6 +1,6 @@
 # 参考文献
 
-本页按主题预留文献槽位。当前不填写具体论文条目，避免在框架阶段放入未核对或过时的引用。
+本页按主题收录已经核对的原始论文与官方项目。未完成主题继续保留待补条目，不将其视为已写课程。
 
 填写时请同时给出：
 
@@ -32,9 +32,11 @@
 
 ## 世界模型与预测式架构
 
-- TODO：RSSM、Dreamer 与 world model
-- TODO：视频预测与 latent dynamics
-- TODO：V-JEPA、VLA-JEPA
+- Gaoyue Zhou, Hengkai Pan, Yann LeCun, Lerrel Pinto. [DINO-WM: World Models on Pre-trained Visual Features enable Zero-shot Planning](https://arxiv.org/abs/2411.04983), 2024。对应第 15—16 章；关注固定视觉特征、动作条件预测与目标图像规划之间的数据流。
+- Lucas Maes, Quentin Le Lidec, Damien Scieur, Yann LeCun, Randall Balestriero. [LeWorldModel: Stable End-to-End Joint-Embedding Predictive Architecture from Pixels](https://le-wm.github.io/), 2026。对应第 15 章；区分未来特征监督与防止坍缩的分布约束。
+- Danijar Hafner, Wilson Yan, Timothy Lillicrap. [Training Agents Inside of Scalable World Models](https://arxiv.org/abs/2509.24527), 2025；[作者项目](https://danijar.com/project/dreamer4/)。对应第 17 章；关注 Dreamer 4 的因果视频编码、shortcut forcing、任务适配与想象中的策略改进，不用旧版 RSSM 替代其架构。
+- Meta. [V-JEPA 2 官方项目](https://ai.meta.com/research/vjepa/)。对应第 15 章延伸阅读；区分视频表征预训练与动作条件机器人适配。
+- Galilai Group. [stable-worldmodel 官方代码与说明](https://github.com/galilai-group/stable-worldmodel)。对应第 14—16 章项目阅读；固定版本后再核对数据、模型与规划器接口，不将其当作 Dreamer 4 官方实现。
 
 ## 规划、控制与机器人部署
 

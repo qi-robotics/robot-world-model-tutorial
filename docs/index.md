@@ -89,13 +89,13 @@ flowchart LR
 
 <p class="stage-label">Stage 03</p>
 
-### [高级篇：机器人如何为了目标行动](advanced/index.md)
+### [高级篇：从预测世界到自主行动](advanced/index.md)
 
-核心问题：机器人如何理解语言任务、生成动作、预测后果并闭环执行？
+核心问题：怎样学习动作后果，并用预测帮助选择动作或训练策略？
 
-- VLM、Grounding 与 VLA
-- World Model、V-JEPA、VLA-JEPA
-- 规划、泛化、sim-to-real 与安全
+- 第 14—15 章：动作条件预测与视觉世界模型
+- 第 16—17 章：CEM / MPC 与 Dreamer 4 想象训练
+- 后续单元规划：VLA 协同、泛化与系统执行
 
 [进入高级篇](advanced/index.md)
 
