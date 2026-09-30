@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="430" viewBox="0 0 1050 430" role="img" aria-label="执行两步后用真实观测重新规划">
+  <title>旧计划与重新规划</title>
+  <defs>
+    <marker id="arrow16" viewBox="0 0 9 9" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0 0 L9 4.5 L0 9 Z" fill="#516675"/>
+    </marker>
+  </defs>
+  <rect width="1050" height="430" fill="#ffffff"/>
+  <g font-family="Noto Sans CJK SC, Source Han Sans SC, Microsoft YaHei, sans-serif" fill="#243746">
+    <text x="35" y="36" font-size="22" font-weight="600">第一次规划：模型预测十步，只执行前两步</text>
+    <text x="35" y="229" font-size="22" font-weight="600">取得真实观测：从实际位置开始重新规划</text>
+    <text x="115" y="91" text-anchor="middle" font-size="17">真实起点</text>
+    <text x="115" y="116" text-anchor="middle" font-size="18">0.20 m</text>
+    <text x="430" y="91" text-anchor="middle" font-size="17">模型预计两步后</text>
+    <text x="430" y="116" text-anchor="middle" font-size="18">0.35 m</text>
+    <text x="900" y="91" text-anchor="middle" font-size="17">旧计划预计终点</text>
+    <text x="900" y="116" text-anchor="middle" font-size="18">0.52 m</text>
+    <text x="115" y="284" text-anchor="middle" font-size="17">相同真实起点</text>
+    <text x="115" y="309" text-anchor="middle" font-size="18">0.20 m</text>
+    <text x="430" y="276" text-anchor="middle" font-size="17">执行两步后的真实观测</text>
+    <text x="430" y="301" text-anchor="middle" font-size="20" font-weight="600">0.29 m</text>
+    <text x="900" y="276" text-anchor="middle" font-size="17">新计划预计终点</text>
+    <text x="900" y="301" text-anchor="middle" font-size="18">0.58 m</text>
+    <text x="272" y="63" text-anchor="middle" font-size="16">执行前两步</text>
+    <text x="665" y="63" text-anchor="middle" font-size="16">旧计划尚未执行的部分</text>
+    <text x="272" y="257" text-anchor="middle" font-size="16">真实执行结果</text>
+    <text x="665" y="257" text-anchor="middle" font-size="16">从 0.29 m 重新预测与选择</text>
+    <text x="430" y="395" text-anchor="middle" font-size="17" fill="#a15f2b">预测 0.35 m ≠ 实测 0.29 m</text>
+    <text x="708" y="395" text-anchor="middle" font-size="17" fill="#516675">旧计划右半段作废，新计划接管</text>
+  </g>
+  <g stroke="#516675" stroke-width="2" fill="none">
+    <path d="M135 145 H410" marker-end="url(#arrow16)"/>
+    <path d="M450 145 H880" marker-end="url(#arrow16)" stroke-dasharray="8 6"/>
+    <path d="M135 338 H410" marker-end="url(#arrow16)"/>
+    <path d="M450 338 H880" marker-end="url(#arrow16)"/>
+    <path d="M430 157 V245" stroke-dasharray="6 6"/>
+  </g>
+  <g stroke="#354955" stroke-width="1.5">
+    <circle cx="115" cy="145" r="13" fill="#497f99"/>
+    <circle cx="430" cy="145" r="13" fill="#d7e4e9"/>
+    <circle cx="900" cy="145" r="13" fill="#d7e4e9"/>
+    <circle cx="115" cy="338" r="13" fill="#497f99"/>
+    <circle cx="430" cy="338" r="15" fill="#b67d4c"/>
+    <circle cx="900" cy="338" r="13" fill="#6f9172"/>
+  </g>
+</svg>

@@ -36,8 +36,6 @@
 - Lucas Maes, Quentin Le Lidec, Damien Scieur, Yann LeCun, Randall Balestriero. [LeWorldModel: Stable End-to-End Joint-Embedding Predictive Architecture from Pixels](https://le-wm.github.io/), 2026。对应第 15 章；区分未来特征监督与防止坍缩的分布约束。
 - Danijar Hafner, Wilson Yan, Timothy Lillicrap. [Training Agents Inside of Scalable World Models](https://arxiv.org/abs/2509.24527), 2025；[作者项目](https://danijar.com/project/dreamer4/)。对应第 17 章；关注 Dreamer 4 的因果视频编码、shortcut forcing、任务适配与想象中的策略改进，不用旧版 RSSM 替代其架构。
 - Meta. [V-JEPA 2 官方项目](https://ai.meta.com/research/vjepa/)。对应第 15 章延伸阅读；区分视频表征预训练与动作条件机器人适配。
-- Galilai Group. [stable-worldmodel 官方代码与说明](https://github.com/galilai-group/stable-worldmodel)。对应第 14—16 章项目阅读；固定版本后再核对数据、模型与规划器接口，不将其当作 Dreamer 4 官方实现。
-
 ## 规划、控制与机器人部署
 
 - Richard Hartley, Andrew Zisserman. *Multiple View Geometry in Computer Vision*, 2nd ed., Cambridge University Press, 2004。对应第 04 章；重点核对投影矩阵、相机坐标和多视角几何的统一符号。

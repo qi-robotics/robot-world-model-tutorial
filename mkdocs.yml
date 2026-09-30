@@ -149,7 +149,7 @@ nav:
       - 单元一 · 世界预测与决策:
           - 14 动作条件世界模型: advanced/14-action-conditioned-world-model.md
           - 15 视觉世界模型: advanced/15-visual-world-models.md
-          - 16 世界模型与规划: advanced/16-world-model-planning.md
+          - 16 用世界模型选择动作: advanced/16-world-model-planning.md
           - 17 Dreamer 4 与想象训练: advanced/17-dreamer4-imagination-training.md
       - 后续资料 · 旧版草案待整合:
           - 视觉语言模型: advanced/vlm.md

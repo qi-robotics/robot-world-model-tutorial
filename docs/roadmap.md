@@ -76,7 +76,7 @@ flowchart TB
 
 1. [14 从交互数据训练动作条件世界模型](advanced/14-action-conditioned-world-model.md)
 2. [15 视觉世界模型：预测图像，还是预测表征？](advanced/15-visual-world-models.md)
-3. [16 用世界模型选择动作：目标、搜索与滚动规划](advanced/16-world-model-planning.md)
+3. [16 用世界模型选择动作：先看后果，再决定怎样做](advanced/16-world-model-planning.md)
 4. [17 Dreamer 4：在生成的世界中学习策略](advanced/17-dreamer4-imagination-training.md)
 
 前两章学习预测；后两章分别讨论行动时搜索和训练时改进策略。单元二第 18—21 章仍在规划，参见[高级篇概览](advanced/index.md#unit-two)。旧版草案不是当前正式章节。
