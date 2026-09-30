@@ -14,8 +14,7 @@
 
 ## 前置知识
 
-- [进阶篇的动作条件 World Model 规划](../intermediate/index.md)
-- [进阶篇的长程想象规划](../intermediate/index.md)
+- [高级篇概览](../advanced/index.md)（世界模型与多步预测的章节安排待新框架确定）
 - [世界模型](../advanced/world-model.md)
 
 ## 从上一章遗留的问题开始

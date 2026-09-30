@@ -73,13 +73,13 @@ flowchart LR
 
 <p class="stage-label">Stage 02</p>
 
-### [进阶篇：机器人怎样生成动作并预见变化](intermediate/index.md)
+### [进阶篇：机器人怎样构建上下文并生成动作](intermediate/index.md)
 
-核心问题：模型怎样构建 Context、生成动作序列，并预测动作可能造成的未来？
+核心问题：模型怎样构建 Context、生成动作序列，并根据持续更新的观测滚动执行？
 
 - Attention、Transformer 与 Context Model
 - 自回归、Diffusion、Flow Matching 与 Action Expert
-- World Model、候选未来与基于模型的控制
+- 动作接口、滚动执行与实时动作块衔接
 
 [进入进阶篇](intermediate/index.md)
 

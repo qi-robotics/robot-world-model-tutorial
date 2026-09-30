@@ -346,6 +346,6 @@ $$
 
 视觉、语言、三维目标、本体、触觉和动作现在都有了明确接口，但它们还没有自动组成一个能够长期决策的机器人模型。遮挡、运动趋势和任务阶段要求模型从历史中构建 Context；同一任务的多条合理轨迹要求 Action Expert 能够生成动作分布；机器人还需要 World Model 预测候选动作执行后的结果。
 
-进阶篇将沿着三个接口继续展开：Context Model 使用 Attention 与 Transformer 组织当前观测和历史，Action Expert 使用自回归、Diffusion 或 Flow Matching 生成动作序列，World Model 则在动作条件下预测未来变化。
+后续课程将沿着三个接口继续展开：进阶篇的 Context Model 使用 Attention 与 Transformer 组织当前观测和历史，Action Expert 使用自回归、Diffusion 或 Flow Matching 生成动作序列；高级篇再引入 World Model，在动作条件下预测未来变化。
 
 [进入进阶篇：机器人怎样生成动作并预见变化](../intermediate/index.md)

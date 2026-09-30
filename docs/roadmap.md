@@ -49,11 +49,11 @@ flowchart TB
 
 对应能力：把现实交互整理成训练数据，把视觉和语言转化为表征，再建立空间、本体、触觉与动作的统一接口。
 
-### 进阶篇：机器人怎样生成动作并预见变化
+### 进阶篇：机器人怎样构建上下文并生成动作
 
 核心问题：
 
-> 模型怎样从观测和历史中构建 Context，生成动作序列，并预测这些动作可能造成的未来？
+> 模型怎样从观测和历史中构建 Context，生成动作序列，并根据持续更新的观测滚动执行？
 
 建议顺序：
 
@@ -63,11 +63,8 @@ flowchart TB
 4. [11 从示范学习到动作序列：第一个 Action Model](intermediate/11-demonstrations-to-action-sequences.md)
 5. [12 Diffusion 与 Flow Matching：学习连续、多峰的动作分布](intermediate/12-diffusion-and-flow-matching.md)
 6. [13 生成式 Action Model：从候选动作到滚动执行](intermediate/13-generative-action-model.md)
-7. [14 动作条件 World Model：做了这个动作以后会怎样](intermediate/14-action-conditioned-world-model.md)
-8. [15 长程想象：潜状态、不确定性与误差累积](intermediate/15-long-horizon-imagination-and-uncertainty.md)
-9. [16 从候选未来到动作选择：目标评价、CEM 与 MPC](intermediate/16-objective-cem-and-mpc.md)
 
-对应能力：构建 Context，生成候选动作，预测动作后果，并开始利用候选未来进行控制。
+对应能力：构建 Context，生成候选动作，并连接动作约束检查、滚动执行和实时动作块衔接。执行前怎样预测动作后果，将在高级篇继续讨论。
 
 ### 高级篇：机器人如何为了目标行动
 
@@ -115,5 +112,5 @@ flowchart TB
 
 - 基础篇结构：已调整为两个单元、七个章节
 - 已完成正文：第 01～07 章；15 份基础篇配套 Notebook 均已实现，并完成页面入口、图文说明与运行检查
-- 进阶篇：第 08～16 章正文、图示与 18 份配套 Notebook 已完成，并已形成 Context—Action Model—World Model—MPC 的完整闭环
+- 进阶篇：保留第 08～13 章两个单元及 12 份配套 Notebook，覆盖 Context、生成式 Action Model 与滚动执行；世界模型与规划转入高级篇规划
 - 项目代码：基础篇轻量实践已建立，进阶篇项目待后续实现

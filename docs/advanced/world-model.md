@@ -14,7 +14,7 @@
 
 ## 前置知识
 
-- [动作表示](action-representation.md)、[进阶篇的 World Model 规划](../intermediate/index.md)
+- [动作表示](action-representation.md)、[进阶篇：上下文与生成式动作](../intermediate/index.md)
 
 ## 从上一章遗留的问题开始
 

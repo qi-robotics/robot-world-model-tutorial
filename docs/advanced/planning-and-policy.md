@@ -14,7 +14,7 @@
 
 ## 前置知识
 
-- [VLA-JEPA](vla-jepa.md)、[进阶篇的规划基础](../intermediate/index.md)
+- [VLA-JEPA](vla-jepa.md)、[世界模型](world-model.md)
 
 ## 从上一章遗留的问题开始
 

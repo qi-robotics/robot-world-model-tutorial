@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="540" viewBox="0 0 1120 540" role="img" aria-labelledby="title desc">
+  <title id="title">ACT 的训练与使用数据流</title>
+  <desc id="desc">上半部训练：当前关节与示范动作进入训练专用编码器，得到潜变量；情境、潜变量和动作位置查询进入解码器。下半部使用：没有示范编码器，改用先验潜变量零向量。</desc>
+  <defs>
+    <style>.title{font:700 23px sans-serif;fill:#1f2937}.panel{fill:#fff;stroke:#cbd5e1;stroke-width:1.4}.paneltitle{font:700 17px sans-serif;fill:#1f2937}.text{font:15px sans-serif;fill:#263446}.small{font:13px sans-serif;fill:#526174}.input{fill:#f7f9fb;stroke:#8391a2;stroke-width:1.5}.train{fill:#eaf2f9;stroke:#557a9c;stroke-width:1.5}.decoder{fill:#eef1f4;stroke:#576a7a;stroke-width:1.5}.output{fill:#eaf3ed;stroke:#64886b;stroke-width:1.5}.loss{fill:#fff6ea;stroke:#b48a55;stroke-width:1.4}.arrow{fill:none;stroke:#596879;stroke-width:1.8;marker-end:url(#arrowhead)}</style>
+    <marker id="arrowhead" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 1 1 L 9 5 L 1 9 Z" fill="#596879"/></marker>
+  </defs>
+  <rect width="1120" height="540" fill="white"/>
+  <text x="560" y="36" text-anchor="middle" class="title">示范编码器只在训练时出现；动作解码器两阶段共用</text>
+  <rect x="20" y="60" width="1080" height="240" rx="8" class="panel"/>
+  <text x="42" y="91" class="paneltitle">训练：有真实示范动作</text>
+  <rect x="40" y="125" width="180" height="56" rx="5" class="input"/>
+  <text x="130" y="150" text-anchor="middle" class="text">当前关节 qₜ</text>
+  <text x="130" y="170" text-anchor="middle" class="text">真实示范 Aₜ</text>
+  <rect x="260" y="125" width="175" height="56" rx="5" class="train"/>
+  <text x="347" y="150" text-anchor="middle" class="text">示范编码器</text>
+  <text x="347" y="170" text-anchor="middle" class="small">仅训练时使用</text>
+  <rect x="475" y="125" width="180" height="56" rx="5" class="train"/>
+  <text x="565" y="150" text-anchor="middle" class="text">潜变量分布</text>
+  <text x="565" y="170" text-anchor="middle" class="small">均值、尺度 → 取样 z</text>
+  <rect x="700" y="125" width="175" height="56" rx="5" class="decoder"/>
+  <text x="787" y="150" text-anchor="middle" class="text">动作解码器</text>
+  <text x="787" y="170" text-anchor="middle" class="small">各位置同时输出</text>
+  <rect x="915" y="125" width="160" height="56" rx="5" class="output"/>
+  <text x="995" y="150" text-anchor="middle" class="text">预测动作块</text>
+  <text x="995" y="170" text-anchor="middle" class="small">Âₜ：Hₚ 步</text>
+  <path d="M220 153 H260" class="arrow"/>
+  <path d="M435 153 H475" class="arrow"/>
+  <path d="M655 153 H700" class="arrow"/>
+  <path d="M875 153 H915" class="arrow"/>
+  <rect x="475" y="211" width="180" height="54" rx="5" class="loss"/>
+  <text x="565" y="234" text-anchor="middle" class="text">分布约束</text>
+  <text x="565" y="253" text-anchor="middle" class="small">靠近标准高斯</text>
+  <rect x="700" y="211" width="175" height="54" rx="5" class="input"/>
+  <text x="787" y="234" text-anchor="middle" class="text">当前情境 Cₜ</text>
+  <text x="787" y="253" text-anchor="middle" class="small">位置查询 Q1…QHp</text>
+  <rect x="915" y="211" width="160" height="54" rx="5" class="loss"/>
+  <text x="995" y="234" text-anchor="middle" class="text">动作重建误差</text>
+  <text x="995" y="253" text-anchor="middle" class="small">与示范 Aₜ 比较</text>
+  <path d="M565 181 V211" class="arrow"/>
+  <path d="M787 211 V181" class="arrow"/>
+  <path d="M995 181 V211" class="arrow"/>
+  <rect x="20" y="316" width="1080" height="208" rx="8" class="panel"/>
+  <text x="42" y="347" class="paneltitle">使用：没有真实未来动作</text>
+  <rect x="45" y="366" width="320" height="42" rx="5" class="input"/>
+  <text x="205" y="392" text-anchor="middle" class="text">新观测 → 当前情境 Cₜ</text>
+  <rect x="45" y="418" width="320" height="42" rx="5" class="input"/>
+  <text x="205" y="444" text-anchor="middle" class="text">先验中心 z = 0（原版 ACT）</text>
+  <rect x="45" y="470" width="320" height="42" rx="5" class="input"/>
+  <text x="205" y="496" text-anchor="middle" class="text">同样的位置查询 Q1…QHp</text>
+  <rect x="540" y="392" width="180" height="92" rx="5" class="decoder"/>
+  <text x="630" y="429" text-anchor="middle" class="text">同一个动作解码器</text>
+  <text x="630" y="455" text-anchor="middle" class="small">不输入真实示范动作</text>
+  <rect x="855" y="412" width="215" height="52" rx="5" class="output"/>
+  <text x="962" y="444" text-anchor="middle" class="text">未来整段动作块 Âₜ</text>
+  <path d="M365 387 L540 415" class="arrow"/>
+  <path d="M365 439 L540 438" class="arrow"/>
+  <path d="M365 491 L540 461" class="arrow"/>
+  <path d="M720 438 H855" class="arrow"/>
+</svg>

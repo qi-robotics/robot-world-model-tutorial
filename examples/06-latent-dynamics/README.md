@@ -6,7 +6,7 @@
 
 ## 对应章节
 
-- `docs/intermediate/index.md`（第 15 章完成后再更新为对应页面）
+- `docs/advanced/index.md`（世界模型内容转入高级篇，具体章节待新框架确定）
 
 ## 输入 / 输出
 
