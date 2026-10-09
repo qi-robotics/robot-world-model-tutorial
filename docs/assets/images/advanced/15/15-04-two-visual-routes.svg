@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="450" viewBox="0 0 1100 450" role="img" aria-label="比较未来表征预测与生成未来画面的两条数据流">
+  <title>两条视觉未来预测路线</title>
+  <defs>
+    <marker id="route-arrow" viewBox="0 0 10 10" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#526775"/>
+    </marker>
+  </defs>
+  <rect width="1100" height="450" fill="#ffffff"/>
+  <g font-family="Noto Sans CJK SC, Source Han Sans SC, Microsoft YaHei, sans-serif" fill="#243746">
+    <text x="30" y="32" font-size="22" font-weight="600">A　预测未来表征：不要求还原整张画面</text>
+    <text x="30" y="262" font-size="22" font-weight="600">B　生成未来画面：从随机噪声得到可观看结果</text>
+    <text x="30" y="218" font-size="16" fill="#526775">训练时对照两组未来特征；使用时没有真实未来图像这条下方路径。</text>
+    <text x="30" y="428" font-size="16" fill="#526775">训练时用真实未来画面确定生成目标；使用时只给当前历史、动作和新的随机噪声。</text>
+
+    <rect x="30" y="64" width="180" height="56" rx="4" fill="#edf3f6" stroke="#526775" stroke-width="1.5"/>
+    <text x="120" y="99" text-anchor="middle" font-size="18">当前图像与动作</text>
+    <rect x="300" y="64" width="230" height="56" rx="4" fill="#eaf2ed" stroke="#607766" stroke-width="1.5"/>
+    <text x="415" y="99" text-anchor="middle" font-size="18">编码器 E ＋ 预测器 P</text>
+    <rect x="620" y="64" width="210" height="56" rx="4" fill="#eaf2ed" stroke="#607766" stroke-width="1.5"/>
+    <text x="725" y="99" text-anchor="middle" font-size="18">预测的未来特征</text>
+    <rect x="30" y="136" width="180" height="56" rx="4" fill="#edf3f6" stroke="#526775" stroke-width="1.5"/>
+    <text x="120" y="171" text-anchor="middle" font-size="18">真实未来图像</text>
+    <rect x="300" y="136" width="230" height="56" rx="4" fill="#edf3f6" stroke="#526775" stroke-width="1.5"/>
+    <text x="415" y="171" text-anchor="middle" font-size="18">目标编码器 E</text>
+    <rect x="620" y="136" width="210" height="56" rx="4" fill="#edf3f6" stroke="#526775" stroke-width="1.5"/>
+    <text x="725" y="171" text-anchor="middle" font-size="18">真实的未来特征</text>
+    <rect x="920" y="101" width="150" height="88" rx="4" fill="#fff7ec" stroke="#a77947" stroke-width="1.5"/>
+    <text x="995" y="138" text-anchor="middle" font-size="18">比较特征</text>
+    <text x="995" y="165" text-anchor="middle" font-size="18">训练预测器</text>
+
+    <rect x="30" y="306" width="180" height="56" rx="4" fill="#edf3f6" stroke="#526775" stroke-width="1.5"/>
+    <text x="120" y="341" text-anchor="middle" font-size="18">当前历史与动作</text>
+    <rect x="30" y="374" width="180" height="39" rx="4" fill="#fff7ec" stroke="#a77947" stroke-width="1.5"/>
+    <text x="120" y="400" text-anchor="middle" font-size="17">随机噪声</text>
+    <rect x="300" y="306" width="230" height="80" rx="4" fill="#eaf2ed" stroke="#607766" stroke-width="1.5"/>
+    <text x="415" y="340" text-anchor="middle" font-size="18">条件生成网络</text>
+    <text x="415" y="368" text-anchor="middle" font-size="16">多次更新视觉内容</text>
+    <rect x="620" y="318" width="210" height="56" rx="4" fill="#eaf2ed" stroke="#607766" stroke-width="1.5"/>
+    <text x="725" y="353" text-anchor="middle" font-size="18">生成的未来画面</text>
+    <rect x="920" y="318" width="150" height="56" rx="4" fill="#fff7ec" stroke="#a77947" stroke-width="1.5"/>
+    <text x="995" y="341" text-anchor="middle" font-size="16">与真实未来</text>
+    <text x="995" y="361" text-anchor="middle" font-size="16">建立训练目标</text>
+  </g>
+  <g fill="none" stroke="#526775" stroke-width="2" marker-end="url(#route-arrow)">
+    <path d="M210 92 H300"/>
+    <path d="M530 92 H620"/>
+    <path d="M210 164 H300"/>
+    <path d="M530 164 H620"/>
+    <path d="M830 92 L920 123"/>
+    <path d="M830 164 H920"/>
+    <path d="M210 334 H300"/>
+    <path d="M210 393 H255 V365 H300"/>
+    <path d="M530 346 H620"/>
+    <path d="M830 346 H920"/>
+  </g>
+</svg>

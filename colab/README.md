@@ -4,9 +4,9 @@
 
 ## 高级篇单元一检查
 
-第 14—17 章第一版各有一份 Notebook，位于 `colab/advanced/14/` 至 `colab/advanced/17/`。它们只使用本地生成的教学数据，不下载大模型。第 14 章实际训练小型神经网络，其余三份分别演示视觉评价、规划反馈与想象训练信号；不是官方大型模型的完整复现。
+单元一“从交互经验到未来预测”对应第 14—15 章，分别位于 `colab/advanced/14/` 和 `colab/advanced/15/`。两份 Notebook 只使用本地生成的教学数据，不下载大模型：第 14 章训练小型动作条件状态预测器，第 15 章演示视觉表征预测与不同可能未来的区别。它们不是官方 JEPA 或视频生成模型的完整复现。第 16 章的新实践位于 `colab/advanced/16/16-01-visual-plan-to-action.ipynb`，用规则画面说明级联接口，不训练 UniPi 或 VERA。目录中原有的 `16-01-cem-and-feedback.ipynb` 和第 17 章 Notebook 暂保留为旧稿，不在当前课程导航中。
 
-本地依赖准备完成后，可运行 `.venv-colab/bin/python scripts/check_advanced_unit_one.py`，自动检查逐行中文注释、输出解释并执行四份 Notebook。执行结果和图像保存到打印出的临时目录，不覆盖源笔记本。新增文件必须先推送到 GitHub 的对应分支，网页上的 Colab 链接才能读取到它们。
+本地依赖准备完成后，可运行 `.venv-colab/bin/python scripts/check_advanced_unit_one.py`，自动检查逐行中文注释、输出解释并执行这两份 Notebook。执行结果和图像保存到打印出的临时目录，不覆盖源笔记本。新增文件必须先推送到 GitHub 的对应分支，网页上的 Colab 链接才能读取到它们。
 
 ## 本地环境
 

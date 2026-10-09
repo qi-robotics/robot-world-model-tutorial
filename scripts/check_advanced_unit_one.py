@@ -17,7 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = Path(tempfile.mkdtemp(prefix="advanced-unit-one-check-"))
 os.environ["PATH"] = str(Path(sys.executable).parent) + os.pathsep + os.environ["PATH"]
 
-for chapter in ("14", "15", "16", "17"):
+for chapter in ("14", "15"):
     notebooks = sorted((ROOT / "colab" / "advanced" / chapter).glob("*.ipynb"))
     assert len(notebooks) == 1, f"第 {chapter} 章应有一份第一版实践"
     path = notebooks[0]

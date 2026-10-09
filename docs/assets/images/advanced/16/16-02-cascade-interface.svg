@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="490" viewBox="0 0 1100 490" role="img" aria-label="级联式世界动作模型的两阶段接口及三种动作转换方案">
+  <title>级联式世界动作模型的接口</title>
+  <defs><marker id="b" viewBox="0 0 10 10" markerWidth="9" markerHeight="9" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 10 5 0 10Z" fill="#526775"/></marker></defs>
+  <rect width="1100" height="490" fill="#fff"/>
+  <g font-family="Noto Sans CJK SC,Source Han Sans SC,Microsoft YaHei,sans-serif" fill="#243746">
+    <text x="35" y="38" font-size="23" font-weight="600">一条主路径：先形成未来，再把未来变成动作</text>
+    <rect x="35" y="80" width="205" height="94" rx="5" fill="#edf3f6" stroke="#526775" stroke-width="1.5"/>
+    <text x="137" y="118" text-anchor="middle" font-size="18">观测历史与目标</text>
+    <text x="137" y="146" text-anchor="middle" font-size="15" fill="#526775">当前画面 / 语言指令</text>
+    <rect x="310" y="80" width="190" height="94" rx="5" fill="#eaf2ed" stroke="#607766" stroke-width="1.5"/>
+    <text x="405" y="118" text-anchor="middle" font-size="18">阶段一</text>
+    <text x="405" y="146" text-anchor="middle" font-size="17">未来生成模块</text>
+    <rect x="570" y="80" width="205" height="94" rx="5" fill="#fff7ec" stroke="#a77947" stroke-width="1.5"/>
+    <text x="672" y="118" text-anchor="middle" font-size="18">中间接口</text>
+    <text x="672" y="146" text-anchor="middle" font-size="16">未来画面或特征</text>
+    <rect x="845" y="80" width="220" height="94" rx="5" fill="#eaf2ed" stroke="#607766" stroke-width="1.5"/>
+    <text x="955" y="118" text-anchor="middle" font-size="18">阶段二</text>
+    <text x="955" y="146" text-anchor="middle" font-size="17">动作转换模块</text>
+    <line x1="240" y1="127" x2="310" y2="127" stroke="#526775" stroke-width="2.2" marker-end="url(#b)"/>
+    <line x1="500" y1="127" x2="570" y2="127" stroke="#526775" stroke-width="2.2" marker-end="url(#b)"/>
+    <line x1="775" y1="127" x2="845" y2="127" stroke="#526775" stroke-width="2.2" marker-end="url(#b)"/>
+    <rect x="845" y="235" width="220" height="62" rx="5" fill="#edf3f6" stroke="#526775" stroke-width="1.5"/>
+    <text x="955" y="273" text-anchor="middle" font-size="18">机器人控制命令</text>
+    <line x1="955" y1="174" x2="955" y2="235" stroke="#526775" stroke-width="2.2" marker-end="url(#b)"/>
+    <text x="35" y="236" font-size="19" font-weight="600">阶段二可以采用不同实现，下面三条是替代路径</text>
+    <rect x="35" y="265" width="240" height="78" rx="5" fill="#f4f7f8" stroke="#8496a0" stroke-width="1.3"/>
+    <text x="155" y="298" text-anchor="middle" font-size="17">学习式逆动力学</text>
+    <text x="155" y="323" text-anchor="middle" font-size="15" fill="#526775">UniPi / VERA 的路径</text>
+    <rect x="315" y="265" width="240" height="78" rx="5" fill="#f4f7f8" stroke="#8496a0" stroke-width="1.3"/>
+    <text x="435" y="298" text-anchor="middle" font-size="17">未来条件动作模型</text>
+    <text x="435" y="323" text-anchor="middle" font-size="15" fill="#526775">读取画面或视觉特征</text>
+    <rect x="595" y="265" width="240" height="78" rx="5" fill="#f4f7f8" stroke="#8496a0" stroke-width="1.3"/>
+    <text x="715" y="298" text-anchor="middle" font-size="17">轨迹与几何计算</text>
+    <text x="715" y="323" text-anchor="middle" font-size="15" fill="#526775">不必单独训练 IDM</text>
+    <rect x="35" y="398" width="1030" height="54" rx="5" fill="#f8fafb" stroke="#d4dde2" stroke-width="1.2"/>
+    <text x="550" y="432" text-anchor="middle" font-size="16">任何路径都必须把画面变化对齐到机器人的单位、时间间隔和可执行范围。</text>
+  </g>
+</svg>

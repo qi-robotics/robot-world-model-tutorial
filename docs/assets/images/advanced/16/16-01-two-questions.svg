@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="350" viewBox="0 0 1050 350" role="img" aria-label="动作条件预测与级联式世界动作模型的输入输出对照">
+  <title>两种提问顺序</title>
+  <defs><marker id="a" viewBox="0 0 10 10" markerWidth="9" markerHeight="9" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 10 5 0 10Z" fill="#526775"/></marker></defs>
+  <rect width="1050" height="350" fill="#fff"/>
+  <g font-family="Noto Sans CJK SC,Source Han Sans SC,Microsoft YaHei,sans-serif" fill="#243746">
+    <text x="30" y="38" font-size="22" font-weight="600">第 14—15 章：动作已知，预测后果</text>
+    <rect x="30" y="65" width="240" height="74" rx="5" fill="#edf3f6" stroke="#526775" stroke-width="1.5"/>
+    <text x="150" y="94" text-anchor="middle" font-size="18">当前观测 ＋ 已给定动作</text>
+    <text x="150" y="120" text-anchor="middle" font-size="15" fill="#526775">例如：夹爪向右移动</text>
+    <rect x="395" y="65" width="230" height="74" rx="5" fill="#eaf2ed" stroke="#607766" stroke-width="1.5"/>
+    <text x="510" y="107" text-anchor="middle" font-size="18">动作条件世界模型</text>
+    <rect x="750" y="65" width="260" height="74" rx="5" fill="#fff7ec" stroke="#a77947" stroke-width="1.5"/>
+    <text x="880" y="94" text-anchor="middle" font-size="18">预测的未来</text>
+    <text x="880" y="120" text-anchor="middle" font-size="15" fill="#526775">杯子可能如何移动</text>
+    <line x1="270" y1="102" x2="395" y2="102" stroke="#526775" stroke-width="2.2" marker-end="url(#a)"/>
+    <line x1="625" y1="102" x2="750" y2="102" stroke="#526775" stroke-width="2.2" marker-end="url(#a)"/>
+    <line x1="30" y1="170" x2="1010" y2="170" stroke="#d7e0e4" stroke-width="1.5"/>
+    <text x="30" y="208" font-size="22" font-weight="600">第 16 章：目标已知，先想象未来，再产生动作</text>
+    <rect x="30" y="230" width="210" height="82" rx="5" fill="#edf3f6" stroke="#526775" stroke-width="1.5"/>
+    <text x="135" y="263" text-anchor="middle" font-size="18">当前观测 ＋ 目标</text>
+    <text x="135" y="290" text-anchor="middle" font-size="15" fill="#526775">把杯子放进盒子</text>
+    <rect x="310" y="230" width="165" height="82" rx="5" fill="#eaf2ed" stroke="#607766" stroke-width="1.5"/>
+    <text x="392" y="277" text-anchor="middle" font-size="18">未来生成模块</text>
+    <rect x="545" y="230" width="165" height="82" rx="5" fill="#fff7ec" stroke="#a77947" stroke-width="1.5"/>
+    <text x="627" y="263" text-anchor="middle" font-size="18">设想的未来</text>
+    <text x="627" y="290" text-anchor="middle" font-size="15" fill="#526775">画面 / 特征</text>
+    <rect x="780" y="230" width="230" height="82" rx="5" fill="#eaf2ed" stroke="#607766" stroke-width="1.5"/>
+    <text x="895" y="263" text-anchor="middle" font-size="18">动作转换模块</text>
+    <text x="895" y="290" text-anchor="middle" font-size="15" fill="#526775">输出可执行命令</text>
+    <line x1="240" y1="271" x2="310" y2="271" stroke="#526775" stroke-width="2.2" marker-end="url(#a)"/>
+    <line x1="475" y1="271" x2="545" y2="271" stroke="#526775" stroke-width="2.2" marker-end="url(#a)"/>
+    <line x1="710" y1="271" x2="780" y2="271" stroke="#526775" stroke-width="2.2" marker-end="url(#a)"/>
+  </g>
+</svg>

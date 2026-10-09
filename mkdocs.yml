@@ -146,11 +146,11 @@ nav:
           - 13 生成式 Action Model: intermediate/13-generative-action-model.md
   - 高级篇:
       - 高级篇概览: advanced/index.md
-      - 单元一 · 世界预测与决策:
-          - 14 动作条件世界模型: advanced/14-action-conditioned-world-model.md
-          - 15 视觉世界模型: advanced/15-visual-world-models.md
-          - 16 用世界模型选择动作: advanced/16-world-model-planning.md
-          - 17 Dreamer 4 与想象训练: advanced/17-dreamer4-imagination-training.md
+      - 单元一 · 从交互到未来预测:
+          - 14 动作造成的变化: advanced/14-action-conditioned-world-model.md
+          - 15 视觉未来的预测: advanced/15-visual-world-models.md
+      - 单元二 · 从未来到机器人动作:
+          - 16 级联式世界动作模型: advanced/16-cascaded-world-action-model.md
       - 后续资料 · 旧版草案待整合:
           - 视觉语言模型: advanced/vlm.md
           - 语言与场景对应: advanced/visual-grounding.md

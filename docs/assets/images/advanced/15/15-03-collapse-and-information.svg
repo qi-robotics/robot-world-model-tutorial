@@ -36,7 +36,7 @@
     <text x="955" y="314" text-anchor="middle" font-size="16">ẑ 与真实 z 比较</text>
     <rect x="610" y="375" width="190" height="62" rx="5" fill="#fff8ed" stroke="#a97843" stroke-width="1.5"/>
     <text x="705" y="400" text-anchor="middle" font-size="18">② SIGReg 约束</text>
-    <text x="705" y="425" text-anchor="middle" font-size="16">检查整批特征分布</text>
+    <text x="705" y="425" text-anchor="middle" font-size="15">随机方向上的分布检查</text>
     <rect x="860" y="375" width="190" height="62" rx="5" fill="#f3f6f8" stroke="#516675" stroke-width="1.5"/>
     <text x="955" y="413" text-anchor="middle" font-size="19">① + λ × ②</text>
   </g>

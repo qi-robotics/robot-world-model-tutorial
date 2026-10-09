@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="465" viewBox="0 0 1100 465" role="img" aria-label="UniPi 使用时与训练时的两阶段数据流">
+  <title>UniPi 的两阶段数据流</title>
+  <defs><marker id="c" viewBox="0 0 10 10" markerWidth="9" markerHeight="9" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 10 5 0 10Z" fill="#526775"/></marker></defs>
+  <rect width="1100" height="465" fill="#fff"/>
+  <g font-family="Noto Sans CJK SC,Source Han Sans SC,Microsoft YaHei,sans-serif" fill="#243746">
+    <text x="30" y="38" font-size="23" font-weight="600">使用时：当前画面与文字目标先形成视频计划，再产生动作</text>
+    <rect x="30" y="70" width="200" height="90" rx="5" fill="#edf3f6" stroke="#526775" stroke-width="1.5"/>
+    <text x="130" y="108" text-anchor="middle" font-size="18">当前图像</text>
+    <text x="130" y="134" text-anchor="middle" font-size="17">＋文字子目标</text>
+    <rect x="295" y="70" width="200" height="90" rx="5" fill="#eaf2ed" stroke="#607766" stroke-width="1.5"/>
+    <text x="395" y="108" text-anchor="middle" font-size="18">视频生成器</text>
+    <text x="395" y="134" text-anchor="middle" font-size="15" fill="#526775">规划未来画面</text>
+    <rect x="560" y="70" width="200" height="90" rx="5" fill="#fff7ec" stroke="#a77947" stroke-width="1.5"/>
+    <text x="660" y="108" text-anchor="middle" font-size="18">生成的视频片段</text>
+    <text x="660" y="134" text-anchor="middle" font-size="15" fill="#526775">尚未真实发生</text>
+    <rect x="825" y="70" width="240" height="90" rx="5" fill="#eaf2ed" stroke="#607766" stroke-width="1.5"/>
+    <text x="945" y="107" text-anchor="middle" font-size="18">逆动力学模块</text>
+    <text x="945" y="134" text-anchor="middle" font-size="16">动作 → 机器人执行</text>
+    <line x1="230" y1="115" x2="295" y2="115" stroke="#526775" stroke-width="2.2" marker-end="url(#c)"/>
+    <line x1="495" y1="115" x2="560" y2="115" stroke="#526775" stroke-width="2.2" marker-end="url(#c)"/>
+    <line x1="760" y1="115" x2="825" y2="115" stroke="#526775" stroke-width="2.2" marker-end="url(#c)"/>
+    <line x1="30" y1="200" x2="1065" y2="200" stroke="#d7e0e4" stroke-width="1.5"/>
+    <text x="30" y="238" font-size="23" font-weight="600">训练时：两阶段分别从相应记录学习</text>
+    <rect x="30" y="270" width="450" height="126" rx="5" fill="#f4f7f8" stroke="#8496a0" stroke-width="1.4"/>
+    <text x="255" y="303" text-anchor="middle" font-size="18" font-weight="600">视频生成阶段</text>
+    <text x="255" y="333" text-anchor="middle" font-size="17">起始图像 ＋ 目标描述</text>
+    <text x="255" y="362" text-anchor="middle" font-size="17">对照后续真实视频学习</text>
+    <rect x="585" y="270" width="480" height="126" rx="5" fill="#f4f7f8" stroke="#8496a0" stroke-width="1.4"/>
+    <text x="825" y="303" text-anchor="middle" font-size="18" font-weight="600">动作转换阶段</text>
+    <text x="825" y="333" text-anchor="middle" font-size="17">机器人相邻观测 ＋ 实际动作记录</text>
+    <text x="825" y="362" text-anchor="middle" font-size="17">学习视觉变化对应的控制量</text>
+    <text x="30" y="442" font-size="16" fill="#526775">上下两部分的数据角色不同：使用时看不到尚未发生的真实未来，也没有未来动作标签。</text>
+  </g>
+</svg>
