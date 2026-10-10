@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="490" viewBox="0 0 1100 490" role="img" aria-label="UWM联合训练的数据流">
+  <title>UWM 训练数据流</title>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#536575"/></marker></defs>
+  <rect width="1100" height="490" fill="#fff"/>
+  <g font-family="Noto Sans CJK SC,Source Han Sans SC,Microsoft YaHei,sans-serif" fill="#243746">
+    <text x="30" y="41" font-size="24" font-weight="600">一条真实交互：当前观测、实际动作、真实未来</text>
+    <rect x="35" y="73" width="215" height="72" rx="6" fill="#eef3f6" stroke="#677b89"/>
+    <text x="143" y="103" text-anchor="middle" font-size="18">当前观测</text>
+    <text x="143" y="130" text-anchor="middle" font-size="15" fill="#536575">已知条件，不加噪</text>
+    <rect x="35" y="181" width="215" height="72" rx="6" fill="#fff6ea" stroke="#aa7b48"/>
+    <text x="143" y="211" text-anchor="middle" font-size="18">真实动作块</text>
+    <text x="143" y="238" text-anchor="middle" font-size="15" fill="#536575">动作学习答案</text>
+    <rect x="35" y="289" width="215" height="72" rx="6" fill="#fff6ea" stroke="#aa7b48"/>
+    <text x="143" y="319" text-anchor="middle" font-size="18">真实未来画面</text>
+    <text x="143" y="346" text-anchor="middle" font-size="15" fill="#536575">视觉学习答案</text>
+    <rect x="337" y="181" width="193" height="72" rx="6" fill="#f6f0e7" stroke="#aa7b48"/>
+    <text x="434" y="211" text-anchor="middle" font-size="18">动作单独加噪</text>
+    <text x="434" y="238" text-anchor="middle" font-size="15" fill="#536575">进度 kₐ</text>
+    <rect x="337" y="289" width="193" height="72" rx="6" fill="#f6f0e7" stroke="#aa7b48"/>
+    <text x="434" y="319" text-anchor="middle" font-size="18">VAE 压缩 + 加噪</text>
+    <text x="434" y="346" text-anchor="middle" font-size="15" fill="#536575">进度 kᵥ</text>
+    <rect x="645" y="160" width="210" height="225" rx="7" fill="#eaf2ed" stroke="#66816d" stroke-width="1.6"/>
+    <text x="750" y="220" text-anchor="middle" font-size="20" font-weight="600">共享 DiT</text>
+    <text x="750" y="259" text-anchor="middle" font-size="16">动作 token</text>
+    <text x="750" y="289" text-anchor="middle" font-size="16">视觉 token</text>
+    <text x="750" y="319" text-anchor="middle" font-size="16">当前观测条件</text>
+    <rect x="925" y="181" width="150" height="72" rx="6" fill="#fff6ea" stroke="#aa7b48"/>
+    <text x="1000" y="212" text-anchor="middle" font-size="17">估计动作噪声</text>
+    <text x="1000" y="238" text-anchor="middle" font-size="14" fill="#536575">与已加噪声比较</text>
+    <rect x="925" y="289" width="150" height="72" rx="6" fill="#fff6ea" stroke="#aa7b48"/>
+    <text x="1000" y="320" text-anchor="middle" font-size="17">估计视觉噪声</text>
+    <text x="1000" y="346" text-anchor="middle" font-size="14" fill="#536575">与已加噪声比较</text>
+    <path d="M250 109H590V183H645 M250 217H337 M250 325H337 M530 217H645 M530 325H645 M855 217H925 M855 325H925" fill="none" stroke="#536575" stroke-width="2.3" marker-end="url(#arrow)"/>
+    <text x="38" y="442" font-size="17" fill="#536575">两个噪声进度独立抽取；它们不是机器人动作块中的时间位置。</text>
+  </g>
+</svg>

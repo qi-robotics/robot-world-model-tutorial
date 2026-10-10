@@ -34,8 +34,18 @@
   font-size: 1.02rem;
 }
 
-/* 桌面端把本章目录放左侧、课程章节放右侧；移动端仍使用 Material 原生抽屉。 */
+/* 窄屏继续使用 Material 原有的导航抽屉，小节目录只在桌面侧栏展示。 */
+.chapter-toc__toggle,
+.chapter-toc__list {
+  display: none;
+}
+
+/* 桌面端把课程导航放右侧；移动端仍使用 Material 原生抽屉。 */
 @media screen and (min-width: 76.25em) {
+  .md-main__inner.md-grid {
+    max-width: 67rem;
+  }
+
   .md-main__inner > .md-sidebar--secondary {
     order: 0;
   }
@@ -46,6 +56,15 @@
 
   .md-main__inner > .md-sidebar--primary {
     order: 2;
+    width: 17rem;
+  }
+
+  [dir="ltr"] .md-main__inner > .md-sidebar--primary .md-sidebar__inner {
+    padding-right: 0.6rem;
+  }
+
+  [dir="rtl"] .md-main__inner > .md-sidebar--primary .md-sidebar__inner {
+    padding-left: 0.6rem;
   }
 
   .md-sidebar--primary .md-sidebar__inner::before {
@@ -59,6 +78,116 @@
 
   .md-sidebar--primary .md-sidebar__inner::before {
     content: "课程章节";
+  }
+
+  /* 当前页面的小节目录从左侧移到右侧；其他页面的目录箭头也始终可见。 */
+  .chapter-nav .md-main__inner > .md-sidebar--secondary {
+    display: none;
+  }
+
+  .chapter-nav-ready .md-sidebar--primary .chapter-toc__host:not(.chapter-toc__host--category) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 1.45rem;
+    align-items: center;
+  }
+
+  .chapter-nav-ready .chapter-toc__host:not(.chapter-toc__host--category) > input,
+  .chapter-nav-ready .chapter-toc__host:not(.chapter-toc__host--category) > label,
+  .chapter-nav-ready .chapter-toc__host:not(.chapter-toc__host--category) > .md-nav--secondary {
+    display: none;
+  }
+
+  .chapter-nav-ready .chapter-toc__host:not(.chapter-toc__host--category) > a.md-nav__link {
+    min-width: 0;
+    grid-column: 1;
+  }
+
+  .chapter-nav-ready .chapter-toc__host--category > .md-nav__container > a.md-nav__link {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .chapter-nav-ready .chapter-toc__host--category > .md-nav__container > .chapter-toc__toggle {
+    flex: none;
+  }
+
+  .chapter-nav-ready .chapter-toc__toggle {
+    display: grid;
+    width: 1.4rem;
+    height: 1.4rem;
+    grid-column: 2;
+    place-items: center;
+    padding: 0;
+    border: 0;
+    border-radius: 0.2rem;
+    background: transparent;
+    color: var(--md-default-fg-color--light);
+    cursor: pointer;
+  }
+
+  .chapter-nav-ready .chapter-toc__toggle:hover,
+  .chapter-nav-ready .chapter-toc__toggle:focus-visible {
+    color: var(--md-accent-fg-color);
+    background: var(--md-default-fg-color--lightest);
+  }
+
+  .chapter-nav-ready .chapter-toc__toggle svg {
+    width: 1rem;
+    height: 1rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.15s ease;
+  }
+
+  .chapter-nav-ready .chapter-toc__toggle[aria-expanded="false"] svg {
+    transform: rotate(-90deg);
+  }
+
+  .chapter-nav-ready .chapter-toc__list {
+    display: block;
+    grid-column: 1 / -1;
+    margin: 0.2rem 0 0.6rem 0.55rem;
+    padding: 0 0 0 0.6rem;
+    border-left: 1px solid var(--md-default-fg-color--lightest);
+    list-style: none;
+  }
+
+  .chapter-nav-ready .chapter-toc__list[hidden] {
+    display: none;
+  }
+
+  .chapter-nav-ready .chapter-toc__list li {
+    margin: 0.18rem 0;
+  }
+
+  .chapter-nav-ready .chapter-toc__sublist {
+    margin: 0.2rem 0 0.4rem;
+    padding: 0 0 0 0.65rem;
+    border-left: 1px solid var(--md-default-fg-color--lightest);
+    list-style: none;
+  }
+
+  .chapter-nav-ready .chapter-toc__list a {
+    display: block;
+    padding: 0.12rem 0;
+    color: var(--md-default-fg-color--light);
+    font-size: 0.68rem;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+  }
+
+  .chapter-nav-ready .chapter-toc__list a:hover,
+  .chapter-nav-ready .chapter-toc__list a:focus-visible {
+    color: var(--md-accent-fg-color);
+  }
+
+  .chapter-nav-ready .chapter-toc__message {
+    color: var(--md-default-fg-color--light);
+    font-size: 0.68rem;
+    line-height: 1.4;
   }
 }
 

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="390" viewBox="0 0 1050 390" role="img" aria-label="级联式和联合式的数据关系对照">
+  <title>级联与联合的区别</title>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#536575"/></marker></defs>
+  <rect width="1050" height="390" fill="#fff"/>
+  <g font-family="Noto Sans CJK SC,Source Han Sans SC,Microsoft YaHei,sans-serif" fill="#243746">
+    <text x="36" y="44" font-size="24" font-weight="600">级联式：使用时先形成未来，再转成动作</text>
+    <rect x="38" y="68" width="190" height="80" rx="6" fill="#eef3f6" stroke="#677b89"/>
+    <text x="133" y="105" text-anchor="middle" font-size="18">当前观测 + 目标</text>
+    <text x="133" y="132" text-anchor="middle" font-size="15" fill="#536575">任务条件</text>
+    <rect x="300" y="68" width="175" height="80" rx="6" fill="#eaf2ed" stroke="#66816d"/>
+    <text x="388" y="114" text-anchor="middle" font-size="18">未来生成模块</text>
+    <rect x="550" y="68" width="170" height="80" rx="6" fill="#fff6ea" stroke="#aa7b48"/>
+    <text x="635" y="114" text-anchor="middle" font-size="18">未来计划</text>
+    <rect x="795" y="68" width="205" height="80" rx="6" fill="#eaf2ed" stroke="#66816d"/>
+    <text x="898" y="101" text-anchor="middle" font-size="18">动作转换模块</text>
+    <text x="898" y="129" text-anchor="middle" font-size="15" fill="#536575">输出动作</text>
+    <path d="M228 108H300 M475 108H550 M720 108H795" fill="none" stroke="#536575" stroke-width="2.4" marker-end="url(#arrow)"/>
+    <line x1="38" y1="183" x2="1000" y2="183" stroke="#dce4e8" stroke-width="2"/>
+    <text x="36" y="225" font-size="24" font-weight="600">联合式：同一段交互同时提供动作与未来的学习答案</text>
+    <rect x="38" y="251" width="232" height="92" rx="6" fill="#eef3f6" stroke="#677b89"/>
+    <text x="154" y="286" text-anchor="middle" font-size="18">当前观测 + 真实记录</text>
+    <text x="154" y="316" text-anchor="middle" font-size="15" fill="#536575">实际动作、执行后画面</text>
+    <rect x="371" y="251" width="225" height="92" rx="6" fill="#eaf2ed" stroke="#66816d"/>
+    <text x="484" y="287" text-anchor="middle" font-size="18">共享模型</text>
+    <text x="484" y="317" text-anchor="middle" font-size="15" fill="#536575">联合学习两类输出</text>
+    <rect x="700" y="233" width="267" height="53" rx="6" fill="#fff6ea" stroke="#aa7b48"/>
+    <text x="834" y="267" text-anchor="middle" font-size="18">动作生成</text>
+    <rect x="700" y="308" width="267" height="53" rx="6" fill="#fff6ea" stroke="#aa7b48"/>
+    <text x="834" y="342" text-anchor="middle" font-size="18">未来视觉生成</text>
+    <path d="M270 297H371 M596 297H647V259H700 M647 297V334H700" fill="none" stroke="#536575" stroke-width="2.4" marker-end="url(#arrow)"/>
+  </g>
+</svg>

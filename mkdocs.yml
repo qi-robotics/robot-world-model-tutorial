@@ -81,6 +81,7 @@ extra_css:
 
 extra_javascript:
   - assets/javascripts/header-title.js
+  - assets/javascripts/chapter-nav.js?v=3
   - assets/javascripts/mathjax.js
   - assets/javascripts/visualizations.js
   - assets/javascripts/tutorial.js
@@ -151,6 +152,7 @@ nav:
           - 15 视觉未来的预测: advanced/15-visual-world-models.md
       - 单元二 · 从未来到机器人动作:
           - 16 级联式世界动作模型: advanced/16-cascaded-world-action-model.md
+          - 17 联合式世界动作模型: advanced/17-joint-world-action-model.md
       - 后续资料 · 旧版草案待整合:
           - 视觉语言模型: advanced/vlm.md
           - 语言与场景对应: advanced/visual-grounding.md
