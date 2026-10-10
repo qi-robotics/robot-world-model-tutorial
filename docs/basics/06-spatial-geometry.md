@@ -161,7 +161,7 @@ $$
 
 <figure markdown="span">
   ![杯子位置从相机坐标变换到机器人基座坐标](../assets/images/basics/06/06-02-coordinate-transform.svg){ width="1040" loading=lazy }
-  <figcaption>图 06-2　相机和机器人基座使用不同原点与轴方向；外参 ${}^{B}T_C$ 把相机测量转换成控制器使用的坐标。（本教程绘制）</figcaption>
+  <figcaption>图 06-2　相机和机器人基座使用不同原点与轴方向；相机到基座的外参变换把相机测量转换成控制器使用的坐标。（本教程绘制）</figcaption>
 </figure>
 
 外参（extrinsics）描述两个坐标系之间的固定或可计算关系。固定在环境中的相机通常通过手眼标定得到相机到基座的变换；装在末端的相机会随机械臂运动，此时还要结合当前关节状态和正向运动学更新变换。

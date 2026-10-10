@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1100" height="490" viewBox="0 0 1100 490" role="img" aria-label="级联式世界动作模型的两阶段接口及三种动作转换方案">
-  <title>级联式世界动作模型的接口</title>
+  <title>级联式世界动作模型的两阶段接口</title>
   <defs><marker id="b" viewBox="0 0 10 10" markerWidth="9" markerHeight="9" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 10 5 0 10Z" fill="#526775"/></marker></defs>
   <rect width="1100" height="490" fill="#fff"/>
   <g font-family="Noto Sans CJK SC,Source Han Sans SC,Microsoft YaHei,sans-serif" fill="#243746">

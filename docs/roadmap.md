@@ -74,11 +74,10 @@ flowchart TB
 
 单元一“从交互经验到未来预测”按连续编号阅读：
 
-1. [14 世界模型如何学习动作造成的变化](advanced/14-action-conditioned-world-model.md)
+1. [14 动作条件世界模型：从交互数据预测状态变化](advanced/14-action-conditioned-world-model.md)
 2. [15 视觉世界模型：预测表征，还是生成未来画面？](advanced/15-visual-world-models.md)
-3. [16 级联式世界动作模型：从未来规划到动作执行](advanced/16-cascaded-world-action-model.md)
 
-第 14、15 章构成单元一，建立动作条件预测和视觉未来的两条学习路线。第 16 章开启单元二：从当前观测与目标先形成未来计划，再由独立模块输出动作。第 17 章的正式内容仍待规划，旧稿暂不属于当前学习路线。
+第 14、15 章建立动作条件预测和视觉未来的两条学习路线。单元二从[16 级联式世界动作模型：从未来规划到动作执行](advanced/16-cascaded-world-action-model.md)开始：先由当前观测与目标形成未来计划，再由独立模块输出动作。第 17 章的正式内容仍待规划，旧稿暂不属于当前学习路线。
 
 ## 实践如何插入
 

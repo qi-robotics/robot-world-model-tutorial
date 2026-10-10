@@ -197,7 +197,7 @@ LayerNorm 使 token 的特征尺度更稳定；残差路径把子层输入直接
 
 <figure markdown="span">
   ![Pre-Norm Transformer Block 数据流](../assets/images/intermediate/09/09-05-pre-norm-transformer-block.svg){ width="840" loading=lazy }
-  <figcaption>图 09-5　虚线分别把原始 $X$ 和中间结果 $X'$ 送到两个残差加法节点；与 Attention、MLP 子层的计算结果相加后，依次得到 $X'$ 和 $Y$。（本教程绘制）</figcaption>
+  <figcaption>图 09-5　虚线分别把原始输入 X 和中间结果 X′ 送到两个残差加法节点；与 Attention、MLP 子层的计算结果相加后，依次得到 X′ 和 Y。（本教程绘制）</figcaption>
 </figure>
 
 因此，Pre-Norm（前归一化）可以概括为“LayerNorm → 子层 → 与原输入相加”；Post-Norm（后归一化）则是“子层 → 与原输入相加 → LayerNorm”。原论文采用后者，许多较深的后续模型采用前者以改善优化稳定性。本教程后续默认采用 Pre-Norm，遇到 Post-Norm 会明确标注；两者不能仅凭图中都有 Add & Norm 就当成同一顺序。

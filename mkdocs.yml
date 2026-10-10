@@ -147,7 +147,7 @@ nav:
   - 高级篇:
       - 高级篇概览: advanced/index.md
       - 单元一 · 从交互到未来预测:
-          - 14 动作造成的变化: advanced/14-action-conditioned-world-model.md
+          - 14 动作条件世界模型: advanced/14-action-conditioned-world-model.md
           - 15 视觉未来的预测: advanced/15-visual-world-models.md
       - 单元二 · 从未来到机器人动作:
           - 16 级联式世界动作模型: advanced/16-cascaded-world-action-model.md

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="375" viewBox="0 0 1100 375" role="img" aria-label="当前画面和放杯子任务形成接近、抓取、搬运、放置的未来画面序列">
+  <title>目标条件的未来画面计划</title>
+  <rect width="1100" height="375" fill="#ffffff"/>
+  <g font-family="Noto Sans CJK SC,Source Han Sans SC,Microsoft YaHei,sans-serif" fill="#243746">
+    <text x="20" y="34" font-size="23" font-weight="600">输入：当前桌面画面 ＋ “把杯子放进盒子”</text>
+    <text x="20" y="62" font-size="16" fill="#526775">灰框始终是目标盒子；后四格是模型设想的视觉变化，不是已经执行的录像。</text>
+    <g transform="translate(20,0)">
+      <rect x="0" y="89" width="190" height="231" rx="5" fill="#f8fafb" stroke="#8496a0" stroke-width="1.3"/>
+      <text x="95" y="119" text-anchor="middle" font-size="18" font-weight="600">0　当前观测</text>
+      <path d="M130 215 V280 H175 V215" fill="none" stroke="#929ca3" stroke-width="3"/>
+      <line x1="18" y1="281" x2="172" y2="281" stroke="#929ca3" stroke-width="2"/>
+      <rect x="75" y="244" width="24" height="36" rx="2" fill="#ce8351"/>
+      <path d="M33 201 H57 M33 201 V220 M57 201 V220" fill="none" stroke="#397394" stroke-width="5" stroke-linecap="square"/>
+      <text x="95" y="308" text-anchor="middle" font-size="16">夹爪尚未接近杯子</text>
+    </g>
+    <g transform="translate(237,0)">
+      <rect x="0" y="89" width="190" height="231" rx="5" fill="#f8fafb" stroke="#8496a0" stroke-width="1.3"/>
+      <text x="95" y="119" text-anchor="middle" font-size="18" font-weight="600">1　设想：靠近</text>
+      <path d="M130 215 V280 H175 V215" fill="none" stroke="#929ca3" stroke-width="3"/>
+      <line x1="18" y1="281" x2="172" y2="281" stroke="#929ca3" stroke-width="2"/>
+      <rect x="75" y="244" width="24" height="36" rx="2" fill="#ce8351"/>
+      <path d="M61 199 H113 M61 199 V225 M113 199 V225" fill="none" stroke="#397394" stroke-width="5" stroke-linecap="square"/>
+      <text x="95" y="308" text-anchor="middle" font-size="16">杯子仍在原处</text>
+    </g>
+    <g transform="translate(454,0)">
+      <rect x="0" y="89" width="190" height="231" rx="5" fill="#f8fafb" stroke="#8496a0" stroke-width="1.3"/>
+      <text x="95" y="119" text-anchor="middle" font-size="18" font-weight="600">2　设想：抓取</text>
+      <path d="M130 215 V280 H175 V215" fill="none" stroke="#929ca3" stroke-width="3"/>
+      <line x1="18" y1="281" x2="172" y2="281" stroke="#929ca3" stroke-width="2"/>
+      <rect x="75" y="244" width="24" height="36" rx="2" fill="#ce8351"/>
+      <path d="M69 215 H105 M69 215 V255 M105 215 V255" fill="none" stroke="#397394" stroke-width="5" stroke-linecap="square"/>
+      <text x="95" y="308" text-anchor="middle" font-size="16">夹爪闭合在杯子两侧</text>
+    </g>
+    <g transform="translate(671,0)">
+      <rect x="0" y="89" width="190" height="231" rx="5" fill="#f8fafb" stroke="#8496a0" stroke-width="1.3"/>
+      <text x="95" y="119" text-anchor="middle" font-size="18" font-weight="600">3　设想：搬运</text>
+      <path d="M130 215 V280 H175 V215" fill="none" stroke="#929ca3" stroke-width="3"/>
+      <line x1="18" y1="281" x2="172" y2="281" stroke="#929ca3" stroke-width="2"/>
+      <rect x="135" y="177" width="24" height="36" rx="2" fill="#ce8351"/>
+      <path d="M129 151 H165 M129 151 V190 M165 151 V190" fill="none" stroke="#397394" stroke-width="5" stroke-linecap="square"/>
+      <text x="95" y="308" text-anchor="middle" font-size="16">杯子随夹爪移动</text>
+    </g>
+    <g transform="translate(888,0)">
+      <rect x="0" y="89" width="190" height="231" rx="5" fill="#f8fafb" stroke="#8496a0" stroke-width="1.3"/>
+      <text x="95" y="119" text-anchor="middle" font-size="18" font-weight="600">4　设想：放置</text>
+      <path d="M130 215 V280 H175 V215" fill="none" stroke="#929ca3" stroke-width="3"/>
+      <line x1="18" y1="281" x2="172" y2="281" stroke="#929ca3" stroke-width="2"/>
+      <rect x="140" y="244" width="24" height="36" rx="2" fill="#ce8351"/>
+      <path d="M120 188 H178 M120 188 V218 M178 188 V218" fill="none" stroke="#397394" stroke-width="5" stroke-linecap="square"/>
+      <text x="95" y="308" text-anchor="middle" font-size="16">松开后杯子留在盒中</text>
+    </g>
+    <text x="550" y="354" text-anchor="middle" font-size="17" fill="#526775">第一阶段到此只交出未来画面；关节和末端控制命令由第二阶段计算。</text>
+  </g>
+</svg>

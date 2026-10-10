@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 470" role="img" aria-labelledby="title desc">
+  <title id="title">检验视觉世界模型是否预测了对任务有用的变化</title>
+  <desc id="desc">左边从同一当前画面分别输入向物体移动和远离物体的动作，检查预测结果是否区分接触。右边对照真实与连续预测的物体位移，示意接触后的误差可能随预测步数扩大。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#5c6772"/>
+    </marker>
+  </defs>
+  <rect width="1120" height="470" rx="10" fill="#fff" stroke="#d7dfe5"/>
+  <line x1="555" y1="36" x2="555" y2="437" stroke="#d7dfe5"/>
+  <text x="35" y="38" font-family="sans-serif" font-size="22" font-weight="700" fill="#263645">A　同一起点，换一个动作</text>
+  <text x="590" y="38" font-family="sans-serif" font-size="22" font-weight="700" fill="#263645">B　预测多步，再与真实记录比较</text>
+
+  <rect x="38" y="170" width="210" height="128" rx="8" fill="#f8fafb" stroke="#aebcc8"/>
+  <text x="56" y="198" font-family="sans-serif" font-size="16" fill="#263645">当前画面：尚未接触</text>
+  <line x1="55" y1="270" x2="230" y2="270" stroke="#81909d" stroke-width="2"/>
+  <circle cx="105" cy="249" r="13" fill="#487da6"/>
+  <rect x="169" y="231" width="31" height="37" rx="3" fill="#d9904c"/>
+  <text x="91" y="322" font-family="sans-serif" font-size="14" fill="#487da6">推杆</text>
+  <text x="170" y="322" font-family="sans-serif" font-size="14" fill="#a6662e">物体</text>
+
+  <path d="M 248 230 H 286 V 137 H 320" fill="none" stroke="#5c6772" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M 248 255 H 286 V 353 H 320" fill="none" stroke="#5c6772" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="272" y="113" font-family="sans-serif" font-size="15" fill="#263645">靠近</text>
+  <text x="272" y="341" font-family="sans-serif" font-size="15" fill="#263645">远离</text>
+
+  <rect x="322" y="84" width="208" height="134" rx="8" fill="#f3f7fa" stroke="#8eb0c8"/>
+  <text x="340" y="111" font-family="sans-serif" font-size="16" fill="#263645">接触后：物体移动</text>
+  <line x1="339" y1="188" x2="511" y2="188" stroke="#81909d" stroke-width="2"/>
+  <circle cx="462" cy="168" r="13" fill="#487da6"/>
+  <rect x="475" y="149" width="31" height="37" rx="3" fill="#d9904c"/>
+  <path d="M 507 166 H 521" stroke="#a6662e" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="322" y="270" width="208" height="134" rx="8" fill="#f8fafb" stroke="#aebcc8"/>
+  <text x="340" y="297" font-family="sans-serif" font-size="16" fill="#263645">未接触：物体不动</text>
+  <line x1="339" y1="374" x2="511" y2="374" stroke="#81909d" stroke-width="2"/>
+  <circle cx="365" cy="354" r="13" fill="#487da6"/>
+  <rect x="453" y="335" width="31" height="37" rx="3" fill="#d9904c"/>
+
+  <text x="590" y="80" font-family="sans-serif" font-size="16" fill="#526270">物体位移（示意，非实验数据）</text>
+  <line x1="642" y1="383" x2="1053" y2="383" stroke="#81909d" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="642" y1="383" x2="642" y2="105" stroke="#81909d" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="670" y1="330" x2="1006" y2="330" stroke="#e6ebee"/>
+  <line x1="670" y1="255" x2="1006" y2="255" stroke="#e6ebee"/>
+  <line x1="670" y1="180" x2="1006" y2="180" stroke="#e6ebee"/>
+  <path d="M 701 334 L 835 274 L 981 204" fill="none" stroke="#487da6" stroke-width="4"/>
+  <path d="M 701 331 L 835 246 L 981 128" fill="none" stroke="#c76c58" stroke-width="4" stroke-dasharray="9 6"/>
+  <g fill="#487da6">
+    <circle cx="701" cy="334" r="6"/><circle cx="835" cy="274" r="6"/><circle cx="981" cy="204" r="6"/>
+  </g>
+  <g fill="#c76c58">
+    <circle cx="701" cy="331" r="6"/><circle cx="835" cy="246" r="6"/><circle cx="981" cy="128" r="6"/>
+  </g>
+  <line x1="1005" y1="128" x2="1005" y2="204" stroke="#8a5960" stroke-width="2"/>
+  <line x1="997" y1="128" x2="1013" y2="128" stroke="#8a5960" stroke-width="2"/>
+  <line x1="997" y1="204" x2="1013" y2="204" stroke="#8a5960" stroke-width="2"/>
+  <text x="883" y="115" font-family="sans-serif" font-size="15" fill="#984b3a">偏差变大</text>
+  <text x="693" y="409" font-family="sans-serif" font-size="15" fill="#526270">1 步</text>
+  <text x="827" y="409" font-family="sans-serif" font-size="15" fill="#526270">3 步</text>
+  <text x="973" y="409" font-family="sans-serif" font-size="15" fill="#526270">5 步</text>
+  <line x1="679" y1="437" x2="711" y2="437" stroke="#487da6" stroke-width="4"/>
+  <text x="719" y="442" font-family="sans-serif" font-size="14" fill="#263645">真实记录</text>
+  <line x1="827" y1="437" x2="859" y2="437" stroke="#c76c58" stroke-width="4" stroke-dasharray="9 6"/>
+  <text x="867" y="442" font-family="sans-serif" font-size="14" fill="#263645">连续预测</text>
+</svg>
