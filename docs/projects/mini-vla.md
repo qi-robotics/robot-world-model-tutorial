@@ -14,9 +14,9 @@
 
 ## 前置知识
 
-- [视觉语言动作模型](../advanced/vla.md)
-- [动作表示](../advanced/action-representation.md)
-- [Visual Grounding](../advanced/visual-grounding.md)
+- [语言编码](../basics/05-language-encoding.md)
+- [多模态 Context Model](../intermediate/10-multimodal-context-model.md)
+- [生成式 Action Model](../intermediate/13-generative-action-model.md)
 
 ## 从上一章遗留的问题开始
 

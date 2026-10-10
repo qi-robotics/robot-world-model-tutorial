@@ -14,10 +14,10 @@
 
 ## 前置知识
 
-- [世界模型](../advanced/world-model.md)
-- [VLA-JEPA](../advanced/vla-jepa.md)
-- [规划与策略](../advanced/planning-and-policy.md)
-- [安全与失败恢复](../advanced/safety-and-recovery.md)
+- [动作条件世界模型](../advanced/14-action-conditioned-world-model.md)
+- [视觉未来的预测](../advanced/15-visual-world-models.md)
+- [级联式世界动作模型](../advanced/16-cascaded-world-action-model.md)
+- [联合式世界动作模型](../advanced/17-joint-world-action-model.md)
 
 ## 从上一章遗留的问题开始
 

@@ -26,7 +26,7 @@
 | \(a_t\) | 时刻 \(t\) 的动作 | [机器人状态与动作](../basics/07-robot-state-and-action.md) |
 | \(z_t\) | 时刻 \(t\) 的潜在表示 | [视觉表征学习](../basics/04-visual-representation-learning.md) |
 | \(E(\cdot)\) | 编码器 | [视觉编码](../basics/03-vision-encoding.md) |
-| \(\pi\) | 策略 | [规划与策略](../advanced/planning-and-policy.md) |
+| \(\pi\) | 策略 | [生成式 Action Model](../intermediate/13-generative-action-model.md) |
 
 公式占位：
 

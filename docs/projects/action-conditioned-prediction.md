@@ -14,8 +14,8 @@
 
 ## 前置知识
 
-- [高级篇概览](../advanced/index.md)（世界模型与多步预测的章节安排待新框架确定）
-- [世界模型](../advanced/world-model.md)
+- [高级篇概览](../advanced/index.md)
+- [动作条件世界模型](../advanced/14-action-conditioned-world-model.md)
 
 ## 从上一章遗留的问题开始
 
