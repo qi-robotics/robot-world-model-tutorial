@@ -7,14 +7,14 @@
 ```mermaid
 flowchart LR
     O["多模态观测与历史"] --> C["Context Model"]
-    C --> A["Action Expert"]
+    C --> A["动作生成模块"]
     A --> P["候选动作序列"]
     P --> S["动作约束检查与执行安排"]
     S --> E["执行部分动作"]
     E --> O
 ```
 
-在本教程中，Context Model 与 Action Expert 共同组成 Action Model。Context Model 回答“机器人现在处于什么情境”，Action Expert 回答“在这种情境下可以怎样行动”。执行环节检查动作的物理语义与约束，只执行动作块的一部分，再根据新观测更新动作。这里还没有用世界模型预测候选动作的后果。
+在本教程中，Context Model 与动作生成模块共同组成 Action Model 的学习部分。Context Model 回答“机器人现在处于什么情境”，动作生成模块回答“在这种情境下可以怎样行动”。执行环节检查动作的物理语义与约束，只执行动作块的一部分，再根据新观测更新动作。这里还没有用世界模型预测候选动作的后果。
 
 ## 单元一：从当前观测到任务上下文
 
@@ -38,15 +38,15 @@ $$
 |---|---|---|
 | [11 从示范到动作序列](11-demonstrations-to-action-sequences.md) | 从[示范与动作标签](11-1-demonstrations-and-action-labels.md)、[行为克隆](11-2-behavior-cloning.md)、[动作块执行](11-3-action-chunk-execution.md)到[多种合理动作](11-4-multimodal-actions.md)，建立第一个 Action Model 并看清单值预测的局限 | 四个小章、图示与两份 Notebook 已完成 |
 | [12 Diffusion 与 Flow Matching](12-diffusion-and-flow-matching.md) | 从[Diffusion 训练](12-1-diffusion-training.md)、[Diffusion 生成](12-2-diffusion-sampling.md)、[Flow Matching](12-3-flow-matching.md)到[动作约束与评价](12-4-action-generation-in-robotics.md)，学习怎样生成并检查连续动作块 | 四个小章、图示与两份 Notebook 已完成 |
-| [13 生成式 Action Model：从候选动作到滚动执行](13-generative-action-model.md) | 从[模块与动作专家](13-1-action-experts.md)、[统一接口和滚动执行](13-2-action-interface-and-execution.md)到[推理延迟与 RTC](13-3-realtime-action-chunking.md)，连接 Context、动作候选与机器人控制器 | 三个小章、图示与两份 Notebook 已完成 |
+| [13 生成式 Action Model：从候选动作到滚动执行](13-generative-action-model.md) | 从[模型组成与生成方式](13-1-action-experts.md)、[统一接口和滚动执行](13-2-action-interface-and-execution.md)到[推理延迟与 RTC](13-3-realtime-action-chunking.md)，连接 Context、动作候选与机器人控制器 | 三个小章、图示与两份 Notebook 已完成 |
 
 这一单元最终建立
 
 $$
-A_t^{(k)}\sim\operatorname{ActionExpert}(A\mid C_t),
+A_t^{(k)}\sim\operatorname{ActionGenerator}(A\mid C_t),
 $$
 
-使机器人能够提出一条或多条候选动作序列。
+式中的 ActionGenerator 是动作生成模块的功能记号，不指定具体采用自回归、ACT、Diffusion 还是 Flow Matching。它使机器人能够提出一条或多条候选动作序列。
 
 进阶篇在第 13 章结束。此时学生应能说明从多模态历史、Context、候选动作到滚动执行的完整数据流，并理解生成延迟与新旧动作块衔接的问题。但“能够生成并执行动作”还不等于“知道动作会带来什么后果”。这一问题留给高级篇，不在进阶篇另设世界模型单元。
 

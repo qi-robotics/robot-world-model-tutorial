@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1120" height="610" viewBox="0 0 1120 610" role="img" aria-labelledby="title desc">
-  <title id="title">基础篇接口怎样连接进阶篇三个模型</title>
-  <desc id="desc">视觉、语言、三维目标、本体、触觉、历史动作与掩码进入上下文模型；动作专家生成候选动作，世界模型预测候选未来，选中的动作经过安全和控制接口执行并形成下一次观测。</desc>
+  <title id="title">基础篇接口怎样连接后续模型</title>
+  <desc id="desc">多模态数据进入上下文模型，动作生成模块提出动作。进阶篇可直接执行动作；高级篇可先用世界模型预测候选后果，再选择动作。两条路线都经安全和控制接口，并使用执行反馈。</desc>
   <defs>
     <style>
-      .title{font:700 25px sans-serif;fill:#172033}.label{font:700 18px sans-serif;fill:#1e293b}.text{font:16px sans-serif;fill:#334155}.small{font:14px sans-serif;fill:#64748b}.input{fill:#f8fafc;stroke:#94a3b8;stroke-width:2}.context{fill:#eff6ff;stroke:#2563eb;stroke-width:2}.action{fill:#f5f3ff;stroke:#7c3aed;stroke-width:2}.world{fill:#ecfdf5;stroke:#16a34a;stroke-width:2}.safety{fill:#fff7ed;stroke:#ea580c;stroke-width:2}.arrow{fill:none;stroke:#475569;stroke-width:3;marker-end:url(#arrow)}.return{fill:none;stroke:#64748b;stroke-width:2.5;stroke-dasharray:8 7;marker-end:url(#arrow)}
+      .title{font:700 25px sans-serif;fill:#172033}.label{font:700 18px sans-serif;fill:#1e293b}.text{font:16px sans-serif;fill:#334155}.small{font:14px sans-serif;fill:#64748b}.input{fill:#f8fafc;stroke:#94a3b8;stroke-width:2}.context{fill:#eff6ff;stroke:#2563eb;stroke-width:2}.action{fill:#f5f3ff;stroke:#7c3aed;stroke-width:2}.world{fill:#ecfdf5;stroke:#16a34a;stroke-width:2}.safety{fill:#fff7ed;stroke:#ea580c;stroke-width:2}.arrow{fill:none;stroke:#475569;stroke-width:3;marker-end:url(#arrow)}.return{fill:none;stroke:#64748b;stroke-width:2.5;stroke-dasharray:8 7;marker-end:url(#arrow)}.direct{fill:none;stroke:#7c3aed;stroke-width:2.5;stroke-dasharray:8 6;marker-end:url(#arrow)}
     </style>
     <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
   </defs>
@@ -37,18 +37,20 @@
   <path d="M610 220C640 220 645 150 675 150" class="arrow"/>
   <g transform="translate(690,82)">
     <rect width="265" height="145" rx="18" class="action"/>
-    <text x="133" y="38" text-anchor="middle" class="label">Action Expert</text>
+    <text x="133" y="38" text-anchor="middle" class="label">动作生成模块</text>
     <text x="133" y="68" text-anchor="middle" class="text">生成一种或多种合理动作</text>
     <text x="133" y="95" text-anchor="middle" class="small">自回归 / Diffusion / Flow Matching</text>
     <text x="133" y="123" text-anchor="middle" class="text">aₜ:ₜ₊H₋₁ ∈ ℝᴴˣᴬ</text>
   </g>
 
+  <path d="M955 150H1106V470H900V490" class="direct"/>
+  <text x="1028" y="130" text-anchor="middle" class="small">进阶篇：直接执行</text>
   <path d="M610 280C640 280 645 360 675 360" class="arrow"/>
   <path d="M823 237V285" class="arrow"/>
   <g transform="translate(690,300)">
     <rect width="265" height="145" rx="18" class="world"/>
     <text x="133" y="38" text-anchor="middle" class="label">World Model</text>
-    <text x="133" y="68" text-anchor="middle" class="text">接收 Context 与候选动作</text>
+    <text x="133" y="68" text-anchor="middle" class="text">高级篇：接收情境与候选动作</text>
     <text x="133" y="95" text-anchor="middle" class="small">预测状态变化与任务结果</text>
     <text x="133" y="123" text-anchor="middle" class="text">ẑₜ₊₁:ₜ₊H</text>
   </g>

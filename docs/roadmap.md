@@ -11,7 +11,7 @@
   <li><span class="chain-arrow">4</span>语言和几何如何明确任务目标</li>
   <li><span class="chain-arrow">5</span>身体状态与动作如何形成接口</li>
   <li><span class="chain-arrow">6</span>模型如何从历史构建 Context</li>
-  <li><span class="chain-arrow">7</span>Action Expert 如何生成动作序列</li>
+  <li><span class="chain-arrow">7</span>动作生成模块如何产生动作序列</li>
   <li><span class="chain-arrow">8</span>World Model 如何预测动作后果</li>
   <li><span class="chain-arrow">9</span>Planner / Policy 如何选择动作</li>
   <li><span class="chain-arrow">10</span>机器人如何根据新观测闭环纠错</li>
@@ -39,13 +39,13 @@ flowchart TB
 
 建议顺序：
 
-1. [机器人眼中的世界](basics/01-robot-view-of-the-world.md)
-2. [神经网络如何学习](basics/02-how-neural-networks-learn.md)
-3. [视觉编码：从像素到视觉特征](basics/03-vision-encoding.md)
-4. [视觉表征学习：编码器怎样学到有用特征](basics/04-visual-representation-learning.md)
-5. [语言编码：从自然语言到任务表示](basics/05-language-encoding.md)
-6. [三维感知与坐标变换：从相机像素到机器人目标](basics/06-spatial-geometry.md)
-7. [本体、触觉与动作](basics/07-robot-state-and-action.md)
+1. [机器人眼中的世界](basics/01-robot-view-of-the-world.md)：依次阅读[观测与状态](basics/01-1-robot-observation.md)、[决策与轨迹](basics/01-2-policy-and-trajectory.md)、[时间和空间对齐](basics/01-3-synchronization-and-coordinates.md)、[张量与数据契约](basics/01-4-tensors-and-data-contract.md)。
+2. [神经网络如何学习](basics/02-how-neural-networks-learn.md)：依次阅读[学习任务](basics/02-1-learning-task-from-trajectories.md)、[前向预测](basics/02-2-forward-and-nonlinearity.md)、[参数更新](basics/02-3-loss-gradient-and-update.md)与[泛化检验](basics/02-4-generalization-and-closed-loop.md)。
+3. [视觉编码：从像素到视觉特征](basics/03-vision-encoding.md)：依次阅读[图像输入](basics/03-1-image-tensors-and-preprocessing.md)、[卷积特征](basics/03-2-convolution-and-cnn-features.md)、[输出表示](basics/03-3-visual-encoder-outputs.md)和[目标定位检验](basics/03-4-object-localization-and-checks.md)。
+4. [视觉表征学习：编码器怎样学到有用特征](basics/04-visual-representation-learning.md)：依次阅读[训练目标](basics/04-1-representation-and-objectives.md)、[重建式学习](basics/04-2-reconstruction-ae-vae-mae.md)、[对比式学习](basics/04-3-contrastive-representation.md)、[JEPA 式预测](basics/04-4-predictive-representation-jepa.md)与[任务检验](basics/04-5-evaluation-and-use.md)。
+5. [语言编码：从自然语言到任务表示](basics/05-language-encoding.md)：依次阅读[文本数值化](basics/05-1-tokenization-embedding-and-mask.md)、[指令表示](basics/05-2-instruction-and-task-representation.md)、[图文对齐](basics/05-3-image-text-alignment.md)与[任务接口](basics/05-4-language-interface-and-checks.md)。
+6. [三维感知与坐标变换：从相机像素到机器人目标](basics/06-spatial-geometry.md)：依次阅读[相机成像与反投影](basics/06-1-camera-projection-and-backprojection.md)、[目标点云](basics/06-2-target-region-and-point-cloud.md)、[坐标变换](basics/06-3-coordinate-frames-and-transforms.md)、[抓取目标](basics/06-4-object-pose-and-grasp-target.md)与[误差检查](basics/06-5-geometric-error-and-calibration.md)。
+7. [本体、触觉与动作](basics/07-robot-state-and-action.md)：依次阅读[本体与运动学](basics/07-1-proprioception-and-kinematics.md)、[接触状态](basics/07-2-force-tactile-and-contact.md)、[动作空间](basics/07-3-action-spaces-and-coordinate-semantics.md)、[动作执行](basics/07-4-action-scaling-and-execution.md)与[数据契约](basics/07-5-observation-action-schema.md)。
 
 对应能力：把现实交互整理成训练数据，把视觉和语言转化为表征，再建立空间、本体、触觉与动作的统一接口。
 
@@ -74,10 +74,10 @@ flowchart TB
 
 单元一“从交互经验到未来预测”按连续编号阅读：
 
-1. [14 动作条件世界模型：从交互数据预测状态变化](advanced/14-action-conditioned-world-model.md)
-2. [15 视觉世界模型：预测表征，还是生成未来画面？](advanced/15-visual-world-models.md)
+1. [14 动作条件世界模型：从交互数据预测状态变化](advanced/14-action-conditioned-world-model.md)（[14-1](advanced/14-1-action-conditioned-prediction.md) · [14-2](advanced/14-2-transition-dataset.md) · [14-3](advanced/14-3-state-transition-learning.md) · [14-4](advanced/14-4-one-step-and-rollout.md)）
+2. [15 视觉世界模型：预测表征，还是生成未来画面？](advanced/15-visual-world-models.md)：依次阅读[预测对象](advanced/15-1-visual-prediction-targets.md)、[固定编码器](advanced/15-2-frozen-visual-encoder.md)、[联合训练编码器](advanced/15-3-joint-visual-learning.md)与[生成未来画面及检验](advanced/15-4-generative-visual-futures.md)。
 
-第 14、15 章建立动作条件预测和视觉未来的两条学习路线。单元二先读[16 级联式世界动作模型：从未来规划到动作执行](advanced/16-cascaded-world-action-model.md)，理解未来计划怎样经独立模块变为动作；再读[17 联合式世界动作模型：未来预测与动作生成的统一建模](advanced/17-joint-world-action-model.md)，理解同一段交互怎样同时训练动作与未来预测。
+第 14、15 章建立动作条件预测和视觉未来的两条学习路线。单元二先读[16 级联式世界动作模型：从未来规划到动作执行](advanced/16-cascaded-world-action-model.md)：[结构与接口](advanced/16-1-cascaded-architecture.md) → [未来计划](advanced/16-2-goal-conditioned-future-plan.md) → [动作转换](advanced/16-3-plan-to-robot-action.md) → [UniPi 与执行反馈](advanced/16-4-unipi-and-feedback.md)；再读[17 联合式世界动作模型：未来预测与动作生成的统一建模](advanced/17-joint-world-action-model.md)：[联合建模对象](advanced/17-1-joint-modeling-interface.md) → [共享架构](advanced/17-2-uwm-shared-architecture.md) → [双支路训练](advanced/17-3-joint-diffusion-training.md) → [推理接口](advanced/17-4-inference-and-evaluation.md)。
 
 ## 实践如何插入
 

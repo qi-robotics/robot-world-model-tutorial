@@ -127,14 +127,52 @@ nav:
   - 基础篇:
       - 基础篇概览: basics/index.md
       - 单元一 · 现实与学习:
-          - 01 观察世界: basics/01-robot-view-of-the-world.md
-          - 02 神经网络学习: basics/02-how-neural-networks-learn.md
+          - 01 机器人眼中的世界:
+              - 01 导读: basics/01-robot-view-of-the-world.md
+              - 01-1 现实任务与机器人观测: basics/01-1-robot-observation.md
+              - 01-2 决策、后果与轨迹: basics/01-2-policy-and-trajectory.md
+              - 01-3 时间对齐与空间语义: basics/01-3-synchronization-and-coordinates.md
+              - 01-4 张量与数据契约: basics/01-4-tensors-and-data-contract.md
+          - 02 神经网络学习:
+              - 02 导读: basics/02-how-neural-networks-learn.md
+              - 02-1 从轨迹定义学习任务: basics/02-1-learning-task-from-trajectories.md
+              - 02-2 前向预测与非线性: basics/02-2-forward-and-nonlinearity.md
+              - 02-3 损失与参数更新: basics/02-3-loss-gradient-and-update.md
+              - 02-4 泛化与闭环检验: basics/02-4-generalization-and-closed-loop.md
       - 单元二 · 观测与动作接口:
-          - 03 视觉编码: basics/03-vision-encoding.md
-          - 04 视觉表征学习: basics/04-visual-representation-learning.md
-          - 05 语言编码: basics/05-language-encoding.md
-          - 06 三维感知与坐标变换: basics/06-spatial-geometry.md
-          - 07 本体、触觉与动作: basics/07-robot-state-and-action.md
+          - 03 视觉编码:
+              - 03 导读: basics/03-vision-encoding.md
+              - 03-1 图像张量与视觉预处理: basics/03-1-image-tensors-and-preprocessing.md
+              - 03-2 卷积与多层视觉特征: basics/03-2-convolution-and-cnn-features.md
+              - 03-3 视觉编码器的输出表示: basics/03-3-visual-encoder-outputs.md
+              - 03-4 目标定位与表示检验: basics/03-4-object-localization-and-checks.md
+          - 04 视觉表征学习:
+              - 04 导读: basics/04-visual-representation-learning.md
+              - 04-1 表征与训练目标: basics/04-1-representation-and-objectives.md
+              - 04-2 AE、VAE 与 MAE: basics/04-2-reconstruction-ae-vae-mae.md
+              - 04-3 对比式表征学习: basics/04-3-contrastive-representation.md
+              - 04-4 预测式表征与 JEPA: basics/04-4-predictive-representation-jepa.md
+              - 04-5 任务检验与使用: basics/04-5-evaluation-and-use.md
+          - 05 语言编码:
+              - 05 导读: basics/05-language-encoding.md
+              - 05-1 文本数值化与批处理: basics/05-1-tokenization-embedding-and-mask.md
+              - 05-2 指令与任务表示: basics/05-2-instruction-and-task-representation.md
+              - 05-3 图文对齐: basics/05-3-image-text-alignment.md
+              - 05-4 语言任务接口: basics/05-4-language-interface-and-checks.md
+          - 06 三维感知与坐标变换:
+              - 06 导读: basics/06-spatial-geometry.md
+              - 06-1 相机成像与 RGB-D 反投影: basics/06-1-camera-projection-and-backprojection.md
+              - 06-2 目标区域与三维点云: basics/06-2-target-region-and-point-cloud.md
+              - 06-3 坐标系与刚体变换: basics/06-3-coordinate-frames-and-transforms.md
+              - 06-4 物体位置与抓取目标: basics/06-4-object-pose-and-grasp-target.md
+              - 06-5 几何误差与标定检查: basics/06-5-geometric-error-and-calibration.md
+          - 07 本体、触觉与动作:
+              - 07 导读: basics/07-robot-state-and-action.md
+              - 07-1 本体状态与机械臂运动学: basics/07-1-proprioception-and-kinematics.md
+              - 07-2 力、触觉与接触状态: basics/07-2-force-tactile-and-contact.md
+              - 07-3 动作空间与坐标语义: basics/07-3-action-spaces-and-coordinate-semantics.md
+              - 07-4 动作尺度、频率与安全执行: basics/07-4-action-scaling-and-execution.md
+              - 07-5 多模态观测—动作数据契约: basics/07-5-observation-action-schema.md
   - 进阶篇:
       - 进阶篇概览: intermediate/index.md
       - 单元一 · 历史与上下文:
@@ -176,11 +214,31 @@ nav:
   - 高级篇:
       - 高级篇概览: advanced/index.md
       - 单元一 · 从交互到未来预测:
-          - 14 动作条件世界模型: advanced/14-action-conditioned-world-model.md
-          - 15 视觉未来的预测: advanced/15-visual-world-models.md
+          - 14 动作条件世界模型:
+              - 14 导读: advanced/14-action-conditioned-world-model.md
+              - 14-1 动作条件预测: advanced/14-1-action-conditioned-prediction.md
+              - 14-2 交互记录与训练样本: advanced/14-2-transition-dataset.md
+              - 14-3 状态转移模型的训练: advanced/14-3-state-transition-learning.md
+              - 14-4 单步预测与连续展开: advanced/14-4-one-step-and-rollout.md
+          - 15 视觉未来的预测:
+              - 15 导读: advanced/15-visual-world-models.md
+              - 15-1 视觉预测对象与训练关系: advanced/15-1-visual-prediction-targets.md
+              - 15-2 固定编码器的表征预测: advanced/15-2-frozen-visual-encoder.md
+              - 15-3 联合训练视觉编码器: advanced/15-3-joint-visual-learning.md
+              - 15-4 未来画面生成与检验: advanced/15-4-generative-visual-futures.md
       - 单元二 · 从未来到机器人动作:
-          - 16 级联式世界动作模型: advanced/16-cascaded-world-action-model.md
-          - 17 联合式世界动作模型: advanced/17-joint-world-action-model.md
+          - 16 级联式世界动作模型:
+              - 16 导读: advanced/16-cascaded-world-action-model.md
+              - 16-1 级联结构与接口: advanced/16-1-cascaded-architecture.md
+              - 16-2 目标条件的未来计划: advanced/16-2-goal-conditioned-future-plan.md
+              - 16-3 从未来计划到控制动作: advanced/16-3-plan-to-robot-action.md
+              - 16-4 UniPi 与执行反馈: advanced/16-4-unipi-and-feedback.md
+          - 17 联合式世界动作模型:
+              - 17 导读: advanced/17-joint-world-action-model.md
+              - 17-1 联合建模与交互数据: advanced/17-1-joint-modeling-interface.md
+              - 17-2 UWM 共享架构: advanced/17-2-uwm-shared-architecture.md
+              - 17-3 双支路扩散训练: advanced/17-3-joint-diffusion-training.md
+              - 17-4 推理接口与能力检验: advanced/17-4-inference-and-evaluation.md
   - 实践项目:
       - projects/index.md
       - 表征学习小项目: projects/representation-learning.md

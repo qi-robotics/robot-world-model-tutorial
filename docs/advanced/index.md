@@ -10,8 +10,8 @@
 
 | 章节 | 本章解决的问题 | 配套实践 |
 |---|---|---|
-| [14 动作条件世界模型：从交互数据预测状态变化](14-action-conditioned-world-model.md) | 一段真实交互如何变成动作条件预测的输入、答案与测试？ | 从推物记录构造样本，训练下一状态预测器，检查多步使用时的误差 |
-| [15 视觉世界模型：预测表征，还是生成未来画面？](15-visual-world-models.md) | 没有现成物体坐标时，未来怎样表示、怎样学习？ | 比较像素与任务相关特征，训练最小表征预测器，观察多种视觉未来 |
+| [14 动作条件世界模型：从交互数据预测状态变化](14-action-conditioned-world-model.md) | 从[预测对象](14-1-action-conditioned-prediction.md)、[交互样本](14-2-transition-dataset.md)、[模型训练](14-3-state-transition-learning.md)到[单步与连续检验](14-4-one-step-and-rollout.md)，完整追踪动作条件预测 | 一维推物记录、状态转移训练与连续预测实践 |
+| [15 视觉世界模型：预测表征，还是生成未来画面？](15-visual-world-models.md) | 从[预测对象与训练关系](15-1-visual-prediction-targets.md)，到[固定编码器](15-2-frozen-visual-encoder.md)、[联合训练编码器](15-3-joint-visual-learning.md)，最后对照[生成未来画面与模型检验](15-4-generative-visual-futures.md) | 比较像素与任务相关特征，训练最小表征预测器，观察多种视觉未来 |
 
 两章使用同一条时间关系：**当前观测 → 实际动作 → 真实未来观测**。第 14 章的教学数据直接给出物体位置，使学生先看懂动作与后果如何对齐；第 15 章改用图像，解释表征预测为何不等同于生成整张未来画面。两份 Notebook 都使用 CPU 可运行的教学数据，帮助检查输入、训练答案和输出，不宣称复现 V-JEPA 2、LeWM 或大型视频模型。
 
@@ -23,8 +23,8 @@
 
 | 章节 | 本章解决的问题 | 配套实践 |
 |---|---|---|
-| [16 级联式世界动作模型：从未来规划到动作执行](16-cascaded-world-action-model.md) | 两个模块怎样通过未来画面或特征相接？为什么动作转换不一定使用训练得到的 IDM？ | 从教学画面提取夹爪运动，观察目标改变计划、计划改变动作 |
-| [17 联合式世界动作模型：未来预测与动作生成的统一建模](17-joint-world-action-model.md) | 同一条交互怎样同时提供动作与未来的训练答案？联合训练后怎样切换动作生成与未来预测？ | 独立设置两类噪声进度，训练共享小网络分别估计两项噪声 |
+| [16 级联式世界动作模型：从未来规划到动作执行](16-cascaded-world-action-model.md) | 从[级联结构](16-1-cascaded-architecture.md)到[目标条件的未来计划](16-2-goal-conditioned-future-plan.md)，再到[计划到动作的转换](16-3-plan-to-robot-action.md)和[UniPi 与执行反馈](16-4-unipi-and-feedback.md) | 从教学画面提取夹爪运动，观察目标改变计划、计划改变动作 |
+| [17 联合式世界动作模型：未来预测与动作生成的统一建模](17-joint-world-action-model.md) | 从[联合建模对象](17-1-joint-modeling-interface.md)、[UWM 共享架构](17-2-uwm-shared-architecture.md)、[双支路训练](17-3-joint-diffusion-training.md)到[推理接口与能力检验](17-4-inference-and-evaluation.md)，追踪动作和未来怎样共同学习、分别使用 | 独立设置两类噪声进度，训练共享小网络分别估计两项噪声 |
 
 第 16 章以 UniPi 串起级联式数据流；第 17 章以 UWM 串起联合训练与多种推理接口。两章比较的是训练与使用时未来、动作承担的不同角色，不把任何一个具体网络当作所有世界动作模型的固定模板。
 

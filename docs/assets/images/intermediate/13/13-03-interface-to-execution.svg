@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1120" height="455" viewBox="0 0 1120 455" role="img" aria-labelledby="title desc">
   <title id="title">统一动作接口到滚动执行的数据流</title>
-  <desc id="desc">不同动作专家输出统一形状的候选和有效位，经动作语义与物理约束检查后，选中块进入缓冲；控制器执行前三步，然后重新观察。</desc>
+  <desc id="desc">不同动作生成模块输出统一形状的候选和有效位，经动作语义与物理约束检查后，选中块进入缓冲；控制器执行前三步，然后重新观察。</desc>
   <defs>
     <style>
       .heading{font:700 24px "Noto Sans CJK SC","Microsoft YaHei",sans-serif;fill:#172033}
@@ -23,7 +23,7 @@
   <text x="560" y="40" text-anchor="middle" class="heading">内部生成方式可以不同，交给执行端的动作含义必须一致</text>
 
   <rect x="25" y="86" width="220" height="235" rx="9" class="blue"/>
-  <text x="135" y="123" text-anchor="middle" class="section">Action Expert</text>
+  <text x="135" y="123" text-anchor="middle" class="section">动作生成模块</text>
   <text x="135" y="160" text-anchor="middle" class="body">自回归</text>
   <text x="135" y="190" text-anchor="middle" class="body">ACT</text>
   <text x="135" y="220" text-anchor="middle" class="body">Diffusion / Flow</text>
