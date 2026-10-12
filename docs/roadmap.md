@@ -57,12 +57,12 @@ flowchart TB
 
 建议顺序：
 
-1. [08 时间与记忆：RNN、LSTM 与 GRU 怎样理解历史](intermediate/08-time-and-memory.md)
-2. [09 Attention 与 Transformer：怎样从历史中读取相关信息](intermediate/09-attention-and-transformer.md)
-3. [10 多模态 Context Model：怎样形成任务相关上下文](intermediate/10-multimodal-context-model.md)
-4. [11 从示范学习到动作序列：第一个 Action Model](intermediate/11-demonstrations-to-action-sequences.md)
-5. [12 Diffusion 与 Flow Matching：学习连续、多峰的动作分布](intermediate/12-diffusion-and-flow-matching.md)
-6. [13 生成式 Action Model：从候选动作到滚动执行](intermediate/13-generative-action-model.md)
+1. [08 时间与记忆：时间序列、RNN、LSTM 与 GRU](intermediate/08-time-and-memory.md)（含 08-1 至 08-4）
+2. [09 Attention 与 Transformer](intermediate/09-attention-and-transformer.md)：分为 09-1 基本计算、09-2 时间位置与 mask、09-3 注意力接口、09-4 Transformer 架构
+3. [10 多模态 Context Model](intermediate/10-multimodal-context-model.md)：分为 10-1 时间对齐与 token、10-2 多模态 Context 的构建、10-3 Context Model 的训练与验证
+4. [11 从示范到动作序列](intermediate/11-demonstrations-to-action-sequences.md)：分为 11-1 示范轨迹与动作标签、11-2 行为克隆与动作块预测、11-3 动作块的执行与反馈、11-4 多种合理动作
+5. [12 Diffusion 与 Flow Matching：生成连续动作](intermediate/12-diffusion-and-flow-matching.md)（[12-1](intermediate/12-1-diffusion-training.md) · [12-2](intermediate/12-2-diffusion-sampling.md) · [12-3](intermediate/12-3-flow-matching.md) · [12-4](intermediate/12-4-action-generation-in-robotics.md)）
+6. [13 生成式 Action Model：从候选动作到滚动执行](intermediate/13-generative-action-model.md)（[13-1](intermediate/13-1-action-experts.md) · [13-2](intermediate/13-2-action-interface-and-execution.md) · [13-3](intermediate/13-3-realtime-action-chunking.md)）
 
 对应能力：构建 Context，生成候选动作，并连接动作约束检查、滚动执行和实时动作块衔接。执行前怎样预测动作后果，将在高级篇继续讨论。
 

@@ -20,9 +20,9 @@ flowchart LR
 
 | 章节 | 要解决的问题 | 状态 |
 |---|---|---|
-| [08 时间与记忆：RNN、LSTM 与 GRU 怎样理解历史](08-time-and-memory.md) | 单帧观测不足时，模型怎样保存运动趋势、接触变化和任务阶段 | 正文、图示与 Notebook 已完成 |
-| [09 Attention 与 Transformer：怎样从历史中读取相关信息](09-attention-and-transformer.md) | 模型怎样根据当前问题直接读取相关时刻和 token | 正文、图示与 Notebook 已完成 |
-| [10 多模态 Context Model：怎样形成任务相关上下文](10-multimodal-context-model.md) | 视觉、语言、本体、触觉和动作历史怎样组成统一 Context | 正文、图示与 Notebook 已完成 |
+| [08 时间与记忆](08-time-and-memory.md)（[08-1](08-1-temporal-sequences.md) · [08-2](08-2-rnn.md) · [08-3](08-3-lstm.md) · [08-4](08-4-gru-and-comparison.md)） | 从时间序列样本出发，分别理解 RNN、LSTM 与 GRU 的记忆更新 | 四个小章、图示与两份 Notebook 已完成 |
+| [09 Attention 与 Transformer](09-attention-and-transformer.md) | 从[基本计算](09-1-attention-calculation.md)、[时间位置与 mask](09-2-position-and-masks.md)、[注意力接口](09-3-attention-interfaces.md)到[完整架构](09-4-transformer-architecture.md)，学习怎样读取与更新历史 | 四个小章、图示与两份 Notebook 已完成 |
+| [10 多模态 Context Model](10-multimodal-context-model.md) | 从[时间对齐与 token](10-1-time-alignment-and-tokens.md)、[Context 构建](10-2-multimodal-fusion.md)到[训练与验证](10-3-context-training-and-validation.md)，形成供动作模型使用的任务条件 | 三个小章、图示与两份 Notebook 已完成 |
 
 单元一的产物是
 
@@ -36,9 +36,9 @@ $$
 
 | 章节 | 要解决的问题 | 状态 |
 |---|---|---|
-| [11 从示范学习到动作序列：第一个 Action Model](11-demonstrations-to-action-sequences.md) | 怎样由示范数据学习单步动作、动作块和多种合理轨迹 | 正文、图示与 Notebook 已完成 |
-| [12 Diffusion 与 Flow Matching：学习连续、多峰的动作分布](12-diffusion-and-flow-matching.md) | 怎样从简单随机分布生成高维连续动作 | 正文、图示与 Notebook 已完成 |
-| [13 生成式 Action Model：从候选动作到滚动执行](13-generative-action-model.md) | 怎样把 Context、Action Expert 和机器人执行接口连接起来 | 正文、图示与 Notebook 已完成 |
+| [11 从示范到动作序列](11-demonstrations-to-action-sequences.md) | 从[示范与动作标签](11-1-demonstrations-and-action-labels.md)、[行为克隆](11-2-behavior-cloning.md)、[动作块执行](11-3-action-chunk-execution.md)到[多种合理动作](11-4-multimodal-actions.md)，建立第一个 Action Model 并看清单值预测的局限 | 四个小章、图示与两份 Notebook 已完成 |
+| [12 Diffusion 与 Flow Matching](12-diffusion-and-flow-matching.md) | 从[Diffusion 训练](12-1-diffusion-training.md)、[Diffusion 生成](12-2-diffusion-sampling.md)、[Flow Matching](12-3-flow-matching.md)到[动作约束与评价](12-4-action-generation-in-robotics.md)，学习怎样生成并检查连续动作块 | 四个小章、图示与两份 Notebook 已完成 |
+| [13 生成式 Action Model：从候选动作到滚动执行](13-generative-action-model.md) | 从[模块与动作专家](13-1-action-experts.md)、[统一接口和滚动执行](13-2-action-interface-and-execution.md)到[推理延迟与 RTC](13-3-realtime-action-chunking.md)，连接 Context、动作候选与机器人控制器 | 三个小章、图示与两份 Notebook 已完成 |
 
 这一单元最终建立
 
@@ -52,4 +52,4 @@ $$
 
 ## 当前学习入口
 
-从 [第 08 章：时间与记忆](08-time-and-memory.md) 开始，按编号阅读至 [第 13 章：生成式 Action Model](13-generative-action-model.md)。两个单元共六章，配有 12 份 Notebook。第 13 章末尾保留“怎样在执行前预见动作后果”的问题，作为进入高级篇的起点。
+从 [第 08 章：时间与记忆](08-time-and-memory.md) 的导读与四个小章开始，按编号阅读至 [第 13 章：生成式 Action Model](13-generative-action-model.md)。两个单元仍为六章，配有 12 份 Notebook。第 13 章末尾保留“怎样在执行前预见动作后果”的问题，作为进入高级篇的起点。

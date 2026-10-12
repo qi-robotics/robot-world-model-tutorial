@@ -138,13 +138,41 @@ nav:
   - 进阶篇:
       - 进阶篇概览: intermediate/index.md
       - 单元一 · 历史与上下文:
-          - 08 时间与记忆: intermediate/08-time-and-memory.md
-          - 09 Attention 与 Transformer: intermediate/09-attention-and-transformer.md
-          - 10 多模态 Context Model: intermediate/10-multimodal-context-model.md
+          - 08 时间与记忆:
+              - 08 导读: intermediate/08-time-and-memory.md
+              - 08-1 时间序列样本: intermediate/08-1-temporal-sequences.md
+              - 08-2 循环神经网络 RNN: intermediate/08-2-rnn.md
+              - 08-3 长短期记忆 LSTM: intermediate/08-3-lstm.md
+              - 08-4 GRU 与模型比较: intermediate/08-4-gru-and-comparison.md
+          - 09 Attention 与 Transformer:
+              - 09 导读: intermediate/09-attention-and-transformer.md
+              - 09-1 Attention 基本计算: intermediate/09-1-attention-calculation.md
+              - 09-2 时间位置与 mask: intermediate/09-2-position-and-masks.md
+              - 09-3 注意力接口与多头: intermediate/09-3-attention-interfaces.md
+              - 09-4 Transformer 架构: intermediate/09-4-transformer-architecture.md
+          - 10 多模态 Context Model:
+              - 10 导读: intermediate/10-multimodal-context-model.md
+              - 10-1 时间对齐与 token: intermediate/10-1-time-alignment-and-tokens.md
+              - 10-2 多模态 Context 的构建: intermediate/10-2-multimodal-fusion.md
+              - 10-3 Context Model 的训练与验证: intermediate/10-3-context-training-and-validation.md
       - 单元二 · 生成式动作:
-          - 11 从示范到动作序列: intermediate/11-demonstrations-to-action-sequences.md
-          - 12 Diffusion 与 Flow Matching: intermediate/12-diffusion-and-flow-matching.md
-          - 13 生成式 Action Model: intermediate/13-generative-action-model.md
+          - 11 从示范到动作序列:
+              - 11 导读: intermediate/11-demonstrations-to-action-sequences.md
+              - 11-1 示范轨迹与动作标签: intermediate/11-1-demonstrations-and-action-labels.md
+              - 11-2 行为克隆与动作块预测: intermediate/11-2-behavior-cloning.md
+              - 11-3 动作块的执行与反馈: intermediate/11-3-action-chunk-execution.md
+              - 11-4 多种合理动作: intermediate/11-4-multimodal-actions.md
+          - 12 Diffusion 与 Flow Matching:
+              - 12 导读: intermediate/12-diffusion-and-flow-matching.md
+              - 12-1 Diffusion 的训练: intermediate/12-1-diffusion-training.md
+              - 12-2 Diffusion 的生成: intermediate/12-2-diffusion-sampling.md
+              - 12-3 Flow Matching: intermediate/12-3-flow-matching.md
+              - 12-4 生成动作的约束与评价: intermediate/12-4-action-generation-in-robotics.md
+          - 13 生成式 Action Model:
+              - 13 导读: intermediate/13-generative-action-model.md
+              - 13-1 Action Model 的组成与动作专家: intermediate/13-1-action-experts.md
+              - 13-2 统一动作接口与滚动执行: intermediate/13-2-action-interface-and-execution.md
+              - 13-3 推理延迟与动作块衔接: intermediate/13-3-realtime-action-chunking.md
   - 高级篇:
       - 高级篇概览: advanced/index.md
       - 单元一 · 从交互到未来预测:

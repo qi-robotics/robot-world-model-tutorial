@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="460" viewBox="0 0 1120 460" role="img" aria-labelledby="title desc">
+  <title id="title">动作 Transformer 逐位置估计噪声</title>
+  <desc id="desc">十六步带噪动作分别投影成动作 token，Transformer 在动作位置之间交换信息并读取 Context 和噪声等级，逐位置输出七维噪声估计。</desc>
+  <defs>
+    <style>
+      .heading{font:700 24px "Noto Sans CJK SC","Microsoft YaHei",sans-serif;fill:#172033}
+      .section{font:700 18px "Noto Sans CJK SC","Microsoft YaHei",sans-serif;fill:#172033}
+      .body{font:16px "Noto Sans CJK SC","Microsoft YaHei",sans-serif;fill:#334155}
+      .small{font:14px "Noto Sans CJK SC","Microsoft YaHei",sans-serif;fill:#475569}
+      .input{fill:#eff6ff;stroke:#2563eb;stroke-width:2}
+      .project{fill:#f8fafc;stroke:#64748b;stroke-width:2}
+      .network{fill:#ecfdf5;stroke:#059669;stroke-width:2}
+      .output{fill:#fff7ed;stroke:#ea580c;stroke-width:2}
+      .condition{fill:#f5f3ff;stroke:#7c3aed;stroke-width:2}
+      .line{fill:none;stroke:#475569;stroke-width:2.5;marker-end:url(#arrow)}
+      .conditionline{fill:none;stroke:#7c3aed;stroke-width:2.5;marker-end:url(#purplearrow)}
+    </style>
+    <marker id="arrow" markerWidth="9" markerHeight="7" refX="9" refY="3.5" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L0 7L9 3.5z" fill="#475569"/></marker>
+    <marker id="purplearrow" markerWidth="9" markerHeight="7" refX="9" refY="3.5" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L0 7L9 3.5z" fill="#7c3aed"/></marker>
+  </defs>
+  <rect width="1120" height="460" fill="#fff"/>
+  <text x="560" y="41" text-anchor="middle" class="heading">一轮前向计算，估计整段动作各位置的噪声</text>
+
+  <rect x="28" y="103" width="207" height="230" rx="9" class="input"/>
+  <text x="131" y="136" text-anchor="middle" class="section">带噪动作 xₖ</text>
+  <text x="131" y="164" text-anchor="middle" class="small">16 步 × 每步 7 维</text>
+  <rect x="48" y="185" width="167" height="35" rx="5" fill="#fff" stroke="#93c5fd"/>
+  <rect x="48" y="225" width="167" height="35" rx="5" fill="#fff" stroke="#93c5fd"/>
+  <text x="131" y="208" text-anchor="middle" class="body">第 1 步：7 个数</text>
+  <text x="131" y="248" text-anchor="middle" class="body">第 2 步：7 个数</text>
+  <text x="131" y="284" text-anchor="middle" class="body">⋮</text>
+  <text x="131" y="314" text-anchor="middle" class="small">第 16 步同样处理</text>
+
+  <rect x="285" y="138" width="195" height="160" rx="9" class="project"/>
+  <text x="383" y="171" text-anchor="middle" class="section">输入投影</text>
+  <text x="383" y="202" text-anchor="middle" class="body">每步 7 维 → d 维</text>
+  <text x="383" y="233" text-anchor="middle" class="body">得到 16 个动作 token</text>
+  <text x="383" y="265" text-anchor="middle" class="small">加动作块内位置编码</text>
+  <path d="M235 218H278" class="line"/>
+
+  <rect x="530" y="132" width="270" height="172" rx="9" class="network"/>
+  <text x="665" y="165" text-anchor="middle" class="section">动作 Transformer</text>
+  <text x="665" y="196" text-anchor="middle" class="body">动作位置间交换信息</text>
+  <text x="665" y="226" text-anchor="middle" class="body">读取视觉、语言、本体 Context</text>
+  <text x="665" y="257" text-anchor="middle" class="small">得到 16 个更新后的隐藏向量</text>
+  <path d="M480 218H523" class="line"/>
+
+  <rect x="850" y="103" width="242" height="230" rx="9" class="output"/>
+  <text x="971" y="136" text-anchor="middle" class="section">逐位置输出</text>
+  <text x="971" y="164" text-anchor="middle" class="small">共享线性层：d 维 → 7 维</text>
+  <rect x="871" y="185" width="200" height="35" rx="5" fill="#fff" stroke="#fdba74"/>
+  <rect x="871" y="225" width="200" height="35" rx="5" fill="#fff" stroke="#fdba74"/>
+  <text x="971" y="208" text-anchor="middle" class="body">第 1 步：7 个噪声数</text>
+  <text x="971" y="248" text-anchor="middle" class="body">第 2 步：7 个噪声数</text>
+  <text x="971" y="284" text-anchor="middle" class="body">⋮</text>
+  <text x="971" y="314" text-anchor="middle" class="small">合起来仍为 16 × 7</text>
+  <path d="M800 218H843" class="line"/>
+
+  <rect x="532" y="62" width="266" height="48" rx="8" class="condition"/>
+  <text x="665" y="92" text-anchor="middle" class="body">噪声等级 k：当前有多模糊</text>
+  <path d="M665 110V125" class="conditionline"/>
+  <rect x="532" y="331" width="266" height="55" rx="8" class="condition"/>
+  <text x="665" y="354" text-anchor="middle" class="body">当前 Context Cₜ</text>
+  <text x="665" y="374" text-anchor="middle" class="small">观测 · 任务 · 机器人状态</text>
+  <path d="M665 331V311" class="conditionline"/>
+  <text x="560" y="426" text-anchor="middle" class="small">真实噪声 ε 只在训练时用于核对输出，不作为额外输入交给网络</text>
+</svg>

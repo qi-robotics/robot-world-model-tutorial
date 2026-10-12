@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="430" viewBox="0 0 1120 430" role="img" aria-labelledby="title desc">
+  <title id="title">从多模态输入到任务条件 Context</title>
+  <desc id="desc">当前指令与视觉区域建立目标对应，再与夹爪和触觉状态结合。形成的 Context 由下游动作模型读取。</desc>
+  <defs>
+    <style>
+      .heading{font:700 24px "Noto Sans CJK SC","Microsoft YaHei",sans-serif;fill:#172033}
+      .label{font:700 18px "Noto Sans CJK SC","Microsoft YaHei",sans-serif;fill:#172033}
+      .text{font:15px "Noto Sans CJK SC","Microsoft YaHei",sans-serif;fill:#334155}
+      .small{font:14px "Noto Sans CJK SC","Microsoft YaHei",sans-serif;fill:#475569}
+      .input{fill:#eff6ff;stroke:#3b82f6;stroke-width:2}
+      .middle{fill:#f8fafc;stroke:#64748b;stroke-width:2}
+      .context{fill:#ecfdf5;stroke:#059669;stroke-width:2}
+      .output{fill:#fff7ed;stroke:#ea580c;stroke-width:2}
+      .arrow{fill:none;stroke:#475569;stroke-width:2.5;marker-end:url(#arrowhead)}
+      .alternate{fill:none;stroke:#3b82f6;stroke-width:2;stroke-dasharray:6 5}
+    </style>
+    <marker id="arrowhead" markerWidth="9" markerHeight="7" refX="9" refY="3.5" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L0 7L9 3.5z" fill="#475569"/></marker>
+  </defs>
+  <rect width="1120" height="430" fill="#fff"/>
+  <text x="560" y="39" text-anchor="middle" class="heading">同一幅画面，任务目标决定读取什么</text>
+
+  <text x="122" y="76" text-anchor="middle" class="label">已对齐的输入</text>
+  <rect x="30" y="96" width="205" height="58" rx="8" class="input"/>
+  <text x="132" y="119" text-anchor="middle" class="text">指令：拿红方块</text>
+  <text x="132" y="140" text-anchor="middle" class="small">改成蓝方块时目标要变</text>
+  <rect x="30" y="166" width="205" height="58" rx="8" class="input"/>
+  <text x="132" y="189" text-anchor="middle" class="text">视觉区域</text>
+  <text x="132" y="210" text-anchor="middle" class="small">左红块 · 右蓝块 · 盒子</text>
+  <rect x="30" y="236" width="205" height="58" rx="8" class="input"/>
+  <text x="132" y="259" text-anchor="middle" class="text">本体状态</text>
+  <text x="132" y="280" text-anchor="middle" class="small">夹爪处于两块之间</text>
+  <rect x="30" y="306" width="205" height="58" rx="8" class="input"/>
+  <text x="132" y="329" text-anchor="middle" class="text">触觉</text>
+  <text x="132" y="350" text-anchor="middle" class="small">尚未检测到接触</text>
+
+  <rect x="310" y="137" width="205" height="126" rx="10" class="middle"/>
+  <text x="412" y="170" text-anchor="middle" class="label">目标与画面对照</text>
+  <text x="412" y="198" text-anchor="middle" class="text">当前目标对应左侧区域</text>
+  <text x="412" y="225" text-anchor="middle" class="small">由可训练的读取建立对应</text>
+  <path d="M235 125H272V170H304" class="arrow"/>
+  <path d="M235 195H304" class="arrow"/>
+
+  <rect x="590" y="137" width="220" height="126" rx="10" class="middle"/>
+  <text x="700" y="170" text-anchor="middle" class="label">结合机器人状态</text>
+  <text x="700" y="198" text-anchor="middle" class="text">目标、夹爪与接触关系</text>
+  <text x="700" y="225" text-anchor="middle" class="small">不是预先给出的文字答案</text>
+  <path d="M515 200H584" class="arrow"/>
+  <path d="M235 265H545V239H584" class="arrow"/>
+  <path d="M235 335H700V269" class="arrow"/>
+
+  <rect x="880" y="111" width="205" height="131" rx="10" class="context"/>
+  <text x="982" y="146" text-anchor="middle" class="label">Context</text>
+  <text x="982" y="176" text-anchor="middle" class="text">保留任务相关表示</text>
+  <text x="982" y="204" text-anchor="middle" class="small">可是一组 token</text>
+  <path d="M810 200H874" class="arrow"/>
+  <rect x="880" y="293" width="205" height="69" rx="10" class="output"/>
+  <text x="982" y="320" text-anchor="middle" class="label">下游动作模型</text>
+  <text x="982" y="346" text-anchor="middle" class="small">读取 Context 后生成动作</text>
+  <path d="M982 242V287" class="arrow"/>
+  <path d="M42 384H227" class="alternate"/>
+  <text x="240" y="389" class="small">蓝色虚线提醒：换指令需重新确定目标</text>
+</svg>

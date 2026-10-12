@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="480" viewBox="0 0 1120 480" role="img" aria-labelledby="title desc">
+  <title id="title">目标交换与模态遮挡的教学对照</title>
+  <desc id="desc">固定视觉证据为正、触觉证据为负。改变目标时正确类别变化。遮挡当前目标依赖的证据时，不能可靠判断。</desc>
+  <defs>
+    <style>
+      .heading{font:700 24px "Noto Sans CJK SC","Microsoft YaHei",sans-serif;fill:#172033}
+      .head{font:700 17px "Noto Sans CJK SC","Microsoft YaHei",sans-serif;fill:#fff}
+      .cell{font:16px "Noto Sans CJK SC","Microsoft YaHei",sans-serif;fill:#1e293b}
+      .em{font:700 16px "Noto Sans CJK SC","Microsoft YaHei",sans-serif;fill:#1d4ed8}
+      .small{font:14px "Noto Sans CJK SC","Microsoft YaHei",sans-serif;fill:#475569}
+      .grid{stroke:#cbd5e1;stroke-width:1.5}
+    </style>
+  </defs>
+  <rect width="1120" height="480" fill="#fff"/>
+  <text x="560" y="41" text-anchor="middle" class="heading">保持证据不变，只改目标或可用性</text>
+  <text x="560" y="70" text-anchor="middle" class="small">教学规则：当前目标指定哪一路证据，就根据那一路数值的正负判断</text>
+  <rect x="35" y="96" width="1050" height="54" rx="7" fill="#334155"/>
+  <text x="115" y="130" text-anchor="middle" class="head">对照条件</text>
+  <text x="290" y="130" text-anchor="middle" class="head">视觉证据</text>
+  <text x="470" y="130" text-anchor="middle" class="head">触觉证据</text>
+  <text x="650" y="130" text-anchor="middle" class="head">当前目标</text>
+  <text x="900" y="130" text-anchor="middle" class="head">按教学规则应怎样判断</text>
+
+  <rect x="35" y="150" width="1050" height="69" fill="#f8fafc"/>
+  <rect x="35" y="219" width="1050" height="69" fill="#eff6ff"/>
+  <rect x="35" y="288" width="1050" height="69" fill="#f8fafc"/>
+  <rect x="35" y="357" width="1050" height="69" fill="#f8fafc"/>
+  <path d="M195 96V426M385 96V426M555 96V426M745 96V426M35 219H1085M35 288H1085M35 357H1085M35 426H1085" class="grid"/>
+
+  <text x="115" y="191" text-anchor="middle" class="cell">原始输入</text>
+  <text x="290" y="191" text-anchor="middle" class="cell">+0.8</text>
+  <text x="470" y="191" text-anchor="middle" class="cell">−0.6</text>
+  <text x="650" y="191" text-anchor="middle" class="cell">依据视觉</text>
+  <text x="900" y="191" text-anchor="middle" class="cell">视觉为正 → 类别 1</text>
+
+  <text x="115" y="260" text-anchor="middle" class="em">只交换目标</text>
+  <text x="290" y="260" text-anchor="middle" class="cell">+0.8</text>
+  <text x="470" y="260" text-anchor="middle" class="cell">−0.6</text>
+  <text x="650" y="260" text-anchor="middle" class="em">依据触觉</text>
+  <text x="900" y="260" text-anchor="middle" class="em">触觉为负 → 类别 0</text>
+
+  <text x="115" y="329" text-anchor="middle" class="cell">只遮挡视觉</text>
+  <text x="290" y="329" text-anchor="middle" class="cell">不可用</text>
+  <text x="470" y="329" text-anchor="middle" class="cell">−0.6</text>
+  <text x="650" y="329" text-anchor="middle" class="cell">依据视觉</text>
+  <text x="900" y="329" text-anchor="middle" class="cell">缺少关键证据，不能可靠判断</text>
+
+  <text x="115" y="398" text-anchor="middle" class="cell">只遮挡触觉</text>
+  <text x="290" y="398" text-anchor="middle" class="cell">+0.8</text>
+  <text x="470" y="398" text-anchor="middle" class="cell">不可用</text>
+  <text x="650" y="398" text-anchor="middle" class="cell">依据视觉</text>
+  <text x="900" y="398" text-anchor="middle" class="cell">视觉仍在，判断应基本不变</text>
+  <text x="560" y="459" text-anchor="middle" class="small">本图给出对照的预期，不是某次模型运行的测量结果</text>
+</svg>

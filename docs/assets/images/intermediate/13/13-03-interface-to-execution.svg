@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="455" viewBox="0 0 1120 455" role="img" aria-labelledby="title desc">
+  <title id="title">统一动作接口到滚动执行的数据流</title>
+  <desc id="desc">不同动作专家输出统一形状的候选和有效位，经动作语义与物理约束检查后，选中块进入缓冲；控制器执行前三步，然后重新观察。</desc>
+  <defs>
+    <style>
+      .heading{font:700 24px "Noto Sans CJK SC","Microsoft YaHei",sans-serif;fill:#172033}
+      .section{font:700 18px "Noto Sans CJK SC","Microsoft YaHei",sans-serif;fill:#172033}
+      .body{font:16px "Noto Sans CJK SC","Microsoft YaHei",sans-serif;fill:#334155}
+      .small{font:14px "Noto Sans CJK SC","Microsoft YaHei",sans-serif;fill:#475569}
+      .blue{fill:#eff6ff;stroke:#2563eb;stroke-width:2}
+      .gray{fill:#f8fafc;stroke:#64748b;stroke-width:2}
+      .green{fill:#ecfdf5;stroke:#059669;stroke-width:2}
+      .orange{fill:#fff7ed;stroke:#ea580c;stroke-width:2}
+      .slot{fill:#fff;stroke:#94a3b8;stroke-width:1.5}
+      .active{fill:#bbf7d0;stroke:#16a34a;stroke-width:1.5}
+      .line{fill:none;stroke:#475569;stroke-width:2.5;marker-end:url(#arrow)}
+      .loop{fill:none;stroke:#7c3aed;stroke-width:2;marker-end:url(#purplearrow)}
+    </style>
+    <marker id="arrow" markerWidth="9" markerHeight="7" refX="9" refY="3.5" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L0 7L9 3.5z" fill="#475569"/></marker>
+    <marker id="purplearrow" markerWidth="9" markerHeight="7" refX="9" refY="3.5" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L0 7L9 3.5z" fill="#7c3aed"/></marker>
+  </defs>
+  <rect width="1120" height="455" fill="#fff"/>
+  <text x="560" y="40" text-anchor="middle" class="heading">内部生成方式可以不同，交给执行端的动作含义必须一致</text>
+
+  <rect x="25" y="86" width="220" height="235" rx="9" class="blue"/>
+  <text x="135" y="123" text-anchor="middle" class="section">Action Expert</text>
+  <text x="135" y="160" text-anchor="middle" class="body">自回归</text>
+  <text x="135" y="190" text-anchor="middle" class="body">ACT</text>
+  <text x="135" y="220" text-anchor="middle" class="body">Diffusion / Flow</text>
+  <text x="135" y="274" text-anchor="middle" class="small">内部生成步骤不同</text>
+  <text x="135" y="299" text-anchor="middle" class="small">输入同一任务 Context</text>
+
+  <rect x="290" y="86" width="224" height="235" rx="9" class="gray"/>
+  <text x="402" y="123" text-anchor="middle" class="section">统一动作接口</text>
+  <text x="402" y="158" text-anchor="middle" class="body">候选 [1, 2, 8, 7]</text>
+  <text x="402" y="188" text-anchor="middle" class="body">有效位 M</text>
+  <text x="402" y="218" text-anchor="middle" class="body">动作定义与统计量</text>
+  <text x="402" y="248" text-anchor="middle" class="body">观测与执行时刻</text>
+  <text x="402" y="296" text-anchor="middle" class="small">数值仍在模型空间</text>
+
+  <rect x="557" y="86" width="247" height="235" rx="9" class="green"/>
+  <text x="680" y="123" text-anchor="middle" class="section">后处理与选择</text>
+  <text x="680" y="159" text-anchor="middle" class="body">有效位筛选</text>
+  <text x="680" y="190" text-anchor="middle" class="body">恢复物理单位</text>
+  <text x="680" y="221" text-anchor="middle" class="body">检查边界、速度、碰撞</text>
+  <text x="680" y="294" text-anchor="middle" class="small">只让通过检查的块进入缓冲</text>
+
+  <rect x="847" y="86" width="248" height="235" rx="9" class="orange"/>
+  <text x="971" y="123" text-anchor="middle" class="section">缓冲与控制器</text>
+  <text x="971" y="160" text-anchor="middle" class="body">预测 8 步，先执行 3 步</text>
+  <rect x="867" y="184" width="22" height="32" rx="3" class="active"/><rect x="893" y="184" width="22" height="32" rx="3" class="active"/><rect x="919" y="184" width="22" height="32" rx="3" class="active"/>
+  <rect x="945" y="184" width="22" height="32" rx="3" class="slot"/><rect x="971" y="184" width="22" height="32" rx="3" class="slot"/><rect x="997" y="184" width="22" height="32" rx="3" class="slot"/><rect x="1023" y="184" width="22" height="32" rx="3" class="slot"/><rect x="1049" y="184" width="22" height="32" rx="3" class="slot"/>
+  <text x="971" y="250" text-anchor="middle" class="small">绿色：本轮实际执行的前缀</text>
+  <text x="971" y="294" text-anchor="middle" class="small">随后取得新观测</text>
+
+  <path d="M245 202H283" class="line"/>
+  <path d="M514 202H550" class="line"/>
+  <path d="M804 202H840" class="line"/>
+  <path d="M971 321V376H135V327" class="loop"/>
+  <text x="554" y="364" text-anchor="middle" class="small">执行前缀 → 新观测与任务状态 → 重新形成 Context 并生成下一块</text>
+  <text x="560" y="424" text-anchor="middle" class="small">通过局部约束检查不等于预测了动作后果；后果比较留给世界模型</text>
+</svg>
