@@ -143,4 +143,4 @@ scripts/       本地预览、构建与检查脚本
 
 ## 贡献
 
-见 [CONTRIBUTING.md](CONTRIBUTING.md) 与 [写作指南](docs/contributing/writing-guide.md)。
+仓库协作约定见 [CONTRIBUTING.md](CONTRIBUTING.md)。

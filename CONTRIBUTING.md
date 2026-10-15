@@ -37,13 +37,6 @@ mkdocs build --strict
 | 代码示例 | `examples/` |
 | 笔记本 | `notebooks/` |
 
-更详细的写作约定见：
-
-- [写作指南](docs/contributing/writing-guide.md)
-- [图示约定](docs/contributing/diagrams.md)
-- [交互内容接口](docs/contributing/interactive-content.md)
-- [笔记本约定](docs/contributing/notebooks.md)
-
 ## 提交要求
 
 - 不要提交 `site/`、`.venv/` 或生成缓存

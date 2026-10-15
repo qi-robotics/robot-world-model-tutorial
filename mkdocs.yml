@@ -253,8 +253,3 @@ nav:
       - 实验记录模板: appendices/experiment-template.md
       - 术语表: glossary.md
       - 参考文献: references.md
-  - 参与贡献:
-      - 写作指南: contributing/writing-guide.md
-      - 图示约定: contributing/diagrams.md
-      - 交互内容接口: contributing/interactive-content.md
-      - 笔记本约定: contributing/notebooks.md

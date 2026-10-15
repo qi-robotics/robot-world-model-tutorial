@@ -9,7 +9,7 @@
 <p class="home-lead">
 这是一套面向机器人学习的中文渐进式教程：从张量、编码和多模态表征出发，
 逐步走到 Attention、生成模型、VLM、VLA、世界模型、规划控制，以及仿真与真机闭环。
-基础篇七章正文与配套实践现已完成，进阶篇和高级篇将继续沿学习路线逐步完善。
+读者可以沿基础篇、进阶篇和高级篇逐步建立从观测到行动的完整认识。
 </p>
 
 <p class="home-cta" markdown>
@@ -93,8 +93,8 @@ flowchart LR
 
 核心问题：怎样从交互中学到动作后果，再让未来预测参与可执行动作的产生？
 
-- 当前单元一（第 14—15 章）：动作条件预测、JEPA 表征路线与未来画面生成路线
-- 单元二已发布第 16 章：级联式世界动作模型把目标条件未来计划转换为机器人动作；后续章节仍在规划
+- 动作条件预测、JEPA 表征路线与未来画面生成路线
+- 级联式与联合式世界动作模型：从未来预测走向动作生成
 
 [进入高级篇](advanced/index.md)
 
@@ -168,18 +168,6 @@ flowchart LR
 
 </div>
 
-## 当前完成状态
-
-<div class="meta-panel" markdown>
-
-- 站点框架、导航、主题、搜索、公式与 Mermaid：**已完成**
-- 本地预览、严格构建、GitHub Pages 工作流：**已完成**
-- 基础篇第 01～07 章正文、图示与 15 份配套 Notebook：**已完成并验证**
-- 进阶篇、高级篇正文与配套实践：**持续完善**
-- 作者信息、引用与许可证文本：**待补充**
-
-</div>
-
 ## Citation
 
 教程仍在持续建设，以下引用块仅作占位，作者与年份请在发布前更新。
@@ -214,6 +202,5 @@ flowchart LR
 
 - 维护仓库：[qi-robotics/robot-world-model-tutorial](https://github.com/qi-robotics/robot-world-model-tutorial)
 - 本地阅读请先看 [环境准备](setup.md)
-- 参与写作请先看 [写作指南](contributing/writing-guide.md)
 
 </div>

@@ -2,7 +2,7 @@
 
 探索性 Jupyter 笔记本放在这里。它们默认 **不会** 被 MkDocs 构建进 GitHub Pages，以免文档部署依赖训练栈。
 
-约定见 [笔记本约定](../docs/contributing/notebooks.md)。
+仓库协作与检查要求见 [贡献指南](../CONTRIBUTING.md)。
 
 建议命名：
 
